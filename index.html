@@ -325,12 +325,13 @@
 <h4 id="如何使用Git"><a href="#如何使用Git" class="headerlink" title="如何使用Git?"></a>如何使用Git?</h4><p>标注 1：仅使用 Git Bash 进行操作；<br>标注 2：在选择使用 Git Bash 进行操作的同时，也可以使用 Windows 命令行操作，建议选择此项；<br>标注 3：在选择使用 Git 的同时，也把 Unix 工具加入到了我们的配置之中，而且此操作会覆盖 Windows 的一些工具，强烈不建议选择此项。<br><img src="如何处理git bash和cmd的关系.png" width="500" height="400" align="center"></p>
 <h4 id="关于回车换行的问题"><a href="#关于回车换行的问题" class="headerlink" title="关于回车换行的问题"></a>关于回车换行的问题</h4><p>Dos和Windows采用回车+换行CRLF表示下一行，而Unix/Linux采用换行符LF表示下一行。<br>第一个选项是默认检查Windows风格的文件，并在提交时转换为Unix风格。<br>默认选择第一项在git中提交代码可能会报错。不过可以安装好之后再更改相关配置。若后续commit报错请参考<code>搭建博客遇到的各种坑</code>的详细介绍。<br><img src="配置行结束标识.png" width="500" height="400" align="center"><br>检验Git是否安装成功：<br><img src="验证git安装成功.png" width="200" height="50" align="center"></p>
 <h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>Node.js下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a> 选择自己对应系统的版本。一路默认Next安装。<br>新版本的Node.js中集成了npm工具，故不需要再另外安装。<br>检验Node.js和npm是否安装成功：</p>
-<div style="float:left;border:solid 1px 000;margin:2px;"><img src="验证node.js安装成功.png" width="200" height="260"></div>
+<div style="float:center;border:solid 1px 000;margin:2px;"><img src="验证node.js安装成功.png" width="200" height="50"></div>
 
-<p><div style="float:left;border:solid 1px 000;margin:2px;"><img src="验证npm安装成功.png" width="200" height="260"></div></p>
-<p><center class="half"><br>    <img src="验证node.js安装成功.png" width="300"><br>    <img src="验证npm安装成功.png" width="300"><br></center></p>
+<p><div style="float:center;border:solid 1px 000;margin:2px;"><img src="验证npm安装成功.png" width="200" height="50"></div></p>
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<p>检验Hexo是否安装成功：<br><img src="验证hexo安装成功.png" width="200" height="50" align="center"><br>到目前位置基本的软件安装工作完成。接下来是一些注册配置过程：</p>
+<p>检验Hexo是否安装成功：<br><img src="验证hexo安装成功.png" width="200" height="50" align="center"></p>
+<h3 id="本地搭建博客"><a href="#本地搭建博客" class="headerlink" title="本地搭建博客"></a>本地搭建博客</h3><p>在本地计算机新建一个文件夹存放博客代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init sunflowerJY.github.io</span><br></pre></td></tr></table></figure></p>
+<p>我存放博客代码的文件夹名：<code>sunflowerJY.github.io</code><br>到目前位置基本的软件安装工作完成。接下来是一些注册配置过程：</p>
 <ul>
 <li>注册Github账号</li>
 <li>配置SSH</li>
