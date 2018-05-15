@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/SSH1.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/deploy.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E9%85%8D%E7%BD%AE%E8%A1%8C%E7%BB%93%E6%9D%9F%E6%A0%87%E8%AF%86.png">
-<meta property="og:updated_time" content="2018-05-15T09:23:30.083Z">
+<meta property="og:updated_time" content="2018-05-15T12:38:54.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github Pages + Hexo + Next搭建博客填坑实记">
 <meta name="twitter:description" content="环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1 Next: 5.1.4  背景 从实习结束，开始正儿八经看论文的时候，开始萌生了写博的想法。研一寒假在家不想看论文刷LeetCode的时候，学习了很多大神优秀的解法，却奈何下次遇到类似的方法还是困惑，便想找个地儿记录下来。 一开始选择了博客网站">
@@ -482,9 +482,9 @@ New SSH Key:<br>
 将<code>id_rsa.pub</code>中的内容复制到Key中：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/SSH1.png" width="500" align="center"><br>
 验证SSH是否配置成功：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p>成功的话会显示以下的大致内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;github.com (192.30.252.128)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;github.com,192.30.252.128&apos; (RSA) to the list of known hosts.</span><br><span class="line">Hi git-xuhao! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line">Connection to github.com closed.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;github.com (192.30.252.128)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;github.com,192.30.252.128&apos; (RSA) to the list of known hosts.</span><br><span class="line">Hi sunflowerJY! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line">Connection to github.com closed.</span><br></pre></td></tr></table></figure>
 <h4 id="上传本地博客仓库至远程仓库"><a class="header-anchor" href="#上传本地博客仓库至远程仓库"></a>上传本地博客仓库至远程仓库</h4>
 <p>在Git bash中cd到本地博客文件夹<code>sunflowerJY.github.io</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit blog&quot;</span><br></pre></td></tr></table></figure>
@@ -509,8 +509,8 @@ New SSH Key:<br>
 <p>Github仓库名必须以<code>用户名.github.io</code>的形式命名，用户名那里要一字不差，不然后期的css等文件渲染会有问题，一开始我没注意到这个问题导致博客打开傻眼了，白花花的一片只有字😱💥😢</p>
 <h3 id="开启github-pages功能-v2"><a class="header-anchor" href="#开启github-pages功能-v2"></a>开启Github Pages功能</h3>
 <p>如果仓库内没有文件，页面上会提示无法开启Github Pages功能，可以参照<code>上传本地博客仓库至远程仓库</code>。随即仓库中有文件后，便可开启Github Pages功能。<br>
-这块内容我会一直保持更新。随时记录，方便有需要的人，也方便自己备忘😂<br>
 <br><br>
+<code>搭建博客遇到的各种坑</code>这块内容我会一直保持更新。随时记录，方便有需要的人，也方便自己备忘😂<br>
 <br><br>
 关于博客的内容后续还会更新，例如<code>打造个性化的博客</code>,如有需要请关注<code>教程</code>标签。</p>
 
