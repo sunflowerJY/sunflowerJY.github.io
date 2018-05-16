@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/gitment_pic.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/gitment_err_vaild.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/gitment_issue.png">
-<meta property="og:updated_time" content="2018-05-16T14:38:33.887Z">
+<meta property="og:updated_time" content="2018-05-16T14:41:08.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="打造个性化的博客">
 <meta name="twitter:description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1 Next: 5.1.4  Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端执">
@@ -505,7 +505,7 @@
 <p>修改<code>主题配置文件</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">  enable: true</span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure>
 <h2 id="修改文内链接式样"><a class="header-anchor" href="#修改文内链接式样"></a>修改文内链接式样</h2>
-<p>在<code>/sunflowerJY.github.io/themes/next/source/css/_common/components/post/post.styl</code>文末添加：</p>
+<p>在<code>/themes/next/source/css/_common/components/post/post.styl</code>文末添加：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 文章内链接文本样式</span><br><span class="line">.post-body p a&#123;</span><br><span class="line">  color: #FF6600;</span><br><span class="line">  border-bottom: none;</span><br><span class="line">  border-bottom: 1px solid #FF6600;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    color: #FF6600;</span><br><span class="line">    border-bottom: none;</span><br><span class="line">    border-bottom: 1px solid #FF6600;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其中，<code>.post-body</code>是为了不影响标题，选择<code>p</code>是为了不影响首页“阅读全文”的显示样式,颜色可以自己定义，效果如图：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/lianjie_color.png" width="300" align="center"></p>
@@ -528,7 +528,7 @@
 <p>使用评论功能要登陆Github账号，登陆后点击<code>初始化本文的评论页</code>。  <br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/gitment_pic.png" width="300" align="center"><br>
 💔由于文章标题过长的原因，可能会报错<code>Error：validation failed</code>:<br>
-修改<code>/sunflowerJY.github.io/themes/next/layout/_third-party/comments/gitment.swig</code>文件中标亮的代码：<br>
+修改<code>/themes/next/layout/_third-party/comments/gitment.swig</code>文件中标亮的代码：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/gitment_err_vaild.png" width="300" align="center"><br>
 用文章的时间替代标题标识评论，避免了标题超出50个字符的问题。</p>
 <h3 id="管理评论"><a class="header-anchor" href="#管理评论"></a>管理评论</h3>
