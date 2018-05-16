@@ -85,18 +85,21 @@
 
 
 
-<meta name="description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1  Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端执行以下命令： 1git">
+<meta name="description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1 Next: 5.1.4  Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端执">
 <meta name="keywords" content="Github Pages,Hexo,Next">
 <meta property="og:type" content="article">
 <meta property="og:title" content="打造个性化的博客">
 <meta property="og:url" content="http://yoursite.com/2018/05/15/打造个性化的博客/index.html">
 <meta property="og:site_name" content="向日葵的自留地">
-<meta property="og:description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1  Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端执行以下命令： 1git">
+<meta property="og:description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1 Next: 5.1.4  Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端执">
 <meta property="og:locale" content="zh-hans">
-<meta property="og:updated_time" content="2018-05-16T02:33:06.695Z">
+<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/59bf9c0a32dd3.png">
+<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/backgroud.png">
+<meta property="og:updated_time" content="2018-05-16T03:02:25.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="打造个性化的博客">
-<meta name="twitter:description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1  Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端执行以下命令： 1git">
+<meta name="twitter:description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1 Next: 5.1.4  Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端执">
+<meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/59bf9c0a32dd3.png">
 
 
 
@@ -400,6 +403,7 @@
 <li>Node.js: 8.11.1</li>
 <li>npm: 5.6.0</li>
 <li>Hexo: 3.7.1</li>
+<li>Next: 5.1.4</li>
 </ul>
 <h2 id="next主题"><a class="header-anchor" href="#next主题"></a>Next主题</h2>
 <p>选择一个自己可心的主题，会增强更博的动力哟😜</p>
@@ -417,11 +421,17 @@
 <h3 id="预览next风格的本地博客"><a class="header-anchor" href="#预览next风格的本地博客"></a>预览Next风格的本地博客</h3>
 <p>在<code>Git bash</code>终端执行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>不知为何，我的hexo命令在站点文件夹以外的目录使用会报错找不到该命令，故我都会<code>cd sunflowerJY.github.io/</code>后执行上述命令。<br>
-在浏览器中访问http://localhost:4000/ 便可预览本地博客效果。❤️</p>
-<h3 id="修改next主题的scheme"><a class="header-anchor" href="#修改next主题的scheme"></a>修改Next主题的Scheme</h3>
-<p>Next主题的默认<code>Scheme</code>是<code>Muse</code>,即为http://localhost:4000/ 看到的效果。本博客使用的是<code>Pisces</code>，可修改主题配置文件<code>_config.yml</code>中的<code>Scheme</code>字段：</p>
+<img src="http://p8ran6tub.bkt.clouddn.com/59bf9c0a32dd3.png" width="500" align="center">
+不知为何，我的hexo命令在站点文件夹以外的目录使用会报错找不到该命令，故我都会`cd sunflowerJY.github.io/`后执行上述命令。  
+在浏览器中访问http://localhost:4000/ 便可预览本地博客效果。:heart:  
+### 修改Next主题的Scheme
+Next主题的默认`Scheme`是`Muse`,即为http://localhost:4000/ 看到的效果。本博客使用的是`Pisces`，可修改主题配置文件`_config.yml`中的`Scheme`字段：
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheme: Pisces</span><br></pre></td></tr></table></figure>
+<h2 id="修改网站的基本信息"><a class="header-anchor" href="#修改网站的基本信息"></a>修改网站的基本信息</h2>
+<p>修改站点配置文件<code>_config</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 向日葵的自留地</span><br><span class="line">subtitle:</span><br><span class="line">description:</span><br><span class="line">keywords:</span><br><span class="line">author: sunflowerJY</span><br><span class="line">language: zh-hans #汉语</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure>
+<h2 id="添加动态背景"><a class="header-anchor" href="#添加动态背景"></a>添加动态背景</h2>
+<img src="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/backgroud.png" width="200" align="center">
 
       
     </div>
@@ -607,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next主题"><span class="nav-number">2.</span> <span class="nav-text">Next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载next主题"><span class="nav-number">2.1.</span> <span class="nav-text">下载Next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用next主题"><span class="nav-number">2.2.</span> <span class="nav-text">启用Next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预览next风格的本地博客"><span class="nav-number">2.3.</span> <span class="nav-text">预览Next风格的本地博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改next主题的scheme"><span class="nav-number">2.4.</span> <span class="nav-text">修改Next主题的Scheme</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next主题"><span class="nav-number">2.</span> <span class="nav-text">Next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载next主题"><span class="nav-number">2.1.</span> <span class="nav-text">下载Next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用next主题"><span class="nav-number">2.2.</span> <span class="nav-text">启用Next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预览next风格的本地博客"><span class="nav-number">2.3.</span> <span class="nav-text">预览Next风格的本地博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改网站的基本信息"><span class="nav-number">3.</span> <span class="nav-text">修改网站的基本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加动态背景"><span class="nav-number">4.</span> <span class="nav-text">添加动态背景</span></a></li></ol></div>
             
 
           </div>
