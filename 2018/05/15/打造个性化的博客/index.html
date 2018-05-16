@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/posts-admin.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/deploy-admin.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/hexo-err.png">
-<meta property="og:updated_time" content="2018-05-16T15:21:54.740Z">
+<meta property="og:updated_time" content="2018-05-16T15:31:24.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="打造个性化的博客">
 <meta name="twitter:description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1 Next: 5.1.4  Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端执">
@@ -576,6 +576,9 @@
 <p>编辑站点根目录下<code>node_modules/hexo-admin/deploy.js</code>文件，修改标亮处：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var proc = spawn((process.platform === &quot;win32&quot; ? &quot;hexo.cmd&quot; : &quot;hexo&quot;), [&apos;d&apos;, &apos;-g&apos;]);</span><br></pre></td></tr></table></figure>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/hexo-err.png" width="500" align="center">
+## 安装图床插件
+目前上传图片至千牛网生成外链，复制到博客的html语言生成图片，知道有`hexo-qiniu-sync`这么一个插件能够化繁为简，去除重复劳动，使得在博客中添加图片更方便。但是一直安装配置存在问题，导致该插件无法使用，并且导致基本的`hexo-clean`、`hexo s`等命令也报错。  
+很无奈，未完待续。
       
     </div>
     
