@@ -94,8 +94,9 @@
 <meta property="og:description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1 Next: 5.1.4  Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端执">
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/59bf9c0a32dd3.png">
-<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/backgroud.png">
-<meta property="og:updated_time" content="2018-05-16T03:02:25.638Z">
+<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/overview.png">
+<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/bottem.png">
+<meta property="og:updated_time" content="2018-05-16T03:41:56.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="打造个性化的博客">
 <meta name="twitter:description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1 Next: 5.1.4  Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端执">
@@ -148,7 +149,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hans">
-
+	
   
   
     
@@ -412,26 +413,35 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 <p>本文使用的是<code>Next: 5.1.4</code>，目前已经更新至6.0,由于自己还是新手，基本搭建过程都是参考大神博客的，所以以后熟练了再更新吧😂<br>
 下载成功后可以在本地博客站点的主题文件夹<code>sunflowerJY.github.io/themes/</code>中除了默认的<code>landscape</code>文件夹，还多了一个<code>next</code>文件夹。  <br>
-使用<code>Hexo</code>搭建博客时，由于在多个文件夹中存放了<code>_config.yml</code>文件，为表述方便，规定：  <br>
-1.站点配置文件：<a href="http://sunflowerJY.github.io/_config.yml" target="_blank" rel="noopener">sunflowerJY.github.io/_config.yml</a><br>
-2.主题配置文件：<a href="http://sunflowerJY.github.io/themes/next/_config.yml" target="_blank" rel="noopener">sunflowerJY.github.io/themes/next/_config.yml</a></p>
+使用<code>Hexo</code>搭建博客时，由于在多个文件夹中存放了<code>_config.yml</code>配置文件，为表述方便，规定：  <br>
+1.<code>站点配置文件</code>：<a href="http://sunflowerJY.github.io/_config.yml" target="_blank" rel="noopener">sunflowerJY.github.io/_config.yml</a><br>
+2.<code>主题配置文件</code>：<a href="http://sunflowerJY.github.io/themes/next/_config.yml" target="_blank" rel="noopener">sunflowerJY.github.io/themes/next/_config.yml</a></p>
 <h3 id="启用next主题"><a class="header-anchor" href="#启用next主题"></a>启用Next主题</h3>
-<p>打开站点配置文件 _config.yml，找到<code>theme</code>字段，并将其值更改为 next。</p>
+<p>打开<code>站点配置文件</code>，找到<code>theme</code>字段，并将其值更改为 next。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
 <h3 id="预览next风格的本地博客"><a class="header-anchor" href="#预览next风格的本地博客"></a>预览Next风格的本地博客</h3>
 <p>在<code>Git bash</code>终端执行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<img src="http://p8ran6tub.bkt.clouddn.com/59bf9c0a32dd3.png" width="500" align="center">
-不知为何，我的hexo命令在站点文件夹以外的目录使用会报错找不到该命令，故我都会`cd sunflowerJY.github.io/`后执行上述命令。  
-在浏览器中访问http://localhost:4000/ 便可预览本地博客效果。:heart:  
-### 修改Next主题的Scheme
-Next主题的默认`Scheme`是`Muse`,即为http://localhost:4000/ 看到的效果。本博客使用的是`Pisces`，可修改主题配置文件`_config.yml`中的`Scheme`字段：
+<p>不知为何，我的hexo命令在站点文件夹以外的目录使用会报错找不到该命令，故我都会<code>cd sunflowerJY.github.io/</code>后执行上述命令。<br>
+在浏览器中访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>  便可预览本地博客效果。❤️<br>
+<img src="http://p8ran6tub.bkt.clouddn.com/59bf9c0a32dd3.png" width="500" align="center"></p>
+<h3 id="修改next主题的scheme"><a class="header-anchor" href="#修改next主题的scheme"></a>修改Next主题的Scheme</h3>
+<p>Next主题的默认<code>Scheme</code>是<code>Muse</code>,即为http://localhost:4000/ 看到的效果。本博客使用的是<code>Pisces</code>，可修改<code>主题配置文件</code>中的<code>Scheme</code>字段：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheme: Pisces</span><br></pre></td></tr></table></figure>
 <h2 id="修改网站的基本信息"><a class="header-anchor" href="#修改网站的基本信息"></a>修改网站的基本信息</h2>
-<p>修改站点配置文件<code>_config</code>：</p>
+<p>修改<code>站点配置文件</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 向日葵的自留地</span><br><span class="line">subtitle:</span><br><span class="line">description:</span><br><span class="line">keywords:</span><br><span class="line">author: sunflowerJY</span><br><span class="line">language: zh-hans #汉语</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure>
 <h2 id="添加动态背景"><a class="header-anchor" href="#添加动态背景"></a>添加动态背景</h2>
-<img src="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/backgroud.png" width="200" align="center">
+<p>Next主题版本》=<code>5.1.1</code>可以直接在<code>主题配置文件</code>修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Canvas-nest</span><br><span class="line">canvas_nest: true</span><br></pre></td></tr></table></figure>
+<img src="http://p8ran6tub.bkt.clouddn.com/overview.png" width="500" align="center">
+## 修改微博底部添加访客数
+`themes/next/layout/_partials/footer.swig`删除多余信息，如下：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div class=&quot;copyright&quot;&gt;&#123;#</span><br><span class="line">#&#125;&#123;% set current = date(Date.now(), &quot;YYYY&quot;) %&#125;&#123;#</span><br><span class="line">#&#125;&amp;copy; &#123;% if theme.footer.since and theme.footer.since != current %&#125;&#123;&#123; theme.footer.since &#125;&#125; &amp;mdash; &#123;% endif %&#125;&#123;#</span><br><span class="line">#&#125;&lt;span itemprop=&quot;copyrightYear&quot;&gt;&#123;&#123; current &#125;&#125;&lt;/span&gt;</span><br><span class="line">  &lt;span class=&quot;with-love&quot;&gt;</span><br><span class="line">    &lt;i class=&quot;fa fa-&#123;&#123; theme.footer.icon &#125;&#125;&quot;&gt;&lt;/i&gt;</span><br><span class="line">  &lt;/span&gt;</span><br><span class="line">  &lt;span class=&quot;author&quot; itemprop=&quot;copyrightHolder&quot;&gt;&#123;&#123; theme.footer.copyright || config.author &#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">  &#123;% if theme.post_wordcount.totalcount %&#125;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-item-icon&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;fa fa-area-chart&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &#123;% if theme.post_wordcount.item_text %&#125;</span><br><span class="line">      &lt;span class=&quot;post-meta-item-text&quot;&gt;&#123;&#123; __(&apos;post.totalcount&apos;) &#125;&#125;&amp;#58;&lt;/span&gt;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">    &lt;span title=&quot;&#123;&#123; __(&apos;post.totalcount&apos;) &#125;&#125;&quot;&gt;&#123;#</span><br><span class="line">    #&#125;&#123;&#123; totalcount(site, &apos;0,0.0a&apos;) &#125;&#125;&#123;#</span><br><span class="line">  #&#125;&lt;/span&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>添加访客数信息，可直接在上述代码下方，添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">  本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;</span><br><span class="line">&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>简化后的微博底部效果如下：<br>
+<img src="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/bottem.png" width="200" align="center"></p>
 
       
     </div>
@@ -584,7 +594,7 @@ Next主题的默认`Scheme`是`Muse`,即为http://localhost:4000/ 看到的效�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -617,7 +627,7 @@ Next主题的默认`Scheme`是`Muse`,即为http://localhost:4000/ 看到的效�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next主题"><span class="nav-number">2.</span> <span class="nav-text">Next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载next主题"><span class="nav-number">2.1.</span> <span class="nav-text">下载Next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用next主题"><span class="nav-number">2.2.</span> <span class="nav-text">启用Next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预览next风格的本地博客"><span class="nav-number">2.3.</span> <span class="nav-text">预览Next风格的本地博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改网站的基本信息"><span class="nav-number">3.</span> <span class="nav-text">修改网站的基本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加动态背景"><span class="nav-number">4.</span> <span class="nav-text">添加动态背景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next主题"><span class="nav-number">2.</span> <span class="nav-text">Next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载next主题"><span class="nav-number">2.1.</span> <span class="nav-text">下载Next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用next主题"><span class="nav-number">2.2.</span> <span class="nav-text">启用Next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预览next风格的本地博客"><span class="nav-number">2.3.</span> <span class="nav-text">预览Next风格的本地博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改next主题的scheme"><span class="nav-number">2.4.</span> <span class="nav-text">修改Next主题的Scheme</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改网站的基本信息"><span class="nav-number">3.</span> <span class="nav-text">修改网站的基本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加动态背景"><span class="nav-number">4.</span> <span class="nav-text">添加动态背景</span></a></li></ol></div>
             
 
           </div>
@@ -1182,5 +1192,5 @@ Next主题的默认`Scheme`是`Muse`,即为http://localhost:4000/ 看到的效�
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":100,"height":300,"hOffset":0,"vOffset":-2},"mobile":{"show":true}});</script></body>
 </html>
