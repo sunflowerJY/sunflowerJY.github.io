@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/posts-admin.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/deploy-admin.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/hexo-err.png">
-<meta property="og:updated_time" content="2018-05-17T05:19:53.909Z">
+<meta property="og:updated_time" content="2018-05-17T11:51:12.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="优化Next主题博客">
 <meta name="twitter:description" content="在上篇博文中已经搭建好一个基础的可用的博客了，但是热爱折腾的我们怎么可能就此满足😎此文将介绍我的博客折腾之路~ 环境  系统：Win10 64位 Git: 2.17.0.windows.1 Node.js: 8.11.1 npm: 5.6.0 Hexo: 3.7.1 Next: 5.1.4   Next主题 选择一个自己可心的主题，会增强更博的动力哟😜 下载Next主题 在Git bash终端">
@@ -393,6 +393,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -451,8 +456,10 @@
 <hr>
 <h2 id="修改微博底部添加访客数"><a class="header-anchor" href="#修改微博底部添加访客数"></a>修改微博底部添加访客数</h2>
 <p><code>themes/next/layout/_partials/footer.swig</code>删除多余信息，保留如下信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div class=&quot;copyright&quot;&gt;&#123;#</span><br><span class="line">#&#125;&#123;% set current = date(Date.now(), &quot;YYYY&quot;) %&#125;&#123;#</span><br><span class="line">#&#125;&amp;copy; &#123;% if theme.footer.since and theme.footer.since != current %&#125;&#123;&#123; theme.footer.since &#125;&#125; &amp;mdash; &#123;% endif %&#125;&#123;#</span><br><span class="line">#&#125;&lt;span itemprop=&quot;copyrightYear&quot;&gt;&#123;&#123; current &#125;&#125;&lt;/span&gt;</span><br><span class="line">  &lt;span class=&quot;with-love&quot;&gt;</span><br><span class="line">    &lt;i class=&quot;fa fa-&#123;&#123; theme.footer.icon &#125;&#125;&quot;&gt;&lt;/i&gt;</span><br><span class="line">  &lt;/span&gt;</span><br><span class="line">  &lt;span class=&quot;author&quot; itemprop=&quot;copyrightHolder&quot;&gt;&#123;&#123; theme.footer.copyright || config.author &#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">  &#123;% if theme.post_wordcount.totalcount %&#125;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-item-icon&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;fa fa-area-chart&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &#123;% if theme.post_wordcount.item_text %&#125;</span><br><span class="line">      &lt;span class=&quot;post-meta-item-text&quot;&gt;&#123;&#123; __(&apos;post.totalcount&apos;) &#125;&#125;&amp;#58;&lt;/span&gt;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">    &lt;span title=&quot;&#123;&#123; __(&apos;post.totalcount&apos;) &#125;&#125;&quot;&gt;&#123;#</span><br><span class="line">    #&#125;&#123;&#123; totalcount(site, &apos;0,0.0a&apos;) &#125;&#125;&#123;#</span><br><span class="line">  #&#125;&lt;/span&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>添加访客数信息，可直接在上述代码下方，添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;copyright&quot;&gt;&#123;#</span><br><span class="line">#&#125;&#123;% set current = date(Date.now(), &quot;YYYY&quot;) %&#125;&#123;#</span><br><span class="line">#&#125;&amp;copy; &#123;% if theme.footer.since and theme.footer.since != current %&#125;&#123;&#123; theme.footer.since &#125;&#125; &amp;mdash; &#123;% endif %&#125;&#123;#</span><br><span class="line">#&#125;&lt;span itemprop=&quot;copyrightYear&quot;&gt;&#123;&#123; current &#125;&#125;&lt;/span&gt;</span><br><span class="line">  &lt;span class=&quot;with-love&quot;&gt;</span><br><span class="line">    &lt;i class=&quot;fa fa-&#123;&#123; theme.footer.icon &#125;&#125;&quot;&gt;&lt;/i&gt;</span><br><span class="line">  &lt;/span&gt;</span><br><span class="line">  &lt;span class=&quot;author&quot; itemprop=&quot;copyrightHolder&quot;&gt;&#123;&#123; theme.footer.copyright || config.author &#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">  &#123;% if theme.post_wordcount.totalcount %&#125;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-item-icon&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;fa fa-area-chart&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &#123;% if theme.post_wordcount.item_text %&#125;</span><br><span class="line">      &lt;span class=&quot;post-meta-item-text&quot;&gt;&#123;&#123; __(&apos;post.totalcount&apos;) &#125;&#125;&amp;#58;&lt;/span&gt;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">    &lt;span title=&quot;&#123;&#123; __(&apos;post.totalcount&apos;) &#125;&#125;&quot;&gt;&#123;#</span><br><span class="line">    #&#125;&#123;&#123; totalcount(site, &apos;0,0.0a&apos;) &#125;&#125;&#123;#</span><br><span class="line">  #&#125;&lt;/span&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>在上面copyright代码前添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>在最后添加：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">  本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;</span><br><span class="line">&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>简化后的微博底部效果如下：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E4%B8%AA%E6%80%A7%E5%8C%96%E5%8D%9A%E5%AE%A2/bottem.png" width="200" align="center"></p>
@@ -804,8 +811,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -813,13 +819,27 @@
 
   
 </div>
-
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv"></span>
-</span>
-</div>
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
