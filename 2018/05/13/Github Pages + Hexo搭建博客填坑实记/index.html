@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/SSH1.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/deploy.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E9%85%8D%E7%BD%AE%E8%A1%8C%E7%BB%93%E6%9D%9F%E6%A0%87%E8%AF%86.png">
-<meta property="og:updated_time" content="2018-05-17T02:10:51.758Z">
+<meta property="og:updated_time" content="2018-05-17T03:02:23.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github Pages + Hexo搭建博客填坑实记">
 <meta name="twitter:description" content="背景 从实习结束，开始正儿八经看论文的时候，开始萌生了写博的想法。研一寒假在家不想看论文刷LeetCode的时候，学习了很多大神优秀的解法，却奈何下次遇到类似的方法还是困惑，便想找个地儿记录下来。 一开始选择了博客网站——类似博客园或者CSDN之类的，图形界面，操作简便，但存在广告，排版杂乱的问题。无疑之间发现了Markdown——写博利器，简洁明了，兼容Jupyter Notebook，同时显示">
@@ -433,21 +433,24 @@
 <h4 id="关于回车换行的问题"><a class="header-anchor" href="#关于回车换行的问题"></a>关于回车换行的问题</h4>
 <p>Dos和Windows采用回车+换行CRLF表示下一行，而Unix/Linux采用换行符LF表示下一行。<br>
 第一个选项是默认检查Windows风格的文件，并在提交时转换为Unix风格。  <br>
-请选择第三项。如果默认选择第一项，在git中提交代码可能会报错。不过可以安装好之后再更改相关配置。若后续commit报错请参考<code>搭建博客遇到的各种坑</code>的详细介绍。<br>
+请选择第三项。如果默认选择第一项，在git中提交代码可能会报错。不过可以安装好之后再更改相关配置。若后续commit报错请参考<a href="#搭建博客遇到的各种坑"><code>搭建博客遇到的各种坑</code></a>的详细介绍。<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E9%85%8D%E7%BD%AE%E8%A1%8C%E7%BB%93%E6%9D%9F%E6%A0%87%E8%AF%86.png" width="500" align="center"><br>
 检验Git是否安装成功：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E9%AA%8C%E8%AF%81git%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.png" width="200" align="center"><br>
 安装成功后，可以在桌面鼠标右键找到<code>Git bash</code>：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/gitbash.png" width="200" align="center"></p>
+<hr>
 <h3 id="安装node-js"><a class="header-anchor" href="#安装node-js"></a>安装Node.js</h3>
 <p>Node.js下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a> 选择自己对应系统的版本。一路默认Next安装。<br>
 新版本的Node.js中集成了npm工具，故不需要再另外安装。<br>
 检验Node.js和npm是否安装成功：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/node_npm.png  " width="200" align="center"></p>
+<hr>
 <h3 id="安装hexo"><a class="header-anchor" href="#安装hexo"></a>安装Hexo</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <p>检验Hexo是否安装成功：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E9%AA%8C%E8%AF%81hexo%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.png" width="200" align="center"></p>
+<hr>
 <h3 id="本地搭建博客"><a class="header-anchor" href="#本地搭建博客"></a>本地搭建博客</h3>
 <p>在本地计算机新建一个文件夹存放博客代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init sunflowerJY.github.io</span><br></pre></td></tr></table></figure>
@@ -458,6 +461,7 @@
 启动本地Web服务：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s # 或者hexo server</span><br></pre></td></tr></table></figure>
 <p>现在可以在本地查看自己搭建的博客啦😃<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
+<hr>
 <h3 id="关联github"><a class="header-anchor" href="#关联github"></a>关联Github</h3>
 <h4 id="注册github账号"><a class="header-anchor" href="#注册github账号"></a>注册Github账号</h4>
 <p>Github官网：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> 注册过程跟大部分网站相似，尤其注意注册邮箱<code>user.email</code>和用户名<code>user.name</code>,后期部署博客要用到并且必须一字不差，这也是遇到的坑之一😂<br>
@@ -474,7 +478,7 @@
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/repo_setting.png" width="500" align="center"><br>
 拉至Github Pages选项，将Source选择master分支：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/githubpages.png" width="500" align="center"><br>
-可能会提示仓库为空，要先添加文件，请将本地的博客push到该远程仓库。熟悉Git命令的请跳过，否则参考<code>上传本地博客仓库至远程仓库</code></p>
+可能会提示仓库为空，要先添加文件，请将本地的博客push到该远程仓库。熟悉Git命令的请跳过，否则参考<a href="#上传本地博客仓库至远程仓库"><code>上传本地博客仓库至远程仓库</code></a></p>
 <h4 id="配置git账号信息"><a class="header-anchor" href="#配置git账号信息"></a>配置Git账号信息</h4>
 <p>设置git的全局账号信息，user.name为Github用户名，user.email为Github注册邮箱。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;sunflowerJY&quot;</span><br><span class="line">git config --global user.email &quot;sunflower_jy@icloud.com&quot;</span><br></pre></td></tr></table></figure>
@@ -493,7 +497,7 @@ New SSH Key:<br>
 <p>成功的话会显示以下的大致内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;github.com (192.30.252.128)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;github.com,192.30.252.128&apos; (RSA) to the list of known hosts.</span><br><span class="line">Hi sunflowerJY! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line">Connection to github.com closed.</span><br></pre></td></tr></table></figure>
 <h4 id="上传本地博客仓库至远程仓库"><a class="header-anchor" href="#上传本地博客仓库至远程仓库"></a>上传本地博客仓库至远程仓库</h4>
-<p>在Git bash中cd到本地博客文件夹<code>sunflowerJY.github.io</code>：</p>
+<p>在Git bash中cd到本地博客文件夹<code>sunflowerJY.github.io</code>：<a id="上传本地博客仓库至远程仓库"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit blog&quot;</span><br></pre></td></tr></table></figure>
 <h4 id="修改配置文件部署部分"><a class="header-anchor" href="#修改配置文件部署部分"></a>修改配置文件部署部分</h4>
 <p>修改本地博客文件夹<code>sunflowerJY.github.io</code>中的<code>_config.yml</code>：<br>
@@ -504,18 +508,21 @@ New SSH Key:<br>
 <h4 id="部署至github"><a class="header-anchor" href="#部署至github"></a>部署至Github</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d#或hexo deploy</span><br></pre></td></tr></table></figure>
 <p>至此已经成功搭建了自己的博客，快去查看自己的专属博客吧💕<a href="https://xn--eqr924avxo.github.io" target="_blank" rel="noopener">https://用户名.github.io</a></p>
+<hr>
 <h2 id="搭建博客遇到的各种坑"><a class="header-anchor" href="#搭建博客遇到的各种坑"></a>搭建博客遇到的各种坑</h2>
-<p>其实在上一节<code>30分钟搭建最基础博客</code>中基本都已经提及了，现在来总结下吧</p>
+<p>其实在上一节<code>30分钟搭建最基础博客</code>中基本都已经提及了，现在来总结下吧<a id="搭建博客遇到的各种坑"></a></p>
 <h3 id="关于回车换行的问题-v2"><a class="header-anchor" href="#关于回车换行的问题-v2"></a>关于回车换行的问题</h3>
 <p>上一节在安装Git中提到过，由于Windows和Linux的换行规则不一样，所以为了确保在将Windows平台上的文件commit至Github时能正常使用，Git给出了自动转换文件格式的服务，即下图中的第一个选项。若默认选择了这项Next,后序在使用Git的过程中可能会报crlf与lf文件转换的WARN。<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/image/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E9%85%8D%E7%BD%AE%E8%A1%8C%E7%BB%93%E6%9D%9F%E6%A0%87%E8%AF%86.png" width="500" align="center"><br>
 解决方案：<br>
 如果你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置<code>false</code>取消此功能，把回车符记录在库中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf false</span><br></pre></td></tr></table></figure>
+<hr>
 <h3 id="github仓库名"><a class="header-anchor" href="#github仓库名"></a>Github仓库名</h3>
 <p>Github仓库名必须以<code>用户名.github.io</code>的形式命名，用户名那里要一字不差，不然后期的css等文件渲染会有问题，一开始我没注意到这个问题导致博客打开傻眼了，白花花的一片只有字😱💥😢</p>
+<hr>
 <h3 id="开启github-pages功能-v2"><a class="header-anchor" href="#开启github-pages功能-v2"></a>开启Github Pages功能</h3>
-<p>如果仓库内没有文件，页面上会提示无法开启Github Pages功能，可以参照<code>上传本地博客仓库至远程仓库</code>。随即仓库中有文件后，便可开启Github Pages功能。<br>
+<p>如果仓库内没有文件，页面上会提示无法开启Github Pages功能，可以参照<a href="#上传本地博客仓库至远程仓库"><code>上传本地博客仓库至远程仓库</code></a>。随即仓库中有文件后，便可开启Github Pages功能。<br>
 <br><br>
 <code>搭建博客遇到的各种坑</code>这块内容我会一直保持更新。随时记录，方便有需要的人，也方便自己备忘😂<br>
 <br><br>
