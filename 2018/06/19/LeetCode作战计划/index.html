@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/image/LEETCODESnipaste_2018-07-04_13-45-40.png">
-<meta property="og:updated_time" content="2018-07-04T06:04:33.291Z">
+<meta property="og:updated_time" content="2018-07-04T13:36:25.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode作战计划">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/image/LEETCODESnipaste_2018-07-04_13-45-40.png">
@@ -776,6 +776,35 @@ A入栈，A出栈，B入栈，B出栈等</p>
 <li>重复上述过程直至表达式最左端</li>
 <li>最后运算得出的值即为表达式的结果(中缀结果)</li>
 </ul>
+<h2 id="算法"><a class="header-anchor" href="#算法"></a>算法</h2>
+<h3 id="排序"><a class="header-anchor" href="#排序"></a>排序</h3>
+<p>日期：2018/07/04 21:31</p>
+<ul>
+<li>插入排序</li>
+<li>直接插入排序</li>
+<li>折半插入排序(二分插入排序)</li>
+<li>希尔排序</li>
+<li>交换排序</li>
+<li>冒泡排序</li>
+<li>快速排序(划分排序)</li>
+<li>选择排序</li>
+<li>简单选择排序</li>
+<li>树型选择排序</li>
+<li>堆排序</li>
+<li>归并排序</li>
+<li>基数排序</li>
+<li>外部排序</li>
+<li>基本方法</li>
+<li>多路归并排序</li>
+<li>置换-选择排序</li>
+</ul>
+<h4 id="插入排序"><a class="header-anchor" href="#插入排序"></a>插入排序</h4>
+<p>不到最后一轮排序，存在完全变换序列位置的可能性。</p>
+<h4 id="交换排序"><a class="header-anchor" href="#交换排序"></a>交换排序</h4>
+<h5 id="冒泡排序"><a class="header-anchor" href="#冒泡排序"></a>冒泡排序</h5>
+<p>冒泡排序最多要交换n(n-1)/2次。</p>
+<h5 id="快速排序"><a class="header-anchor" href="#快速排序"></a>快速排序</h5>
+<p>如其名，用时最短。</p>
 
       
     </div>
@@ -959,7 +988,7 @@ A入栈，A出栈，B入栈，B出栈等</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#总规划"><span class="nav-number">1.</span> <span class="nav-text">总规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原计划"><span class="nav-number">1.1.</span> <span class="nav-text">原计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新规划"><span class="nav-number">1.2.</span> <span class="nav-text">新规划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.1.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树"><span class="nav-number">2.1.2.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的度数与结点数"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">二叉树的度数与结点数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的高度与结点数"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">二叉树的高度与结点数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">二叉树的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈夫曼树-最优二叉树"><span class="nav-number">2.1.2.5.</span> <span class="nav-text">哈夫曼树(最优二叉树)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几种转换"><span class="nav-number">2.1.2.6.</span> <span class="nav-text">几种转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">2.1.3.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识-v2"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先进后出"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">先进后出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前缀表达式"><span class="nav-number">2.1.3.4.</span> <span class="nav-text">前缀表达式</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#总规划"><span class="nav-number">1.</span> <span class="nav-text">总规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原计划"><span class="nav-number">1.1.</span> <span class="nav-text">原计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新规划"><span class="nav-number">1.2.</span> <span class="nav-text">新规划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.1.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树"><span class="nav-number">2.1.2.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的度数与结点数"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">二叉树的度数与结点数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的高度与结点数"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">二叉树的高度与结点数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">二叉树的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈夫曼树-最优二叉树"><span class="nav-number">2.1.2.5.</span> <span class="nav-text">哈夫曼树(最优二叉树)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几种转换"><span class="nav-number">2.1.2.6.</span> <span class="nav-text">几种转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">2.1.3.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识-v2"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先进后出"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">先进后出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前缀表达式"><span class="nav-number">2.1.3.4.</span> <span class="nav-text">前缀表达式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">2.2.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">2.2.1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交换排序"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">交换排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#冒泡排序"><span class="nav-number">2.2.1.2.1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#快速排序"><span class="nav-number">2.2.1.2.2.</span> <span class="nav-text">快速排序</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
