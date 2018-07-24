@@ -96,7 +96,8 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-11-50.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_20-27.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-00-27.png">
-<meta property="og:updated_time" content="2018-07-23T08:33:50.215Z">
+<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-24_13-22-46.png">
+<meta property="og:updated_time" content="2018-07-24T05:25:26.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark安装配置">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/9e1beb2b2c4e6e00a26d96690fbe78ad.jpg">
@@ -417,8 +418,21 @@ Spark都是压缩安装包，选择<code>spark-2.3.0-bin-hadoop2.7</code>：  <
 链接：<a href="https://pan.baidu.com/s/1oAc7LYNSi_F70AjK7NTfAQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1oAc7LYNSi_F70AjK7NTfAQ</a> 密码：q1nv<br>
 因为Hadoop的bin目录下没有winutils.exe文件，可能还会报一个错误，解决方案：<br>
 下载hadoop win工具<br>
-地址：<a href="https://github.com/srccodes/hadoop-common-2.2.0-bin" target="_blank" rel="noopener">https://github.com/srccodes/hadoop-common-2.2.0-bin</a> 将winutils.exe和hadoop.dll复制到 D:\software\hadoop-2.7.6\bin目录下  <br>
-至此，我也不知道自己是不是完全安装成功了，对Spark还是不熟悉，对学习吧😇</p>
+地址：<a href="https://github.com/srccodes/hadoop-common-2.2.0-bin" target="_blank" rel="noopener">https://github.com/srccodes/hadoop-common-2.2.0-bin</a> 将winutils.exe和hadoop.dll复制到 D:\software\hadoop-2.7.6\bin目录下</p>
+<h1 id="配置"><a class="header-anchor" href="#配置"></a>配置</h1>
+<h2 id="jupyter-notebook-pyspark"><a class="header-anchor" href="#jupyter-notebook-pyspark"></a>Jupyter notebook+Pyspark</h2>
+<p>数据分析工具利器——Jupyter notebook  <br>
+它实际就是一个类似IDE的东西，特点：</p>
+<ul>
+<li>方便快捷，浏览器随时打开使用，无需等待，尤其是跟PyCharm相比。</li>
+<li>便于梳理思路，它独特的cell方式，可以让每一步的结果显示在页面上，并不会覆盖后序的步骤，有利于数据分析工作的呈现。</li>
+</ul>
+<p>而我安装使用Spark的目的，也就是用它实现大数据的分析工作，原本单机环境，最多跑个几千条数据就OUTOFMEMORY了😴  <br>
+前提：  <br>
+必须已经安装了Jupyter notebook。  <br>
+设置环境变量，名称和值对应如下：<br>
+<img src="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-24_13-22-46.png" width="500" align="center">  <br>
+配置完成后就可以在CMD中输入<code>pyspark</code>，自动弹出浏览器使用pyspark啦😂</p>
 
       
     </div>
@@ -594,7 +608,7 @@ Spark都是压缩安装包，选择<code>spark-2.3.0-bin-hadoop2.7</code>：  <
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk"><span class="nav-number">2.1.</span> <span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scala"><span class="nav-number">2.2.</span> <span class="nav-text">Scala</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">2.3.</span> <span class="nav-text">Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop"><span class="nav-number">2.4.</span> <span class="nav-text">Hadoop</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk"><span class="nav-number">2.1.</span> <span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scala"><span class="nav-number">2.2.</span> <span class="nav-text">Scala</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">2.3.</span> <span class="nav-text">Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop"><span class="nav-number">2.4.</span> <span class="nav-text">Hadoop</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jupyter-notebook-pyspark"><span class="nav-number">3.1.</span> <span class="nav-text">Jupyter notebook+Pyspark</span></a></li></ol></li></ol></div>
             
 
           </div>
