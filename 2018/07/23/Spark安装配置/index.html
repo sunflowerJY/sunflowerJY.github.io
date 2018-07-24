@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_20-27.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-00-27.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-24_13-22-46.png">
-<meta property="og:updated_time" content="2018-07-24T05:25:26.821Z">
+<meta property="og:updated_time" content="2018-07-24T13:16:49.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark安装配置">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/9e1beb2b2c4e6e00a26d96690fbe78ad.jpg">
@@ -414,11 +414,17 @@ Spark都是压缩安装包，选择<code>spark-2.3.0-bin-hadoop2.7</code>：  <
 <img src="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-00-27.png" width="500" align="center"></p>
 <h2 id="hadoop"><a class="header-anchor" href="#hadoop"></a>Hadoop</h2>
 <p>之前安装Spark的时候，安装包的名字<code>spark-2.3.0-bin-hadoop2.7</code>明确指出了适配<code>hadoop2.7</code>版本的Hadoop。  <br>
-下载<code>hadoop-2.7.6.tar</code>安装包，解压到指定目录，设置环境变量。<br>
+下载<code>hadoop-2.7.6.tar</code>安装包，解压到指定目录。<br>
 链接：<a href="https://pan.baidu.com/s/1oAc7LYNSi_F70AjK7NTfAQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1oAc7LYNSi_F70AjK7NTfAQ</a> 密码：q1nv<br>
-因为Hadoop的bin目录下没有winutils.exe文件，可能还会报一个错误，解决方案：<br>
+<s>设置环境变量</s>这个是大坑，感谢大神http://www.cnblogs.com/lovegmail/p/6053945.html  <br>
+在按照http://spark.apache.org/docs/2.3.0/quick-start.html官网给的example练习时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textFile = spark.read.text(&quot;README.md&quot;)</span><br></pre></td></tr></table></figure>
+<p>报错😢之前sc的例子没有问题，也是新手的缘故，不懂原理，依葫芦画瓢，报错内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.UnsatisfiedLinkError:org.apache.hadoop.io.nativeio.NativeIO$Windows.createDirectoryWithMode0(Ljava/lang/String;I)V;</span><br></pre></td></tr></table></figure>
+<p>解决方案：删除HADOOP环境变量，删除目录C:\WINDOWS\system32\以及Hadoop安装目录下的hadoop.dll<br>
+因为Hadoop的bin目录下没有winutils.exe文件，可能还会报一个错误，解决方案：  <br>
 下载hadoop win工具<br>
-地址：<a href="https://github.com/srccodes/hadoop-common-2.2.0-bin" target="_blank" rel="noopener">https://github.com/srccodes/hadoop-common-2.2.0-bin</a> 将winutils.exe和hadoop.dll复制到 D:\software\hadoop-2.7.6\bin目录下</p>
+地址：<a href="https://github.com/srccodes/hadoop-common-2.2.0-bin" target="_blank" rel="noopener">https://github.com/srccodes/hadoop-common-2.2.0-bin</a> 将winutils.exe和<s>hadoop.dll</s>复制到 D:\software\hadoop-2.7.6\bin目录下</p>
 <h1 id="配置"><a class="header-anchor" href="#配置"></a>配置</h1>
 <h2 id="jupyter-notebook-pyspark"><a class="header-anchor" href="#jupyter-notebook-pyspark"></a>Jupyter notebook+Pyspark</h2>
 <p>数据分析工具利器——Jupyter notebook  <br>
