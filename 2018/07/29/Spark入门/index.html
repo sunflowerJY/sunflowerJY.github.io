@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Tutorial.png">
-<meta property="og:updated_time" content="2018-07-29T09:28:15.351Z">
+<meta property="og:updated_time" content="2018-07-29T09:39:26.026Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark入门">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/Tutorial.png">
@@ -379,11 +379,13 @@
 背景：  
 - 使用Python、Pandas、Numpy学习机器学习、数据分析、数据挖掘
 - 论文瓶颈之时，偶然决定学习Spark，算是真正入了大数据的门，毕竟符合了数据量“大”的要求
-# RDD、DataFrame、Datasets
-安装配置完Spark相关软件后，便开始照着官网http://spark.apache.org/docs/2.3.0/ 开始依葫芦画瓢:expressionless:  
-最先接触RDD(resilient distributed dataset,弹性分布式数据集)，如其名一般，专为分布式计算而生的一种数据类型。但是它有一个比较明显的缺点，就是不知道RDD数据里到底是什么，也可能我刚入门的原因。  
-DataFrame确实可以提供详细的信息，使用Spark SQL可以知晓数据内容，与之前在Pandas里的DataFrame名字一样，是不是有某种联系:dizzy_face:   Datasets是支持scala或者java开发的数据API，看大佬博客里解析说Datasets其实也就是DataFrame的一个特例，那么好吧，先暂时放弃你:joy:毕竟学Scala或者Java都挺费劲的，我还是多研究支持多种语言接口的DataFrame吧  
-未完待续
+<h1 id="rdd-dataframe-datasets"><a class="header-anchor" href="#rdd-dataframe-datasets"></a>RDD、DataFrame、Datasets</h1>
+<p>安装配置完Spark相关软件后，便开始照着官网教程http://spark.apache.org/docs/2.3.0/开始依葫芦画瓢😑</p>
+<p>最先接触<code>RDD</code>(resilient distributed dataset,弹性分布式数据集)，如其名一般，专为分布式计算而生的一种数据类型。但是它有一个比较明显的缺点，就是不知道RDD数据里到底是什么，也可能我刚入门的原因。</p>
+<p><code>DataFrame</code>确实可以提供详细的信息，使用Spark SQL可以知晓数据内容，与之前在Pandas里的DataFrame名字一样，是不是有某种联系😵</p>
+<p><code>Datasets</code>是支持scala或者java开发的数据API，看大佬博客里解析说Datasets其实也就是DataFrame的一个特例，那么好吧，先暂时放弃你😂毕竟学Scala或者Java都挺费劲的，我还是多研究支持多种语言接口的DataFrame吧</p>
+<p>未完待续…</p>
+
       
     </div>
     
@@ -474,8 +476,17 @@ DataFrame确实可以提供详细的信息，使用Spark SQL可以知晓数据�
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -539,6 +550,22 @@ DataFrame确实可以提供详细的信息，使用Spark SQL可以知晓数据�
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rdd-dataframe-datasets"><span class="nav-number">1.</span> <span class="nav-text">RDD、DataFrame、Datasets</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
