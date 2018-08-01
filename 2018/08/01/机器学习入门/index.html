@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/aaaa.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/456.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_11-39-52.png">
-<meta property="og:updated_time" content="2018-08-01T08:50:19.688Z">
+<meta property="og:updated_time" content="2018-08-01T08:52:22.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习入门">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/images.png">
@@ -439,19 +439,19 @@ $$y^{’}=b+w_{1}x_{1}$$<br>
 通过迭代方式来降低损失，就是不停的试错，直到得到损失最小的模型。</p>
 <h3 id="梯度下降法"><a class="header-anchor" href="#梯度下降法"></a>梯度下降法</h3>
 <p>根据迭代算法的思想，计算所以也$w_{1}$所有可能值的损失。<br>
-&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/compare.jpg" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/compare.jpg</a>”, width=“500”, align=center&gt;<br>
+&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/compare.jpg" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/compare.jpg</a>”, width=“500”, align=center/&gt;<br>
 损失与$w_{1}$的图形始终是凸形的，随着$w_{1}$的增大，损失从大变小，再变大的一个过程。<br>
-&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-37-18.png" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-37-18.png</a>”, width=“500”, align=center&gt;<br>
+&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-37-18.png" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-37-18.png</a>”, width=“500”, align=center/&gt;<br>
 凸形问题只有一个最低点；即只存在一个斜率正好为 0 的位置。这个最小值就是损失函数收敛之处。<br>
 通过计算整个数据集中  每个可能值的损失函数来找到收敛点这种方法效率太低。<br>
 我们来研究一种更好的机制，这种机制在机器学习领域非常热门，称为<code>梯度下降法</code>。<br>
-&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/ssfdfd.png" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/ssfdfd.png</a>”, width=“500”, align=center&gt;<br>
+&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/ssfdfd.png" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/ssfdfd.png</a>”, width=“500”, align=center/&gt;<br>
 梯度下降法算法会沿着负梯度的方向走一步，以便尽快降低损失。<br>
-&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-53-30.png" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-53-30.png</a>”, width=“500”, align=center&gt;<br>
+&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-53-30.png" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-53-30.png</a>”, width=“500”, align=center/&gt;<br>
 梯度矢量具有方向和大小。梯度下降法算法用梯度乘以一个称为<code>学习速率</code>（有时也称为步长）的标量，以确定下一个点的位置。<br>
-&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-53-30.png" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-53-30.png</a>”, width=“500”, align=center&gt;<br>
+&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-53-30.png" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-53-30.png</a>”, width=“500”, align=center/&gt;<br>
 如果您选择的学习速率过小，就会花费太长的学习时间。<br>
-&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-55-39.png" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-55-39.png</a>”, width=“500”, align=center&gt;<br>
+&lt;img src=“<a href="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-55-39.png" target="_blank" rel="noopener">http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-55-39.png</a>”, width=“500”, align=center/&gt;<br>
 相反，如果您指定的学习速率过大，下一个点将永远在 U 形曲线的底部随意弹跳，就好像量子力学实验出现了严重错误一样。</p>
 <h3 id="随机梯度下降法"><a class="header-anchor" href="#随机梯度下降法"></a>随机梯度下降法</h3>
 <p>在梯度下降法中，<code>批量</code>指的是用于在单次迭代中计算梯度的样本总数。到目前为止，我们一直假定批量是指整个数据集。就 Google 的规模而言，数据集通常包含数十亿甚至数千亿个样本。此外，Google 数据集通常包含海量特征。因此，一个批量可能相当巨大。如果是超大批量，则单次迭代就可能要花费很长时间进行计算。<br>
