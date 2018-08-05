@@ -96,9 +96,9 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-00-27.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-11-50.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_20-27.png">
-<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-00-27.png">
+<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-05_14-20-54.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-24_13-22-46.png">
-<meta property="og:updated_time" content="2018-08-05T05:34:08.628Z">
+<meta property="og:updated_time" content="2018-08-05T07:22:10.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark安装配置">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/9e1beb2b2c4e6e00a26d96690fbe78ad.jpg">
@@ -426,17 +426,8 @@ Windows系统64位<code>scala-2.11.7</code>msi安装包：<br>
 跟JDK一样，因为都是MSI文件安装，不需要管PATH路径的问题。  <br>
 检验是否安装成功：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-00-27.png" width="500" align="center"></p>
-<h2 id="spark"><a class="header-anchor" href="#spark"></a>Spark</h2>
-<p>这里可以先安装Spark,再安装Hadoop。<br>
-Spark都是压缩安装包，选择<code>spark-2.3.0-bin-hadoop2.7</code>：  <br>
-链接：<a href="https://pan.baidu.com/s/1Kz1iPGhEqfWMeax0mz7E0A" target="_blank" rel="noopener">https://pan.baidu.com/s/1Kz1iPGhEqfWMeax0mz7E0A</a> 密码：23ii  <br>
-下载好后解压到<code>SPARK_HOME</code>目录(自定义，不建议有空格的路径)，添加环境变量：<br>
-<img src="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-11-50.png" width="500" align="center"><br>
-<img src="http://p8ran6tub.bkt.clouddn.com/Snipaste_20-27.png" width="500" align="center"><br>
-检验是否安装成功：<br>
-<img src="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-00-27.png" width="500" align="center"></p>
 <h2 id="hadoop"><a class="header-anchor" href="#hadoop"></a>Hadoop</h2>
-<p>之前安装Spark的时候，安装包的名字<code>spark-2.3.0-bin-hadoop2.7</code>明确指出了适配<code>hadoop2.7</code>版本的Hadoop。  <br>
+<p>下载Spark安装包<code>spark-2.3.0-bin-hadoop2.7</code>明确指出了适配<code>hadoop2.7</code>版本的Hadoop。  <br>
 下载<code>hadoop-2.7.6.tar</code>安装包，解压到指定目录。<br>
 链接：<a href="https://pan.baidu.com/s/1oAc7LYNSi_F70AjK7NTfAQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1oAc7LYNSi_F70AjK7NTfAQ</a> 密码：q1nv<br>
 因为Hadoop的bin目录下没有winutils.exe文件，可能还会报一个错误，解决方案：  <br>
@@ -444,6 +435,25 @@ Spark都是压缩安装包，选择<code>spark-2.3.0-bin-hadoop2.7</code>：  <
 地址：<a href="https://github.com/srccodes/hadoop-common-2.2.0-bin" target="_blank" rel="noopener">https://github.com/srccodes/hadoop-common-2.2.0-bin</a><br>
 将winutils.exe复制到 D:\software\hadoop-2.7.6\bin目录下</p>
 <p>设置环境变量。</p>
+<h2 id="spark"><a class="header-anchor" href="#spark"></a>Spark</h2>
+<p>这里可以先安装Spark,再安装Hadoop。<br>
+Spark都是压缩安装包，选择<code>spark-2.3.0-bin-hadoop2.7</code>：  <br>
+链接：<a href="https://pan.baidu.com/s/1Kz1iPGhEqfWMeax0mz7E0A" target="_blank" rel="noopener">https://pan.baidu.com/s/1Kz1iPGhEqfWMeax0mz7E0A</a> 密码：23ii  <br>
+下载好后解压到<code>SPARK_HOME</code>目录(自定义，不建议有空格的路径)，添加环境变量：<br>
+<img src="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-11-50.png" width="500" align="center"><br>
+<img src="http://p8ran6tub.bkt.clouddn.com/Snipaste_20-27.png" width="500" align="center"></p>
+<h1 id="报错"><a class="header-anchor" href="#报错"></a>报错</h1>
+<p>按照之前的步骤安装配置，现在来检验下Spark是否正确安装了。<br>
+检验是否安装成功：<br>
+<img src="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-05_14-20-54.png" width="500" align="center">  <br>
+报错了:sad:好吧···开始漫长的解决报错路程</p>
+<hr>
+<ol>
+<li>无法加载本地hadoop库</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br></pre></td></tr></table></figure>
+<p>这个问题暂时还没有解决，暂时也没有对我的学习造成困扰。  <br>
+感觉要学习Spark，不能单独只学习Spark，还要结合Hadoop、Hive等一起学习，才能对大数据分布式平台应用有一个整体的概念。</p>
 <h1 id="配置"><a class="header-anchor" href="#配置"></a>配置</h1>
 <h2 id="jupyter-notebook-pyspark"><a class="header-anchor" href="#jupyter-notebook-pyspark"></a>Jupyter notebook+Pyspark</h2>
 <p>数据分析工具利器——Jupyter notebook  <br>
@@ -643,7 +653,7 @@ Spark都是压缩安装包，选择<code>spark-2.3.0-bin-hadoop2.7</code>：  <
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk"><span class="nav-number">2.1.</span> <span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scala"><span class="nav-number">2.2.</span> <span class="nav-text">Scala</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">2.3.</span> <span class="nav-text">Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop"><span class="nav-number">2.4.</span> <span class="nav-text">Hadoop</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jupyter-notebook-pyspark"><span class="nav-number">3.1.</span> <span class="nav-text">Jupyter notebook+Pyspark</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk"><span class="nav-number">2.1.</span> <span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scala"><span class="nav-number">2.2.</span> <span class="nav-text">Scala</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop"><span class="nav-number">2.3.</span> <span class="nav-text">Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">2.4.</span> <span class="nav-text">Spark</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#报错"><span class="nav-number">3.</span> <span class="nav-text">报错</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jupyter-notebook-pyspark"><span class="nav-number">4.1.</span> <span class="nav-text">Jupyter notebook+Pyspark</span></a></li></ol></li></ol></div>
             
 
           </div>
