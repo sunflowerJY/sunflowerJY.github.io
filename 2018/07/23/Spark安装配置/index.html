@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_20-27.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-23_15-00-27.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-07-24_13-22-46.png">
-<meta property="og:updated_time" content="2018-08-05T01:26:21.473Z">
+<meta property="og:updated_time" content="2018-08-05T05:34:08.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark安装配置">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/9e1beb2b2c4e6e00a26d96690fbe78ad.jpg">
@@ -443,12 +443,7 @@ Spark都是压缩安装包，选择<code>spark-2.3.0-bin-hadoop2.7</code>：  <
 下载hadoop win工具<br>
 地址：<a href="https://github.com/srccodes/hadoop-common-2.2.0-bin" target="_blank" rel="noopener">https://github.com/srccodes/hadoop-common-2.2.0-bin</a><br>
 将winutils.exe复制到 D:\software\hadoop-2.7.6\bin目录下</p>
-<p><s>设置环境变量</s>这个是大坑，很多教程里都会教你<s>设置环境变量以及复制hadoop.dll文件</s>但是按照http://spark.apache.org/docs/2.3.0/quick-start.html 官网给的example练习时</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textFile = spark.read.text(&quot;README.md&quot;)</span><br></pre></td></tr></table></figure>
-<p>报错😢之前sc的例子没有问题，也是新手的缘故，不懂原理，依葫芦画瓢，报错内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.UnsatisfiedLinkError:org.apache.hadoop.io.nativeio.NativeIO$Windows.createDirectoryWithMode0(Ljava/lang/String;I)V;</span><br></pre></td></tr></table></figure>
-<p>解决方案：删除HADOOP环境变量，删除目录C:\WINDOWS\system32\以及Hadoop安装目录下的hadoop.dll  <br>
-详细解释：<a href="http://www.cnblogs.com/lovegmail/p/6053945.html" target="_blank" rel="noopener">http://www.cnblogs.com/lovegmail/p/6053945.html</a></p>
+<p>设置环境变量。</p>
 <h1 id="配置"><a class="header-anchor" href="#配置"></a>配置</h1>
 <h2 id="jupyter-notebook-pyspark"><a class="header-anchor" href="#jupyter-notebook-pyspark"></a>Jupyter notebook+Pyspark</h2>
 <p>数据分析工具利器——Jupyter notebook  <br>
