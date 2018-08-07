@@ -74,7 +74,7 @@
 
 
 
-  <meta name="keywords" content="Spark," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -85,17 +85,16 @@
 
 
 
-<meta name="keywords" content="Spark">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spark入门">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/Spark入门/index.html">
+<meta property="og:title" content="MySQL">
+<meta property="og:url" content="http://yoursite.com/2018/08/07/MySQL/index.html">
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
-<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Tutorial.png">
-<meta property="og:updated_time" content="2018-08-01T02:48:47.915Z">
+<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/main-qimg-2aada1d3b6e4fd8b68793b035ef63db5.png">
+<meta property="og:updated_time" content="2018-08-07T02:19:49.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark入门">
-<meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/Tutorial.png">
+<meta name="twitter:title" content="MySQL">
+<meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/main-qimg-2aada1d3b6e4fd8b68793b035ef63db5.png">
 
 
 
@@ -125,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/29/Spark入门/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/07/MySQL/"/>
 
 
 
 
 
-  <title>Spark入门 | 向日葵的自留地</title>
+  <title>MySQL | 向日葵的自留地</title>
   
 
 
@@ -292,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/29/Spark入门/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/MySQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunflowerJY">
@@ -309,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spark入门</h1>
+          <h1 class="post-title" itemprop="name headline">MySQL</h1>
         
 
         <div class="post-meta">
@@ -321,8 +320,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T16:44:00+08:00">
-                2018-07-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-07T10:06:26+08:00">
+                2018-08-07
               </time>
             
 
@@ -340,8 +339,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/29/Spark入门/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/07/29/Spark入门/" itemprop="commentsCount"></span>
+                <a href="/2018/08/07/MySQL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/07/MySQL/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -374,20 +373,82 @@
       
 
       
-        <img src="http://p8ran6tub.bkt.clouddn.com/Tutorial.png" width="500" align="center">  
-<a id="more"></a>  
-<p>继<a href="https://sunflowerjy.github.io/2018/07/23/Spark%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" target="_blank" rel="noopener">Spark安装教程</a>之后，这是一篇Spark入门教程，记录我学习Spark的思路。</p>
-<p>背景：</p>
-<ul>
-<li>使用Python、Pandas、Numpy学习机器学习、数据分析、数据挖掘</li>
-<li>论文瓶颈之时，偶然决定学习Spark，算是真正入了大数据的门，毕竟符合了数据量“大”的要求</li>
-</ul>
-<h1 id="rdd-dataframe-datasets"><a class="header-anchor" href="#rdd-dataframe-datasets"></a>RDD、DataFrame、Datasets</h1>
-<p>安装配置完Spark相关软件后，便开始照着官网教程http://spark.apache.org/docs/2.3.0/开始依葫芦画瓢😑</p>
-<p>最先接触<code>RDD</code>(resilient distributed dataset,弹性分布式数据集)，如其名一般，专为分布式计算而生的一种数据类型。但是它有一个比较明显的缺点，就是不知道RDD数据里到底是什么，也可能我刚入门的原因。</p>
-<p><code>DataFrame</code>确实可以提供详细的信息，使用Spark SQL可以知晓数据内容，与之前在Pandas里的DataFrame名字一样，是不是有某种联系😵</p>
-<p><code>Datasets</code>是支持scala或者java开发的数据API，看大佬博客里解析说Datasets其实也就是DataFrame的一个特例，那么好吧，先暂时放弃你😂毕竟学Scala或者Java都挺费劲的，我还是多研究支持多种语言接口的DataFrame吧</p>
-<p>未完待续…</p>
+        <img src="http://p8ran6tub.bkt.clouddn.com/main-qimg-2aada1d3b6e4fd8b68793b035ef63db5.png" width="500" align="center">
+<a id="more"></a>
+<h1 id="查询筛选"><a class="header-anchor" href="#查询筛选"></a>查询筛选</h1>
+<p>表<code>World</code>:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>continent</th>
+<th>area</th>
+<th>population</th>
+<th>gdp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Afghanistan</td>
+<td>Asia</td>
+<td>652230</td>
+<td>25500100</td>
+<td>20343000</td>
+</tr>
+<tr>
+<td>Albania</td>
+<td>Europe</td>
+<td>28748</td>
+<td>2831741</td>
+<td>12960000</td>
+</tr>
+<tr>
+<td>Algeria</td>
+<td>Africa</td>
+<td>2381741</td>
+<td>37100000</td>
+<td>188681000</td>
+</tr>
+<tr>
+<td>Andorra</td>
+<td>Europe</td>
+<td>468</td>
+<td>78115</td>
+<td>3712000</td>
+</tr>
+<tr>
+<td>Angola</td>
+<td>Africa</td>
+<td>1246700</td>
+<td>20609294</td>
+<td>100990000</td>
+</tr>
+</tbody>
+</table>
+<p>通过SQL查询语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT name, population, area</span><br><span class="line">FROM World</span><br><span class="line">WHERE population &gt; 25000000</span><br></pre></td></tr></table></figure>
+<p>得到查询结果：</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>population</th>
+<th>area</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Afghanistan</td>
+<td>25500100</td>
+<td>652230</td>
+</tr>
+<tr>
+<td>Algeria</td>
+<td>37100000</td>
+<td>2381741</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -403,12 +464,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Spark/" rel="tag"><i class="fa fa-tag"></i> Spark</a>
-          
-        </div>
-      
 
       
       
@@ -418,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/23/Spark安装配置/" rel="next" title="Spark安装配置">
-                <i class="fa fa-chevron-left"></i> Spark安装配置
+              <a href="/2018/08/01/机器学习入门/" rel="next" title="机器学习入门">
+                <i class="fa fa-chevron-left"></i> 机器学习入门
               </a>
             
           </div>
@@ -427,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/01/机器学习入门/" rel="prev" title="机器学习入门">
-                机器学习入门 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -573,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rdd-dataframe-datasets"><span class="nav-number">1.</span> <span class="nav-text">RDD、DataFrame、Datasets</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查询筛选"><span class="nav-number">1.</span> <span class="nav-text">查询筛选</span></a></li></ol></div>
             
 
           </div>
@@ -779,7 +830,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-			id: '1532853840000', 
+			id: '1533607586000', 
             owner: 'sunflowerJY',
             repo: 'gitment-comments',
             
