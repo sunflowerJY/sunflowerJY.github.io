@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:description" content="本文主要用于记录LeetCode中遇到的比较好的一些python写法。 map函数 描述： map()会根据提供的函数对指定序列做映射。 语法： 1map(function, iterable, ...) 参数:  function – 函数，有两个参数 iterable – 一个或多个序列  返回值： Python 3.x 返回迭代器。 实例： 123456789101112def square">
 <meta property="og:locale" content="zh-hans">
-<meta property="og:updated_time" content="2018-08-07T05:15:58.093Z">
+<meta property="og:updated_time" content="2018-08-07T08:29:56.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python">
 <meta name="twitter:description" content="本文主要用于记录LeetCode中遇到的比较好的一些python写法。 map函数 描述： map()会根据提供的函数对指定序列做映射。 语法： 1map(function, iterable, ...) 参数:  function – 函数，有两个参数 iterable – 一个或多个序列  返回值： Python 3.x 返回迭代器。 实例： 123456789101112def square">
@@ -406,8 +406,35 @@ sum(iterable[, start])</p>
 返回计算结果。</p>
 <p>实例:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sum([0,1,2])</span><br><span class="line">3</span><br><span class="line"></span><br><span class="line">sum((2, 3, 4), 1)</span><br><span class="line">10</span><br><span class="line"></span><br><span class="line">sum([0,1,2,3,4], 2) </span><br><span class="line">12</span><br></pre></td></tr></table></figure>
+<h1 id="ord函数"><a class="header-anchor" href="#ord函数"></a>ord函数</h1>
+<p>描述：<br>
+它以一个字符（长度为1的字符串）作为参数，返回对应的 ASCII 数值，或者 Unicode 数值，如果所给的 Unicode 字符超出了你的 Python 定义范围，则会引发一个 TypeError 的异常。</p>
+<p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ord(c)</span><br></pre></td></tr></table></figure>
+<p>参数：<br>
+c – 字符</p>
+<p>返回值：<br>
+返回值是对应的十进制整数。</p>
+<p>实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ord(&apos;a&apos;)</span><br><span class="line">》97</span><br><span class="line">ord(&apos;b&apos;)</span><br><span class="line">》98</span><br><span class="line">ord(&apos;c&apos;)</span><br><span class="line">》99</span><br></pre></td></tr></table></figure>
 <h1 id="数组倒序"><a class="header-anchor" href="#数组倒序"></a>数组倒序</h1>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [1, 2, 3, 4, 5]</span><br><span class="line">a[::-1]</span><br><span class="line">》[5, 4, 3, 2, 1]</span><br></pre></td></tr></table></figure>
+<h1 id="set"><a class="header-anchor" href="#set"></a>set</h1>
+<p>数据类型set是一个无序不重复元素集。  <br>
+基本功能包括关系测试和消除重复元素。  <br>
+集合对象支持联合、交、差和对称差集等数学运算。</p>
+<p>支持：</p>
+<ul>
+<li>x in set</li>
+<li>len(set)</li>
+<li>for x in set<br>
+不支持：</li>
+<li>indexing</li>
+<li>slicing</li>
+<li>其它类序列（sequence-like）的操作</li>
+</ul>
+<p>实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">x = set(&apos;spam&apos;)</span><br><span class="line">y = set([&apos;h&apos;,&apos;a&apos;,&apos;m&apos;])</span><br><span class="line">x, y</span><br><span class="line">》(set([&apos;a&apos;, &apos;p&apos;, &apos;s&apos;, &apos;m&apos;]), set([&apos;a&apos;, &apos;h&apos;, &apos;m&apos;]))</span><br><span class="line"></span><br><span class="line">x &amp; y # 交集</span><br><span class="line">》set([&apos;a&apos;, &apos;m&apos;])</span><br><span class="line"></span><br><span class="line">x | y # 并集</span><br><span class="line">x.union(y)</span><br><span class="line">》set([&apos;a&apos;, &apos;p&apos;, &apos;s&apos;, &apos;h&apos;, &apos;m&apos;])</span><br><span class="line"></span><br><span class="line">x - y # 差集 在x中但不在y中</span><br><span class="line">》set([&apos;p&apos;, &apos;s&apos;])</span><br><span class="line"></span><br><span class="line">x ^ y #对称差集  在x或y中，但不会同时出现在二者中</span><br><span class="line">》set([&apos;p&apos;, &apos;s&apos;])</span><br><span class="line"></span><br><span class="line">#去除重复元素：</span><br><span class="line">a = [11,22,33,44,11,22]</span><br><span class="line">set(a)</span><br><span class="line">》set([33, 11, 44, 22])</span><br><span class="line"></span><br><span class="line"># 添加一项</span><br><span class="line">x.add(&apos;x&apos;)</span><br><span class="line"></span><br><span class="line"># 添加多项</span><br><span class="line">x.update([10,37,42])  </span><br><span class="line"></span><br><span class="line"># 删除一项,如果不存在就报错</span><br><span class="line">x.remove(&apos;H&apos;)</span><br><span class="line"></span><br><span class="line"># 删除一项，存在就删除</span><br><span class="line">x.discard(&apos;H&apos;)</span><br><span class="line"></span><br><span class="line"># 删除 set 中的所有元素</span><br><span class="line">x.clear()</span><br><span class="line"> </span><br><span class="line"># 删除并且返回 set “s”中的一个不确定的元素, 如果为空则报错</span><br><span class="line">s.pop()</span><br><span class="line"></span><br><span class="line"># set 的长度</span><br><span class="line">len(x)</span><br><span class="line"></span><br><span class="line"># 测试 s 是否是 x 的成员</span><br><span class="line">s in x</span><br><span class="line"></span><br><span class="line"># 测试 s 是否不是 x 的成员</span><br><span class="line">s not in x</span><br><span class="line"></span><br><span class="line"># 测试是否 y 中的每一个元素都在 x 中</span><br><span class="line">s.issubset(t)</span><br><span class="line">s &lt;= t</span><br><span class="line"></span><br><span class="line"># 测试是否 y 中的每一个元素都在 x 中</span><br><span class="line">s.issuperset(t)</span><br><span class="line">s &gt;= t</span><br><span class="line"></span><br><span class="line"># 返回 set “s”的一个浅复制</span><br><span class="line">s.copy()</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -441,8 +468,8 @@ sum(iterable[, start])</p>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/07/MySQL/" rel="prev" title="MySQL">
-                MySQL <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/07/MySQL/" rel="prev" title="SQL">
+                SQL <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -586,7 +613,7 @@ sum(iterable[, start])</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#map函数"><span class="nav-number">1.</span> <span class="nav-text">map函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sum函数"><span class="nav-number">2.</span> <span class="nav-text">sum函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组倒序"><span class="nav-number">3.</span> <span class="nav-text">数组倒序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#map函数"><span class="nav-number">1.</span> <span class="nav-text">map函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sum函数"><span class="nav-number">2.</span> <span class="nav-text">sum函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ord函数"><span class="nav-number">3.</span> <span class="nav-text">ord函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组倒序"><span class="nav-number">4.</span> <span class="nav-text">数组倒序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set"><span class="nav-number">5.</span> <span class="nav-text">set</span></a></li></ol></div>
             
 
           </div>
