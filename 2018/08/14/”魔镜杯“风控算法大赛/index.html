@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/%E9%A3%8E%E6%8E%A7%E7%AE%97%E6%B3%95%E6%B5%B7%E6%8A%A5.jpg">
-<meta property="og:updated_time" content="2018-08-15T11:26:24.051Z">
+<meta property="og:updated_time" content="2018-08-15T15:02:44.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="”魔镜杯“风控算法大赛">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/%E9%A3%8E%E6%8E%A7%E7%AE%97%E6%B3%95%E6%B5%B7%E6%8A%A5.jpg">
@@ -424,7 +424,8 @@
 </tr>
 </tbody>
 </table>
-<p>2.Log_Info<br>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">train_master.info()</span><br><span class="line">》</span><br><span class="line">&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;</span><br><span class="line">RangeIndex: 30000 entries, 0 to 29999</span><br><span class="line">Columns: 228 entries, Idx to ListingInfo</span><br><span class="line">dtypes: float64(38), int64(170), object(20)</span><br><span class="line">memory usage: 52.2+ MB</span><br></pre></td></tr></table></figure>
+<p>2.Log_Info  <br>
 借款人的登陆信息。</p>
 <table>
 <thead>
@@ -456,6 +457,7 @@
 </tr>
 </tbody>
 </table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">train_loginfo.info()</span><br><span class="line">》</span><br><span class="line">&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;</span><br><span class="line">RangeIndex: 580551 entries, 0 to 580550</span><br><span class="line">Data columns (total 5 columns):</span><br><span class="line">Idx           580551 non-null int64</span><br><span class="line">Listinginfo1     580551 non-null object</span><br><span class="line">LogInfo1        580551 non-null int64</span><br><span class="line">LogInfo2        580551 non-null int64</span><br><span class="line">LogInfo3        580551 non-null object</span><br><span class="line">dtypes: int64(3), object(2)</span><br><span class="line">memory usage: 22.1+ MB</span><br></pre></td></tr></table></figure>
 <p>3.Userupdate_Info<br>
 借款人修改信息。</p>
 <table>
@@ -484,23 +486,98 @@
 </tr>
 </tbody>
 </table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">train_userinfo.info()</span><br><span class="line">》</span><br><span class="line">&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;</span><br><span class="line">RangeIndex: 372463 entries, 0 to 372462</span><br><span class="line">Data columns (total 4 columns):</span><br><span class="line">Idx                372463 non-null int64</span><br><span class="line">ListingInfo1          372463 non-null object</span><br><span class="line">UserupdateInfo1        372463 non-null object</span><br><span class="line">UserupdateInfo2        372463 non-null object</span><br><span class="line">dtypes: int64(1), object(3)</span><br><span class="line">memory usage: 11.4+ MB</span><br></pre></td></tr></table></figure>
 <h1 id="比赛规则"><a class="header-anchor" href="#比赛规则"></a>比赛规则</h1>
 <p>参赛团队需要基于训练集数据构建预测模型，使用模型计算测试集的评分（评分数值越高，表示越有可能出现贷款违约）。<br>
 模型评价标准：<br>
 定义：本次比赛采用AUC来评判模型的效果。AUC即以False Positive Rate为横轴，True Positive Rate为纵轴的ROC （Receiver Operating Characteristic）curve下方的面积的大小。  <br>
 $$AUC=\frac{\sum_{i} S_{i}}{M \times N}$$<br>
 其中，M为正样本个数，N为负样本个数，M*N为正负样本对的个数。$S_{i}$为第i个正负样本对的得分，定义如下：<br>
-$$sum[i][j] = \begin{cases}<br>
-\sum\limits_{k=i}^{j}stone[k] &amp; i + j &lt; n \<br>
-\sum\limits_{k= i}^{n-1} stone[k] + \sum\limits_{k =0 }^{(i+j) % n}stone[k]  &amp; i + j \leq n<br>
+$$S_{i}=\begin{cases}<br>
+1 &amp; score_{i-p} &gt; score_{i-n} \\<br>
+0.5 &amp; score_{i-p} = score_{i-n} \\<br>
+0 &amp; score_{i-p} &lt; score_{i-n}<br>
 \end{cases}$$<br>
-$${ S }<em>{ i }=\left{ \begin{matrix} 1 \quad score</em>{i-p} &gt; score_{i-n}\ 0.5 \quad score_{i-p} = score_{i-n} \ 0 \quad score_{i-p} &lt; score_{i-n} \end{matrix} \right $$<br>
 其中，<br>
 $score_{i-p}$为正负样本对中，模型给正样本的评分，  <br>
 $score_{i-n}$为正负样本对中，模型给负样本的评分，<br>
 AUC值在[0,1]区间，越高越好。</p>
-<h1 id="none"><a class="header-anchor" href="#none"></a></h1>
-
+<h1 id="数据清洗"><a class="header-anchor" href="#数据清洗"></a>数据清洗</h1>
+<h2 id="删除缺失数据"><a class="header-anchor" href="#删除缺失数据"></a>删除缺失数据</h2>
+<p>Master表信息缺失情况相对比较为严重。     <br>
+统计各字段的缺失情况：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">null_sum = train_master.isnull().sum()</span><br><span class="line">null_sum = null_sum[null_sum!=<span class="number">0</span>]</span><br><span class="line">null_sum_df = pd.DataFrame(null_sum, columns=[<span class="string">'num'</span>])</span><br><span class="line">null_sum_df[<span class="string">'ratio'</span>] = null_sum_df[<span class="string">'num'</span>] / <span class="number">30000.0</span></span><br><span class="line">null_sum_df.sort_values(by=<span class="string">'ratio'</span>, ascending=<span class="keyword">False</span>, inplace=<span class="keyword">True</span>)<span class="comment">#对每个字段信息进行缺失率排序</span></span><br><span class="line">null_sum_df[:<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>num</th>
+<th>ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WeblogInfo_3</td>
+<td>29030</td>
+<td>0.967667</td>
+</tr>
+<tr>
+<td>WeblogInfo_1</td>
+<td>29030</td>
+<td>0.967667</td>
+</tr>
+<tr>
+<td>UserInfo_11</td>
+<td>18909</td>
+<td>0.630300</td>
+</tr>
+<tr>
+<td>UserInfo_13</td>
+<td>18909</td>
+<td>0.630300</td>
+</tr>
+<tr>
+<td>UserInfo_12</td>
+<td>18909</td>
+<td>0.630300</td>
+</tr>
+<tr>
+<td>WeblogInfo_20</td>
+<td>8050</td>
+<td>0.268333</td>
+</tr>
+<tr>
+<td>WeblogInfo_21</td>
+<td>3074</td>
+<td>0.102467</td>
+</tr>
+<tr>
+<td>WeblogInfo_19</td>
+<td>2963</td>
+<td>0.098767</td>
+</tr>
+<tr>
+<td>WeblogInfo_2</td>
+<td>1658</td>
+<td>0.055267</td>
+</tr>
+<tr>
+<td>WeblogInfo_4</td>
+<td>1651</td>
+<td>0.055033</td>
+</tr>
+</tbody>
+</table>
+<p>删除缺失严重的行:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_master.drop([<span class="string">'WeblogInfo_3'</span>, <span class="string">'WeblogInfo_1'</span>, <span class="string">'UserInfo_11'</span>, <span class="string">'UserInfo_13'</span>, <span class="string">'UserInfo_12'</span>, <span class="string">'WeblogInfo_20'</span>],axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<p>删除缺失严重的行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">record_nan=train_master.isnull().sum(axis=<span class="number">1</span>).sort_values(ascending=<span class="keyword">False</span>)</span><br><span class="line">drop_record_index=[i <span class="keyword">for</span> i <span class="keyword">in</span> record_nan.loc[(record_nan&gt;=<span class="number">5</span>)].index]</span><br><span class="line">print(<span class="string">"Before train_master shape &#123;&#125;"</span>.format(train_master.shape))</span><br><span class="line">train_master.drop(drop_record_index, inplace=<span class="keyword">True</span>)</span><br><span class="line">print(<span class="string">"After train_master shape &#123;&#125;"</span>.format(train_master.shape))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Before train_master shape (30000, 222)</span><br><span class="line">After train_master shape (29189, 222)</span><br></pre></td></tr></table></figure>
+<h2 id="缺失填充"><a class="header-anchor" href="#缺失填充"></a>缺失填充</h2>
+<p>填充缺失值要根据字段的属性进行合理填充，在没有字段信息的情况下，根据数据分布情况填充。<br>
+在缺失数据较少的情况下，用频率最高的值填充；在缺失数据较多的情况下，用均值填充。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'Before all nan num&#123;&#125;'</span>.format(train_master.isnull().sum()</span><br><span class="line">.sum()))</span><br><span class="line"></span><br><span class="line">train_master.loc[train_master[<span class="string">'UserInfo_2'</span>].isnull(), <span class="string">'UserInfo_2'</span>] = <span class="string">'位置地点'</span></span><br><span class="line">train_master.loc[train_master[<span class="string">'UserInfo_4'</span>].isnull(), <span class="string">'UserInfo_4'</span>] = <span class="string">'位置地点'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fill_nan</span><span class="params">(f, method)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> method == <span class="string">"most"</span>:</span><br><span class="line">        common_value=pd.value_counts(train_master[f], 					ascending=<span class="keyword">False</span>).index[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        common_value = train_master[f].mean()</span><br><span class="line">    train_master.loc[train_master[f].isnull(), f]=common_value</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过pd.value_counts(train_master[f])的观察得到经验</span></span><br><span class="line">fill_nan(<span class="string">'UserInfo_1'</span>, <span class="string">'most'</span>)</span><br><span class="line">fill_nan(<span class="string">'UserInfo_3'</span>, <span class="string">'most'</span>)</span><br><span class="line">fill_nan(<span class="string">'WeblogInfo_2'</span>, <span class="string">'most'</span>)</span><br><span class="line">fill_nan(<span class="string">'WeblogInfo_4'</span>, <span class="string">'mean'</span>)</span><br><span class="line">fill_nan(<span class="string">'WeblogInfo_5'</span>, <span class="string">'mean'</span>)</span><br><span class="line">fill_nan(<span class="string">'WeblogInfo_6'</span>, <span class="string">'mean'</span>)</span><br><span class="line">fill_nan(<span class="string">'WeblogInfo_19'</span>, <span class="string">'most'</span>)</span><br><span class="line">fill_nan(<span class="string">'WeblogInfo_21'</span>, <span class="string">'most'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'After all nan num: &#123;&#125;'</span>.format(train_master.isnull().sum() </span><br><span class="line">.sum()))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Before all nan num: 9808</span><br><span class="line">After all nan num: 0</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -675,7 +752,7 @@ AUC值在[0,1]区间，越高越好。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据"><span class="nav-number">2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比赛规则"><span class="nav-number">3.</span> <span class="nav-text">比赛规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#none"><span class="nav-number">4.</span> <span class="nav-text"></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据"><span class="nav-number">2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比赛规则"><span class="nav-number">3.</span> <span class="nav-text">比赛规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据清洗"><span class="nav-number">4.</span> <span class="nav-text">数据清洗</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除缺失数据"><span class="nav-number">4.1.</span> <span class="nav-text">删除缺失数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺失填充"><span class="nav-number">4.2.</span> <span class="nav-text">缺失填充</span></a></li></ol></li></ol></div>
             
 
           </div>
