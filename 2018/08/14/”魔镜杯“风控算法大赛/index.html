@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/%E9%A3%8E%E6%8E%A7%E7%AE%97%E6%B3%95%E6%B5%B7%E6%8A%A5.jpg">
-<meta property="og:updated_time" content="2018-08-14T08:10:54.981Z">
+<meta property="og:updated_time" content="2018-08-15T11:26:24.051Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="”魔镜杯“风控算法大赛">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/%E9%A3%8E%E6%8E%A7%E7%AE%97%E6%B3%95%E6%B5%B7%E6%8A%A5.jpg">
@@ -490,11 +490,16 @@
 定义：本次比赛采用AUC来评判模型的效果。AUC即以False Positive Rate为横轴，True Positive Rate为纵轴的ROC （Receiver Operating Characteristic）curve下方的面积的大小。  <br>
 $$AUC=\frac{\sum_{i} S_{i}}{M \times N}$$<br>
 其中，M为正样本个数，N为负样本个数，M*N为正负样本对的个数。$S_{i}$为第i个正负样本对的得分，定义如下：<br>
-$${ S }<em>{ i }=\left{ \begin{matrix} 1 \quad \ 0.5 \ 0 \end{matrix} \right $$<br>
+$$sum[i][j] = \begin{cases}<br>
+\sum\limits_{k=i}^{j}stone[k] &amp; i + j &lt; n \<br>
+\sum\limits_{k= i}^{n-1} stone[k] + \sum\limits_{k =0 }^{(i+j) % n}stone[k]  &amp; i + j \leq n<br>
+\end{cases}$$<br>
+$${ S }<em>{ i }=\left{ \begin{matrix} 1 \quad score</em>{i-p} &gt; score_{i-n}\ 0.5 \quad score_{i-p} = score_{i-n} \ 0 \quad score_{i-p} &lt; score_{i-n} \end{matrix} \right $$<br>
 其中，<br>
-$score</em>{i-p}$为正负样本对中，模型给正样本的评分，  <br>
+$score_{i-p}$为正负样本对中，模型给正样本的评分，  <br>
 $score_{i-n}$为正负样本对中，模型给负样本的评分，<br>
 AUC值在[0,1]区间，越高越好。</p>
+<h1 id="none"><a class="header-anchor" href="#none"></a></h1>
 
       
     </div>
@@ -670,7 +675,7 @@ AUC值在[0,1]区间，越高越好。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据"><span class="nav-number">2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比赛规则"><span class="nav-number">3.</span> <span class="nav-text">比赛规则</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据"><span class="nav-number">2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比赛规则"><span class="nav-number">3.</span> <span class="nav-text">比赛规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#none"><span class="nav-number">4.</span> <span class="nav-text"></span></a></li></ol></div>
             
 
           </div>
