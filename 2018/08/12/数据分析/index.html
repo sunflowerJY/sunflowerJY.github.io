@@ -92,7 +92,7 @@
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/2.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-12_14-11-48.png">
-<meta property="og:updated_time" content="2018-08-15T15:04:14.345Z">
+<meta property="og:updated_time" content="2018-08-16T14:00:01.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据分析">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/2.png">
@@ -425,18 +425,86 @@ Splunk软件主要用作大数据搜索引擎。<br>
 </ol>
 <p>本文主要以2016年拍拍贷主办的“魔镜杯”风控算法大赛项目介绍以上三个步骤，熟悉数据分析的流程。</p>
 <h2 id="数据清洗"><a class="header-anchor" href="#数据清洗"></a>数据清洗</h2>
-<h3 id="为何要数据清洗？"><a class="header-anchor" href="#为何要数据清洗？"></a>为何要数据清洗？</h3>
-<p>平常在论文里用到的公开数据集譬如UCI标准数据集都是没有缺失值、异常值、噪音的优质数据。<br>
-然而在现实世界里，我们要探索的数据往往都是包含了大量缺失值、噪音的数据，例如，app里一些个人信息，分为标*必填字段，以及非必填字段，那么这样就会存在信息缺失了，同时，部分信息可能因为手工误填而导致出现异常值。而这些低质量的数据会对后序的算法建模产生巨大的影响，直接导致模型的偏差。  <br>
-所以我们必须要进行数据清洗工作。  <br>
-数据清洗主要包含一下几个方面：</p>
+<p>数据清洗主要包含：</p>
 <ol>
 <li>缺失值处理</li>
-<li>分析数据</li>
 <li>异常值处理</li>
 <li>去重处理</li>
 <li>噪音数据处理</li>
 </ol>
+<h3 id="为何要数据清洗？"><a class="header-anchor" href="#为何要数据清洗？"></a>为何要数据清洗？</h3>
+<p>平常在论文里用到的公开数据集譬如UCI标准数据集都是没有缺失值、异常值、噪音的优质数据。<br>
+然而在现实世界里，我们要探索的数据往往都是包含了大量缺失值、噪音的数据，例如，app里一些个人信息，分为标*必填字段，以及非必填字段，那么这样就会存在信息缺失了，同时，部分信息可能因为手工误填而导致出现异常值。而这些低质量的数据会对后序的算法建模产生巨大的影响，直接导致模型的偏差。  <br>
+所以我们必须要进行数据清洗工作。</p>
+<h3 id="缺失值处理"><a class="header-anchor" href="#缺失值处理"></a>缺失值处理</h3>
+<p>没有高质量的数据，就没有高质量的数据挖掘结果，数据值缺失是数据分析中经常遇到的问题之一。  <br>
+处理不完整数据集的方法主要有三大类：删除元组、数据补齐、不处理。</p>
+<h4 id="删除元组"><a class="header-anchor" href="#删除元组"></a>删除元组</h4>
+<p>将存在遗漏信息属性值的对象（元组，记录）删除，从而得到一个完备的信息表。这种方法简单易行，在对象有多个属性缺失值、被删除的含缺失值的对象与初始数据集的数据量相比非常小的情况下非常有效。  <br>
+缺点：对于小样本数据集，即使删除少量数据也可能严重影响结果的正确性。</p>
+<h4 id="数据补齐"><a class="header-anchor" href="#数据补齐"></a>数据补齐</h4>
+<p>用一定的值去填充缺失值，从而使信息表完备化。通常基于统计学原理，根据初始数据集中其余对象取值的分布情况来对一个缺失值进行填充。数据挖掘中常用的有以下几种补齐方法：</p>
+<ul>
+<li>人工填写(不可行)<br>
+当数据规模很大、空值很多时</li>
+<li>特殊值填充(不可行)，该方法耗时耗力，不可行。<br>
+将空值作为一种特殊的属性值来处理，它不同于其他的任何属性值。如所有的空值都用“unknown”填充。这样将形成另一个有趣的概念，可能导致严重的数据偏离，一般不推荐使用。</li>
+<li>平均值填充<br>
+将初始数据集中的属性分为数值属性和非数值属性来分别进行处理。</li>
+<li>如果空值是数值型的，就根据该属性在其他所有对象的取值的平均值来填充该缺失的属性值；</li>
+<li>如果空值是非数值型的，就根据统计学中的<code>众数原理</code>，用该属性在其他所有对象的取值次数最多的值(即出现频率最高的值)来补齐该缺失的属性值。与其相似的另一种方法叫<code>条件平均值填充法</code>（Conditional Mean Completer）。在该方法中，用于求平均的值并不是从数据集的所有对象中取，而是从与该对象具有相同决策属性值的对象中取得。这两种数据的补齐方法，其基本的出发点都是一样的，以最大概率可能的取值来补充缺失的属性值，只是在具体方法上有一点不同。与其他方法相比，它是用现存数据的多数信息来推测缺失值。</li>
+<li>下面举例说明：  <br>
+  1. “年收入”：商品推荐场景下填充平均值，借贷额度场景下填充最小值；
+<ol start="2">
+<li>“行为时间点”：填充众数；</li>
+<li>“价格”：商品推荐场景下填充最小值，商品匹配场景下填充平均值；</li>
+<li>“人体寿命”：保险费用估计场景下填充最大值，人口估计场景下填充平均值；</li>
+<li>“驾龄”：没有填写这一项的用户可能是没有车，为它填充为0较为合理；</li>
+<li>”本科毕业时间”：没有填写这一项的用户可能是没有上大学，为它填充正无穷比较合理；</li>
+<li>“婚姻状态”：没有填写这一项的用户可能对自己的隐私比较敏感，应单独设为一个分类，如已婚1、未婚0、未填-1。</li>
+</ol>
+</li>
+<li>插补法</li>
+</ul>
+<ol>
+<li>随机插补法<br>
+从总体中随机抽取某个样本代替缺失样本</li>
+<li>多重插补法<br>
+通过变量之间的关系对缺失数据进行预测，利用蒙特卡洛方法生成多个完整的数据集，在对这些数据集进行分析，最后对分析结果进行汇总处理</li>
+<li>热卡插补<br>
+指在非缺失数据集中找到一个与缺失值所在样本相似的样本（匹配样本），利用其中的观测值对缺失值进行插补。</li>
+</ol>
+<ul>
+<li>优点：简单易行，准去率较高  <br>
+  - 缺点：变量数量较多时，通常很难找到与需要插补样本完全相同的样本。但我们可以按照某些变量将数据分层，在层中对缺失值实用均值插补</li>
+</ul>
+<ol start="4">
+<li>拉格朗日差值法和牛顿插值法</li>
+<li>建模法</li>
+</ol>
+<ul>
+<li>回归<br>
+基于完整的数据集，建立回归方程。对于包含空值的对象，将已知属性值代入方程来估计未知属性值，以此估计值来进行填充。<br>
+缺点：当变量不是线性相关时会导致有偏差的估计。<br>
+  - K最近距离邻法（K-means clustering）  <br>
+先根据欧式距离或相关分析来确定距离具有缺失数据样本最近的K个样本，将这K个值加权平均来估计该样本的缺失数据。</li>
+<li>期望值最大化方法<br>
+EM算法是一种在不完全数据情况下计算极大似然估计或者后验分布的迭代算法。在每一迭代循环过程中交替执行两个步骤：E步（Excepctaion step,期望步），在给定完全数据和前一次迭代所得到的参数估计的情况下计算完全数据对应的对数似然函数的条件期望；M步（Maximzation step，极大化步），用极大化对数似然函数以确定参数的值，并用于下步的迭代。算法在E步和M步之间不断迭代直至收敛，即两次迭代之间的参数变化小于一个预先给定的阈值时结束。该方法可能会陷入局部极值，收敛速度也不是很快，并且计算很复杂。</li>
+</ul>
+<ol start="6">
+<li>归纳法<br>
+  - C4.5方法<br>
+通过寻找属性间的关系来对遗失值填充。它寻找之间具有最大相关性的两个属性，其中没有遗失值的一个称为代理属性，另一个称为原始属性，用代理属性决定原始属性中的遗失值。这种基于规则归纳的方法只能处理基数较小的名词型属性。</li>
+</ol>
+<p>就几种基于统计的方法而言，删除元组法和平均值法差于热卡填充法、期望值最大化方法和多重填充法；回归是比较好的一种方法，但仍比不上hot deck和EM；EM缺少MI包含的不确定成分。值得注意的是，这些方法直接处理的是模型参数的估计而不是空缺值预测本身。它们合适于处理无监督学习的问题，而对有监督学习来说，情况就不尽相同了。譬如，你可以删除包含空值的对象用完整的数据集来进行训练，但预测时你却不能忽略包含空值的对象。另外，C4.5和使用所有可能的值填充方法也有较好的补齐效果，人工填写和特殊值填充则是一般不推荐使用的。</p>
+<h4 id="不处理"><a class="header-anchor" href="#不处理"></a>不处理</h4>
+<p>补齐处理只是将未知值补以我们的主观估计值，不一定完全符合客观事实，在对不完备信息进行补齐处理的同时，我们或多或少地改变了原始的信息系统。而且，对空值不正确的填充往往将新的噪声引入数据中，使挖掘任务产生错误的结果。因此，在许多情况下，我们还是希望在保持原始信息不发生变化的前提下对信息系统进行处理。</p>
+<p>不处理缺失值，直接在包含空值的数据上进行数据挖掘的方法包括<code>贝叶斯网络</code>和<code>人工神经网络</code>等。</p>
+<p>贝叶斯网络提供了一种自然的表示变量间因果信息的方法，用来发现数据间的潜在关系。在这个网络中，用节点表示变量，有向边表示变量间的依赖关系。贝叶斯网络仅适合于对领域知识具有一定了解的情况，至少对变量间的依赖关系较清楚的情况。否则直接从数据中学习贝叶斯网的结构不但复杂性较高（随着变量的增加，指数级增加），网络维护代价昂贵，而且它的估计参数较多，为系统带来了高方差，影响了它的预测精度。只有当数据集较小或满足某些条件（如多元正态分布）时完全贝叶斯分析才是可行的。</p>
+<p>人工神经网络可以有效的对付缺失值，但人工神经网络在这方面的研究还有待进一步深入展开。</p>
+<h4 id="映射到高维空间"><a class="header-anchor" href="#映射到高维空间"></a>映射到高维空间</h4>
+<p>比如性别，有男、女、缺失三种情况，则映射成3个变量：是否男、是否女、是否缺失。连续型变量也可以这样处理。比如Google、百度的CTR预估模型，预处理时会把所有变量都这样处理，达到几亿维。这样做的好处是完整保留了原始数据的全部信息、不用考虑缺失值、不用考虑线性不可分之类的问题。缺点是计算量大大提升。</p>
+<p>而且只有在样本量非常大的时候效果才好，否则会因为过于稀疏，效果很差</p>
 <h3 id="分析数据"><a class="header-anchor" href="#分析数据"></a>分析数据</h3>
 
       
@@ -617,7 +685,7 @@ Splunk软件主要用作大数据搜索引擎。<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据分析"><span class="nav-number">2.</span> <span class="nav-text">数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据清洗"><span class="nav-number">2.1.</span> <span class="nav-text">数据清洗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为何要数据清洗？"><span class="nav-number">2.1.1.</span> <span class="nav-text">为何要数据清洗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析数据"><span class="nav-number">2.1.2.</span> <span class="nav-text">分析数据</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据分析"><span class="nav-number">2.</span> <span class="nav-text">数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据清洗"><span class="nav-number">2.1.</span> <span class="nav-text">数据清洗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为何要数据清洗？"><span class="nav-number">2.1.1.</span> <span class="nav-text">为何要数据清洗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺失值处理"><span class="nav-number">2.1.2.</span> <span class="nav-text">缺失值处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除元组"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">删除元组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据补齐"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">数据补齐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不处理"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">不处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#映射到高维空间"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">映射到高维空间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析数据"><span class="nav-number">2.1.3.</span> <span class="nav-text">分析数据</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
