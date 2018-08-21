@@ -92,7 +92,7 @@
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/2.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-12_14-11-48.png">
-<meta property="og:updated_time" content="2018-08-16T14:00:01.658Z">
+<meta property="og:updated_time" content="2018-08-21T02:22:44.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据分析">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/2.png">
@@ -505,7 +505,41 @@ EM算法是一种在不完全数据情况下计算极大似然估计或者后验
 <h4 id="映射到高维空间"><a class="header-anchor" href="#映射到高维空间"></a>映射到高维空间</h4>
 <p>比如性别，有男、女、缺失三种情况，则映射成3个变量：是否男、是否女、是否缺失。连续型变量也可以这样处理。比如Google、百度的CTR预估模型，预处理时会把所有变量都这样处理，达到几亿维。这样做的好处是完整保留了原始数据的全部信息、不用考虑缺失值、不用考虑线性不可分之类的问题。缺点是计算量大大提升。</p>
 <p>而且只有在样本量非常大的时候效果才好，否则会因为过于稀疏，效果很差</p>
-<h3 id="分析数据"><a class="header-anchor" href="#分析数据"></a>分析数据</h3>
+<h3 id="异常值处理"><a class="header-anchor" href="#异常值处理"></a>异常值处理</h3>
+<p>异常值通常也称为“离群点”。</p>
+<h4 id="发现异常值"><a class="header-anchor" href="#发现异常值"></a>发现异常值</h4>
+<ul>
+<li>画图</li>
+<li>简单的统计分析</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.describe()#pandas的describe()函数</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3∂原则</li>
+<li>箱型图分析</li>
+<li>基于模型检测<br>
+首先建立一个数据模型，异常是那些同模型不能完美拟合的对象；如果模型是簇的集合，则异常是不显著属于任何簇的对象；在使用回归模型时，异常是相对远离预测值的对象<br>
+优缺点：1.有坚实的统计学理论基础，当存在充分的数据和所用的检验类型的知识时，这些检验可能非常有效；2.对于多元数据，可用的选择少一些，并且对于高维数据，这些检测可能性很差。</li>
+<li>基于距离<br>
+通常可以在对象之间定义邻近性度量，异常对象是那些远离其他对象的对象<br>
+优缺点：1.简单；2.缺点：基于邻近度的方法需要O(m2)时间，大数据集不适用；3.该方法对参数的选择也是敏感的；4.不能处理具有不同密度区域的数据集，因为它使用全局阈值，不能考虑这种密度的变化。</li>
+<li>基于密度<br>
+当一个点的局部密度显著低于它的大部分近邻时才将其分类为离群点。适合非均匀分布的数据。<br>
+优缺点：1.给出了对象是离群点的定量度量，并且即使数据具有不同的区域也能够很好的处理；2.与基于距离的方法一样，这些方法必然具有O(m2)的时间复杂度。对于低维数据使用特定的数据结构可以达到O(mlogm)；3.参数选择困难。虽然算法通过观察不同的k值，取得最大离群点得分来处理该问题，但是，仍然需要选择这些值的上下界。</li>
+<li>基于聚类<br>
+基于聚类的离群点：一个对象是基于聚类的离群点，如果该对象不强属于任何簇。离群点对初始聚类的影响：如果通过聚类检测离群点，则由于离群点影响聚类，存在一个问题：结构是否有效。为了处理该问题，可以使用如下方法：对象聚类，删除离群点，对象再次聚类（这个不能保证产生最优结果）。<br>
+优缺点：1.基于线性和接近线性复杂度（k均值）的聚类技术来发现离群点可能是高度有效的；2.簇的定义通常是离群点的补，因此可能同时发现簇和离群点；3.产生的离群点集和它们的得分可能非常依赖所用的簇的个数和数据中离群点的存在性；4.聚类算法产生的簇的质量对该算法产生的离群点的质量影响非常大。</li>
+</ul>
+<h4 id="异常值处理-v2"><a class="header-anchor" href="#异常值处理-v2"></a>异常值处理</h4>
+<ul>
+<li>删除异常值<br>
+明显看出是异常且数量较少可以直接删除</li>
+<li>不处理<br>
+如果算法对异常值不敏感则可以不处理，但如果算法对异常值敏感，则最好不要用，如基于距离计算的一些算法，包括kmeans，knn之类的。</li>
+<li>平均值替代<br>
+损失信息小，简单高效。</li>
+<li>视为缺失值<br>
+可以按照处理缺失值的方法来处理</li>
+</ul>
 
       
     </div>
@@ -685,7 +719,7 @@ EM算法是一种在不完全数据情况下计算极大似然估计或者后验
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据分析"><span class="nav-number">2.</span> <span class="nav-text">数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据清洗"><span class="nav-number">2.1.</span> <span class="nav-text">数据清洗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为何要数据清洗？"><span class="nav-number">2.1.1.</span> <span class="nav-text">为何要数据清洗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺失值处理"><span class="nav-number">2.1.2.</span> <span class="nav-text">缺失值处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除元组"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">删除元组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据补齐"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">数据补齐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不处理"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">不处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#映射到高维空间"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">映射到高维空间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析数据"><span class="nav-number">2.1.3.</span> <span class="nav-text">分析数据</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据分析"><span class="nav-number">2.</span> <span class="nav-text">数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据清洗"><span class="nav-number">2.1.</span> <span class="nav-text">数据清洗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为何要数据清洗？"><span class="nav-number">2.1.1.</span> <span class="nav-text">为何要数据清洗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺失值处理"><span class="nav-number">2.1.2.</span> <span class="nav-text">缺失值处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除元组"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">删除元组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据补齐"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">数据补齐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不处理"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">不处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#映射到高维空间"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">映射到高维空间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常值处理"><span class="nav-number">2.1.3.</span> <span class="nav-text">异常值处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发现异常值"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">发现异常值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常值处理-v2"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">异常值处理</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
