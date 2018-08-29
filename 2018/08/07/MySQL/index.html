@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/main-qimg-2aada1d3b6e4fd8b68793b035ef63db5.png">
-<meta property="og:updated_time" content="2018-08-29T08:14:12.212Z">
+<meta property="og:updated_time" content="2018-08-29T08:17:48.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/main-qimg-2aada1d3b6e4fd8b68793b035ef63db5.png">
@@ -377,9 +377,8 @@
 <a id="more"></a>
 参考：http://www.runoob.com/sql/sql-syntax.html
 <h1 id="数据库基础"><a class="header-anchor" href="#数据库基础"></a>数据库基础</h1>
-<a id="dml_ddl_dcl">
-## 数据库操作语言(Data Manipulation Language, DML)
-它们是SELECT、UPDATE、INSERT、DELETE，就象它的名字一样，这4条命令是用来对数据库里的数据进行操作的语言。
+<h2 id="数据库操作语言-data-manipulation-language-dml"><a class="header-anchor" href="#数据库操作语言-data-manipulation-language-dml"></a>数据库操作语言(Data Manipulation Language, DML)</h2>
+<p>它们是SELECT、UPDATE、INSERT、DELETE，就象它的名字一样，这4条命令是用来对数据库里的数据进行操作的语言。<a id="dml_ddl_dcl"></a></p>
 <h2 id="数据库定义语言-data-definition-language-ddl"><a class="header-anchor" href="#数据库定义语言-data-definition-language-ddl"></a>数据库定义语言(Data Definition Language, DDL)</h2>
 <p>DDL比DML要多，主要的命令有CREATE、ALTER、DROP、TRUNCATE等，DDL主要是用在定义或改变表（TABLE）的结构，数据类型，表之间的链接和约束等初始化工作上，他们大多在建立表时使用。</p>
 <h2 id="数据库控制语言-data-control-language-dcl"><a class="header-anchor" href="#数据库控制语言-data-control-language-dcl"></a>数据库控制语言(Data Control Language, DCL)</h2>
@@ -665,7 +664,7 @@ drop 语句将删除表的结构被依赖的约束(constrain)、触发器(trigge
 <h2 id="truncate"><a class="header-anchor" href="#truncate"></a>TRUNCATE</h2>
 <p>TRUNCATE TABLE删除表中的所有行，但表结构及其列、约束、索引等保持不变。新行标识所用的计数值重置为该列的种子。如果想保留标识计数值，请改用DELETE。如果要删除表定义及其数据，请使用DROP TABLE  语句。<br>
 TRUNCATE TABLE删除表中的所有行，但表结构及其列、约束、索引等保持不变。新行标识所用的计数值重置为该列的种子。如果想保留标识计数值，请改用DELETE。如果要删除表定义及其数据，请使用DROP TABLE  语句。</p>
-</a>
+
       
     </div>
     
@@ -844,7 +843,7 @@ TRUNCATE TABLE删除表中的所有行，但表结构及其列、约束、索引
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库基础"><span class="nav-number">1.</span> <span class="nav-text">数据库基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库定义语言-data-definition-language-ddl"><span class="nav-number">1.1.</span> <span class="nav-text">数据库定义语言(Data Definition Language, DDL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库控制语言-data-control-language-dcl"><span class="nav-number">1.2.</span> <span class="nav-text">数据库控制语言(Data Control Language, DCL)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询筛选"><span class="nav-number">2.</span> <span class="nav-text">查询筛选</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理重复数据"><span class="nav-number">3.</span> <span class="nav-text">处理重复数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">4.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新表"><span class="nav-number">5.</span> <span class="nav-text">更新表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除"><span class="nav-number">6.</span> <span class="nav-text">删除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#delete"><span class="nav-number">6.1.</span> <span class="nav-text">DELETE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop"><span class="nav-number">6.2.</span> <span class="nav-text">DROP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#truncate"><span class="nav-number">6.3.</span> <span class="nav-text">TRUNCATE</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库基础"><span class="nav-number">1.</span> <span class="nav-text">数据库基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作语言-data-manipulation-language-dml"><span class="nav-number">1.1.</span> <span class="nav-text">数据库操作语言(Data Manipulation Language, DML)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库定义语言-data-definition-language-ddl"><span class="nav-number">1.2.</span> <span class="nav-text">数据库定义语言(Data Definition Language, DDL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库控制语言-data-control-language-dcl"><span class="nav-number">1.3.</span> <span class="nav-text">数据库控制语言(Data Control Language, DCL)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询筛选"><span class="nav-number">2.</span> <span class="nav-text">查询筛选</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理重复数据"><span class="nav-number">3.</span> <span class="nav-text">处理重复数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">4.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新表"><span class="nav-number">5.</span> <span class="nav-text">更新表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除"><span class="nav-number">6.</span> <span class="nav-text">删除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#delete"><span class="nav-number">6.1.</span> <span class="nav-text">DELETE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop"><span class="nav-number">6.2.</span> <span class="nav-text">DROP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#truncate"><span class="nav-number">6.3.</span> <span class="nav-text">TRUNCATE</span></a></li></ol></li></ol></div>
             
 
           </div>
