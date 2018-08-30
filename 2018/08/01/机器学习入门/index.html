@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/ssfdfd.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-53-30.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-55-39.png">
-<meta property="og:updated_time" content="2018-08-21T09:05:50.474Z">
+<meta property="og:updated_time" content="2018-08-30T03:43:13.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习入门">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/images.png">
@@ -462,6 +462,14 @@ $$y^{’}=b+w_{1}x_{1}$$<br>
 <p>包含随机抽样样本的大型数据集可能包含冗余数据。实际上，批量大小越大，出现冗余的可能性就越高。一些冗余可能有助于消除杂乱的梯度，但超大批量所具备的预测价值往往并不比大型批量高。</p>
 <p>如果我们可以通过更少的计算量得出正确的平均梯度，会怎么样？通过从我们的数据集中随机选择样本，我们可以通过小得多的数据集估算（尽管过程非常杂乱）出较大的平均值。 <code>随机梯度下降法 (SGD)</code> 将这种想法运用到极致，它每次迭代只使用一个样本（批量大小为 1）。如果进行足够的迭代，SGD 也可以发挥作用，但过程会非常杂乱。“随机”这一术语表示构成各个批量的一个样本都是随机选择的。</p>
 <p><code>小批量随机梯度下降法（小批量 SGD）</code>是介于全批量迭代与 SGD 之间的折衷方案。小批量通常包含 10-1000 个随机选择的样本。小批量 SGD 可以减少 SGD 中的杂乱样本数量，但仍然比全批量更高效。</p>
+<h1 id="算法分类"><a class="header-anchor" href="#算法分类"></a>算法分类</h1>
+<h2 id="学习方法"><a class="header-anchor" href="#学习方法"></a>学习方法</h2>
+<ul>
+<li>监督式学习</li>
+<li>非监督式学习</li>
+<li>半监督式学习</li>
+<li>强化学习</li>
+</ul>
 
       
     </div>
@@ -647,7 +655,7 @@ $$y^{’}=b+w_{1}x_{1}$$<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tensorflow"><span class="nav-number">1.</span> <span class="nav-text">TensorFlow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性回归"><span class="nav-number">2.</span> <span class="nav-text">线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#损失"><span class="nav-number">2.2.</span> <span class="nav-text">损失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#平方损失"><span class="nav-number">2.2.1.</span> <span class="nav-text">平方损失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#均方误差"><span class="nav-number">2.2.2.</span> <span class="nav-text">均方误差</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降低损失"><span class="nav-number">2.3.</span> <span class="nav-text">降低损失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">迭代方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降法"><span class="nav-number">2.3.2.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机梯度下降法"><span class="nav-number">2.3.3.</span> <span class="nav-text">随机梯度下降法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tensorflow"><span class="nav-number">1.</span> <span class="nav-text">TensorFlow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性回归"><span class="nav-number">2.</span> <span class="nav-text">线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#损失"><span class="nav-number">2.2.</span> <span class="nav-text">损失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#平方损失"><span class="nav-number">2.2.1.</span> <span class="nav-text">平方损失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#均方误差"><span class="nav-number">2.2.2.</span> <span class="nav-text">均方误差</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降低损失"><span class="nav-number">2.3.</span> <span class="nav-text">降低损失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">迭代方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降法"><span class="nav-number">2.3.2.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机梯度下降法"><span class="nav-number">2.3.3.</span> <span class="nav-text">随机梯度下降法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分类"><span class="nav-number">3.</span> <span class="nav-text">算法分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习方法"><span class="nav-number">3.1.</span> <span class="nav-text">学习方法</span></a></li></ol></li></ol></div>
             
 
           </div>
