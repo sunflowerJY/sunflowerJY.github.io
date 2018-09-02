@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/main-qimg-2aada1d3b6e4fd8b68793b035ef63db5.png">
-<meta property="og:updated_time" content="2018-08-30T03:39:02.167Z">
+<meta property="og:updated_time" content="2018-08-30T09:18:31.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/main-qimg-2aada1d3b6e4fd8b68793b035ef63db5.png">
@@ -685,6 +685,289 @@ drop 语句将删除表的结构被依赖的约束(constrain)、触发器(trigge
 <h2 id="truncate"><a class="header-anchor" href="#truncate"></a>TRUNCATE</h2>
 <p>TRUNCATE TABLE删除表中的所有行，但表结构及其列、约束、索引等保持不变。新行标识所用的计数值重置为该列的种子。如果想保留标识计数值，请改用DELETE。如果要删除表定义及其数据，请使用DROP TABLE  语句。<br>
 TRUNCATE TABLE删除表中的所有行，但表结构及其列、约束、索引等保持不变。新行标识所用的计数值重置为该列的种子。如果想保留标识计数值，请改用DELETE。如果要删除表定义及其数据，请使用DROP TABLE  语句。</p>
+<h1 id="连接"><a class="header-anchor" href="#连接"></a>连接</h1>
+<ul>
+<li>等值连接<br>
+在连接条件中使用等于号(=)运算符比较被连接列的列值，其查询结果中列出被连接表中的所有列，包括其中的重复列。</li>
+<li>不等值连接<br>
+在连接条件使用除等于运算符以外的其它比较运算符比较被连接的列的列值。这些运算符包括&gt;、&gt;=、&lt;=、&lt;、!&gt;、!&lt;和&lt;&gt;。</li>
+<li>自然连接<br>
+在连接条件中使用等于(=)运算符比较被连接列的列值，但它使用选择列表指出查询结果集合中所包括的列，并删除连接表中的重复列。</li>
+</ul>
+<p>示例：  <br>
+book表：</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>bookname</th>
+<th>sutid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>python编程</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>sql编程</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>winform</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>web教程</td>
+<td>4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>前端教程</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>stu表：</p>
+<table>
+<thead>
+<tr>
+<th>sutid</th>
+<th>stuname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+</tr>
+<tr>
+<td>3</td>
+<td>王五</td>
+</tr>
+<tr>
+<td>4</td>
+<td>任六</td>
+</tr>
+<tr>
+<td>5</td>
+<td>赵七</td>
+</tr>
+</tbody>
+</table>
+<h2 id="内连接"><a class="header-anchor" href="#内连接"></a>内连接</h2>
+<p>内连接查询操作列出与连接条件匹配的数据行，它使用比较运算符比较被连接列的列值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> book <span class="keyword">as</span> a,stu <span class="keyword">as</span> b <span class="keyword">where</span> a.sutid = b.stuid</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> book <span class="keyword">as</span> a <span class="keyword">inner</span> <span class="keyword">join</span> stu <span class="keyword">as</span> b <span class="keyword">on</span> a.sutid = b.stuid</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>bookname</th>
+<th>sutid</th>
+<th>sutid</th>
+<th>stuname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>python编程</td>
+<td>1</td>
+<td>1</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>2</td>
+<td>sql编程</td>
+<td>2</td>
+<td>2</td>
+<td>李四</td>
+</tr>
+<tr>
+<td>3</td>
+<td>winform</td>
+<td>3</td>
+<td>3</td>
+<td>王五</td>
+</tr>
+<tr>
+<td>4</td>
+<td>web教程</td>
+<td>4</td>
+<td>4</td>
+<td>任六</td>
+</tr>
+</tbody>
+</table>
+<h2 id="外连接"><a class="header-anchor" href="#外连接"></a>外连接</h2>
+<h3 id="左连接"><a class="header-anchor" href="#左连接"></a>左连接</h3>
+<p>以左表为基准，将a.stuid = b.stuid的数据进行连接，然后将左表没有的对应项显示，右表的列为NULL</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> book <span class="keyword">as</span> a <span class="keyword">left</span> <span class="keyword">join</span> stu <span class="keyword">as</span> b <span class="keyword">on</span> a.sutid = b.stuid</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>bookname</th>
+<th>sutid</th>
+<th>sutid</th>
+<th>stuname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>python编程</td>
+<td>1</td>
+<td>1</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>2</td>
+<td>sql编程</td>
+<td>2</td>
+<td>2</td>
+<td>李四</td>
+</tr>
+<tr>
+<td>3</td>
+<td>winform</td>
+<td>3</td>
+<td>3</td>
+<td>王五</td>
+</tr>
+<tr>
+<td>4</td>
+<td>web教程</td>
+<td>4</td>
+<td>4</td>
+<td>任六</td>
+</tr>
+<tr>
+<td>6</td>
+<td>前端教程</td>
+<td>10</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="右连接"><a class="header-anchor" href="#右连接"></a>右连接</h3>
+<p>以右表为基准，将a.stuid = b.stuid的数据进行连接，然以将右表没有的对应项显示，左表的列为NULL</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> book <span class="keyword">as</span> a <span class="keyword">right</span> <span class="keyword">join</span> stu <span class="keyword">as</span> b <span class="keyword">on</span> a.sutid = b.stuid</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>bookname</th>
+<th>sutid</th>
+<th>sutid</th>
+<th>stuname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>python编程</td>
+<td>1</td>
+<td>1</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>2</td>
+<td>sql编程</td>
+<td>2</td>
+<td>2</td>
+<td>李四</td>
+</tr>
+<tr>
+<td>3</td>
+<td>winform</td>
+<td>3</td>
+<td>3</td>
+<td>王五</td>
+</tr>
+<tr>
+<td>4</td>
+<td>web教程</td>
+<td>4</td>
+<td>4</td>
+<td>任六</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>5</td>
+<td>赵七</td>
+</tr>
+</tbody>
+</table>
+<h3 id="全连接"><a class="header-anchor" href="#全连接"></a>全连接</h3>
+<p>完整外部联接返回左表和右表中的所有行。当某行在另一个表中没有匹配行时，则另一个表的选择列表列包含空值。如果表之间有匹配行，则整个结果集行包含基表的数据值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> book <span class="keyword">as</span> a <span class="keyword">full</span> <span class="keyword">outer</span> <span class="keyword">join</span> stu <span class="keyword">as</span> b <span class="keyword">on</span> a.sutid = b.stuid</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>bookname</th>
+<th>sutid</th>
+<th>sutid</th>
+<th>stuname</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>python编程</td>
+<td>1</td>
+<td>1</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>2</td>
+<td>sql编程</td>
+<td>2</td>
+<td>2</td>
+<td>李四</td>
+</tr>
+<tr>
+<td>3</td>
+<td>winform</td>
+<td>3</td>
+<td>3</td>
+<td>王五</td>
+</tr>
+<tr>
+<td>4</td>
+<td>web教程</td>
+<td>4</td>
+<td>4</td>
+<td>任六</td>
+</tr>
+<tr>
+<td>6</td>
+<td>前端教程</td>
+<td>10</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>5</td>
+<td>赵七</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -864,7 +1147,7 @@ TRUNCATE TABLE删除表中的所有行，但表结构及其列、约束、索引
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据仓库"><span class="nav-number">1.</span> <span class="nav-text">数据仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#四个特点"><span class="nav-number">1.1.</span> <span class="nav-text">四个特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用模型"><span class="nav-number">1.2.</span> <span class="nav-text">常用模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库基础"><span class="nav-number">2.</span> <span class="nav-text">数据库基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作语言-data-manipulation-language-dml"><span class="nav-number">2.1.</span> <span class="nav-text">数据库操作语言(Data Manipulation Language, DML)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库定义语言-data-definition-language-ddl"><span class="nav-number">2.2.</span> <span class="nav-text">数据库定义语言(Data Definition Language, DDL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库控制语言-data-control-language-dcl"><span class="nav-number">2.3.</span> <span class="nav-text">数据库控制语言(Data Control Language, DCL)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询筛选"><span class="nav-number">3.</span> <span class="nav-text">查询筛选</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理重复数据"><span class="nav-number">4.</span> <span class="nav-text">处理重复数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">5.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新表"><span class="nav-number">6.</span> <span class="nav-text">更新表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除"><span class="nav-number">7.</span> <span class="nav-text">删除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#delete"><span class="nav-number">7.1.</span> <span class="nav-text">DELETE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop"><span class="nav-number">7.2.</span> <span class="nav-text">DROP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#truncate"><span class="nav-number">7.3.</span> <span class="nav-text">TRUNCATE</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据仓库"><span class="nav-number">1.</span> <span class="nav-text">数据仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#四个特点"><span class="nav-number">1.1.</span> <span class="nav-text">四个特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用模型"><span class="nav-number">1.2.</span> <span class="nav-text">常用模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库基础"><span class="nav-number">2.</span> <span class="nav-text">数据库基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作语言-data-manipulation-language-dml"><span class="nav-number">2.1.</span> <span class="nav-text">数据库操作语言(Data Manipulation Language, DML)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库定义语言-data-definition-language-ddl"><span class="nav-number">2.2.</span> <span class="nav-text">数据库定义语言(Data Definition Language, DDL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库控制语言-data-control-language-dcl"><span class="nav-number">2.3.</span> <span class="nav-text">数据库控制语言(Data Control Language, DCL)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询筛选"><span class="nav-number">3.</span> <span class="nav-text">查询筛选</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理重复数据"><span class="nav-number">4.</span> <span class="nav-text">处理重复数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">5.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新表"><span class="nav-number">6.</span> <span class="nav-text">更新表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除"><span class="nav-number">7.</span> <span class="nav-text">删除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#delete"><span class="nav-number">7.1.</span> <span class="nav-text">DELETE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop"><span class="nav-number">7.2.</span> <span class="nav-text">DROP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#truncate"><span class="nav-number">7.3.</span> <span class="nav-text">TRUNCATE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连接"><span class="nav-number">8.</span> <span class="nav-text">连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内连接"><span class="nav-number">8.1.</span> <span class="nav-text">内连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外连接"><span class="nav-number">8.2.</span> <span class="nav-text">外连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#左连接"><span class="nav-number">8.2.1.</span> <span class="nav-text">左连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#右连接"><span class="nav-number">8.2.2.</span> <span class="nav-text">右连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接"><span class="nav-number">8.2.3.</span> <span class="nav-text">全连接</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
