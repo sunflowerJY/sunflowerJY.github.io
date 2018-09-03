@@ -85,23 +85,21 @@
 
 
 
-<meta name="description" content="Hive 简介 Hive是建立在Hadoop上的数据仓库基础构架。它提供了一系列的工具，可以用来进行数据提取转化加载(ETL)，这是一种可以存储、查询和分析存储在Hadoop中的大规模数据的机制。    Hive构建在Hadoop的HDFS和MapReduce之上，用于管理和查询结构化/非结构化数据的数据仓库。  使用HQL作为查询接口 使用HDFS作为底层存储 使用MapReduce作为执行计算">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据技术备忘">
+<meta property="og:title" content="校招季考点大全">
 <meta property="og:url" content="http://yoursite.com/2018/08/29/Hadoop基础备忘/index.html">
 <meta property="og:site_name" content="向日葵的自留地">
-<meta property="og:description" content="Hive 简介 Hive是建立在Hadoop上的数据仓库基础构架。它提供了一系列的工具，可以用来进行数据提取转化加载(ETL)，这是一种可以存储、查询和分析存储在Hadoop中的大规模数据的机制。    Hive构建在Hadoop的HDFS和MapReduce之上，用于管理和查询结构化/非结构化数据的数据仓库。  使用HQL作为查询接口 使用HDFS作为底层存储 使用MapReduce作为执行计算">
 <meta property="og:locale" content="zh-hans">
+<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/8At2ap3r.jpg">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/121619024959741.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/20161214125758493.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/20160731170845946.jpg">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/1004194-20160829182313371-1648664691.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/20161030135809748">
-<meta property="og:updated_time" content="2018-08-30T08:50:42.975Z">
+<meta property="og:updated_time" content="2018-09-03T13:41:01.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大数据技术备忘">
-<meta name="twitter:description" content="Hive 简介 Hive是建立在Hadoop上的数据仓库基础构架。它提供了一系列的工具，可以用来进行数据提取转化加载(ETL)，这是一种可以存储、查询和分析存储在Hadoop中的大规模数据的机制。    Hive构建在Hadoop的HDFS和MapReduce之上，用于管理和查询结构化/非结构化数据的数据仓库。  使用HQL作为查询接口 使用HDFS作为底层存储 使用MapReduce作为执行计算">
-<meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/121619024959741.png">
+<meta name="twitter:title" content="校招季考点大全">
+<meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/8At2ap3r.jpg">
 
 
 
@@ -137,7 +135,7 @@
 
 
 
-  <title>大数据技术备忘 | 向日葵的自留地</title>
+  <title>校招季考点大全 | 向日葵的自留地</title>
   
 
 
@@ -315,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">大数据技术备忘</h1>
+          <h1 class="post-title" itemprop="name headline">校招季考点大全</h1>
         
 
         <div class="post-meta">
@@ -380,8 +378,13 @@
       
 
       
-        <h1 id="hive"><a class="header-anchor" href="#hive"></a>Hive</h1>
-<h2 id="简介"><a class="header-anchor" href="#简介"></a>简介</h2>
+        <img src="http://p8ran6tub.bkt.clouddn.com/8At2ap3r.jpg" width="500" align="center">
+<a id="more"></a>
+<h1 id="算法"><a class="header-anchor" href="#算法"></a>算法</h1>
+<h2 id="排序"><a class="header-anchor" href="#排序"></a>排序</h2>
+<h1 id="大数据"><a class="header-anchor" href="#大数据"></a>大数据</h1>
+<h2 id="hive"><a class="header-anchor" href="#hive"></a>Hive</h2>
+<h3 id="简介"><a class="header-anchor" href="#简介"></a>简介</h3>
 <p>Hive是建立在Hadoop上的数据仓库基础构架。它提供了一系列的工具，可以用来进行数据提取转化加载(ETL)，这是一种可以存储、查询和分析存储在Hadoop中的大规模数据的机制。  <br>
 <img src="http://p8ran6tub.bkt.clouddn.com/121619024959741.png" width="500" align="center"><br>
 Hive构建在Hadoop的HDFS和MapReduce之上，用于管理和查询结构化/非结构化数据的数据仓库。</p>
@@ -390,10 +393,10 @@ Hive构建在Hadoop的HDFS和MapReduce之上，用于管理和查询结构化/�
 <li>使用HDFS作为底层存储</li>
 <li>使用MapReduce作为执行计算</li>
 </ul>
-<h2 id="hql查询语句"><a class="header-anchor" href="#hql查询语句"></a>HQL查询语句</h2>
+<h3 id="hql查询语句"><a class="header-anchor" href="#hql查询语句"></a>HQL查询语句</h3>
 <p>Hive 定义了简单的类 SQL 查询语言，称为 HQL，它允许熟悉 SQL 的用户查询数据。<br>
 同时，这个语言也允许熟悉 MapReduce 开发者的开发自定义的 mapper 和 reducer 来处理内建的 mapper 和 reducer 无法完成的复杂的分析工作。</p>
-<h3 id="基本操作"><a class="header-anchor" href="#基本操作"></a>基本操作</h3>
+<h4 id="基本操作"><a class="header-anchor" href="#基本操作"></a>基本操作</h4>
 <ul>
 <li>CREATE TABLE 创建一个指定名字的表。</li>
 <li>EXTERNAL 关键字可以让用户创建一个外部表。<br>
@@ -406,7 +409,7 @@ Hive构建在Hadoop的HDFS和MapReduce之上，用于管理和查询结构化/�
 一个表可以拥有一个或者多个分区，每一个分区单独存在一个目录下。而且，表和分区都可以对某个列进行 CLUSTERED BY 操作，将若干个列放入一个桶（bucket）中。也可以利用SORT BY 对数据进行排序。这样可以为特定应用提高性能。</li>
 <li>表名和列名不区分大小写，SerDe 和属性名区分大小写。表和列的注释是字符串</li>
 </ul>
-<h2 id="mapreduce"><a class="header-anchor" href="#mapreduce"></a>MapReduce</h2>
+<h3 id="mapreduce"><a class="header-anchor" href="#mapreduce"></a>MapReduce</h3>
 <p>在hive的查询中，大部分都会出发一个MapReduce操作，但是在hive中，某些情况可以不必使用MapReduce，也就是所谓的<code>本地操作模式</code>。</p>
 <ol>
 <li>select * from tableName<br>
@@ -414,7 +417,7 @@ Hive可以简单的读取table对应的存储目录下的文件，然后输出�
 对于在where条件中使用分区字段这种情况，也是无需MapReduce过程的，例如select * from tableName where partition1=‘’；无论使用limit语句限制记录条数。</li>
 <li>hive.exec.mode.local.auto = true</li>
 </ol>
-<h2 id="元数据存储"><a class="header-anchor" href="#元数据存储"></a>元数据存储</h2>
+<h3 id="元数据存储"><a class="header-anchor" href="#元数据存储"></a>元数据存储</h3>
 <p>Hive中metastore（元数据存储）的三种方式：</p>
 <ul>
 <li>内嵌Derby方式<br>
@@ -432,15 +435,15 @@ Derby作为一个内嵌的元数据库，可以完成hive安装的简单测试�
 <li>Remote方式<br>
 使用远端mysql服务器存储元数据。这种存储方式需要在远端服务器运行一个mysql服务器，并且需要在Hive服务器启动meta服务。</li>
 </ul>
-<h1 id="hadoop"><a class="header-anchor" href="#hadoop"></a>Hadoop</h1>
-<h2 id="文件存放策略"><a class="header-anchor" href="#文件存放策略"></a>文件存放策略</h2>
+<h2 id="hadoop"><a class="header-anchor" href="#hadoop"></a>Hadoop</h2>
+<h3 id="文件存放策略"><a class="header-anchor" href="#文件存放策略"></a>文件存放策略</h3>
 <p>Hadoop在设计时考虑到数据的安全与高效，数据文件默认在HDFS上存放三份。  <br>
 存储策略为本地一份，同机架内其它某一节点上一份，不同机架的某一节点上一份。<br>
 这样如果本地数据损坏，节点可以从同一机架内的相邻节点拿到数据，速度肯定比从跨机架节点上拿数据要快；同时，如果整个机架的网络出现异常，也能保证在其它机架的节点上找到数据。<br>
 为了降低整体的带宽消耗和读取延时，HDFS会尽量让读取程序读取离它最近的副本。如果在读取程序的同一个机架上有一个副本，那么就读取该副本。如果一个HDFS集群跨越多个数据中心，那么客户端也将首先读本地数据中心的副本。那么Hadoop是如何确定任意两个节点是位于同一机架，还是跨机架的呢？<br>
 答案就是机架感知。</p>
-<h2 id="机架感知配置"><a class="header-anchor" href="#机架感知配置"></a>机架感知配置</h2>
-<h2 id="高可用架构"><a class="header-anchor" href="#高可用架构"></a>高可用架构</h2>
+<h3 id="机架感知配置"><a class="header-anchor" href="#机架感知配置"></a>机架感知配置</h3>
+<h3 id="高可用架构"><a class="header-anchor" href="#高可用架构"></a>高可用架构</h3>
 <p>参考https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-name-node/index.html<br>
 HDFS中NameNode等的HA是基于ZooKeeper实现的。    <br>
 Hadoop HDFS NameNode HA的设计图：  <br>
@@ -459,14 +462,14 @@ NameNode（NN）、DataNode（DN）均是HDFS中的组件或节点，NN有两个
 <li>Monitor Health会周期性连接NN，检查NN状态，并由可能触发重新选举，即重复1-2；</li>
 <li>FailoverController会与ZooKeeper保持心跳，注册的临时节点消失后，也会触发重新选举。</li>
 </ol>
-<h1 id="spark"><a class="header-anchor" href="#spark"></a>Spark</h1>
+<h2 id="spark"><a class="header-anchor" href="#spark"></a>Spark</h2>
 <p>参考：<a href="https://www.cnblogs.com/ITtangtang/p/7967386.html" target="_blank" rel="noopener">https://www.cnblogs.com/ITtangtang/p/7967386.html</a></p>
-<h2 id="简介-v2"><a class="header-anchor" href="#简介-v2"></a>简介</h2>
+<h3 id="简介-v2"><a class="header-anchor" href="#简介-v2"></a>简介</h3>
 <p>Spark是类似Hadoop MapReduce的通用的并行计算框架。<br>
 Spark基于map reduce算法实现的分布式计算，拥有HadoopMapReduce所具有的优点；但不同于MapReduce的是Job中间输出和结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的map reduce的算法。  <br>
 Spark架构：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/20160731170845946.jpg" width="500" align="center"></p>
-<h2 id="基本概念"><a class="header-anchor" href="#基本概念"></a>基本概念</h2>
+<h3 id="基本概念"><a class="header-anchor" href="#基本概念"></a>基本概念</h3>
 <ul>
 <li>RDD<br>
 弹性分布式数据集。</li>
@@ -515,9 +518,9 @@ Spark中的Driver即运行上述Application的main函数并创建SparkContext，
 </ul>
 <p>一个任务从分发到执行的流程框架：<br>
 <img src="http://p8ran6tub.bkt.clouddn.com/1004194-20160829182313371-1648664691.png" width="500" align="center"></p>
-<h2 id="akka"><a class="header-anchor" href="#akka"></a>Akka</h2>
+<h3 id="akka"><a class="header-anchor" href="#akka"></a>Akka</h3>
 <p>Spark模块间(Client,Master,Worker)通信是基于Scala原生支持的akka。</p>
-<h2 id="rdd操作类型"><a class="header-anchor" href="#rdd操作类型"></a>RDD操作类型</h2>
+<h3 id="rdd操作类型"><a class="header-anchor" href="#rdd操作类型"></a>RDD操作类型</h3>
 <p>Spark提供的数据集操作类型有很多种，主要分为2类。</p>
 <ul>
 <li>transformations<br>
@@ -526,7 +529,7 @@ Spark中的Driver即运行上述Application的main函数并创建SparkContext，
 如Count, collect, reduce, lookup, save等多种操作类型。</li>
 </ul>
 <p>无论执行了多少次transformation操作，RDD都不会真正执行运算，只有当action操作被执行时，运算才会触发。</p>
-<h2 id="运行job两种模式"><a class="header-anchor" href="#运行job两种模式"></a>运行JOB两种模式</h2>
+<h3 id="运行job两种模式"><a class="header-anchor" href="#运行job两种模式"></a>运行JOB两种模式</h3>
 <ul>
 <li>cluster模式  <br>
 Spark driver在 application的master process中运行。如果和YARN集成，则application master process由YARN管理，在YARN中运行。</li>
@@ -540,7 +543,7 @@ Spark driver在 application的master process中运行。如果和YARN集成，�
 <li>client模式  <br>
 Spark driver在clinet process中运行。如果集成YARN，application master只负责从YARN请求资源。</li>
 </ul>
-<h2 id="分布式部署方式"><a class="header-anchor" href="#分布式部署方式"></a>分布式部署方式</h2>
+<h3 id="分布式部署方式"><a class="header-anchor" href="#分布式部署方式"></a>分布式部署方式</h3>
 <p>支持四种分布式部署方式。</p>
 <ul>
 <li>
@@ -598,8 +601,8 @@ RM会在集群中的某个NodeManager上，启动一个ExecutorLauncher进程，
 Resource Manager在集群中的某个NodeManager上运行ApplicationMaster(AM)，该AM同时会执行driver程序。紧接着，会在各NodeManager上运行CoarseGrainedExecutorBackend来并发执行应用程序。</p>
 </li>
 </ul>
-<h3 id="standalone模式"><a class="header-anchor" href="#standalone模式"></a>Standalone模式</h3>
-<h4 id="standalone模式下的角色"><a class="header-anchor" href="#standalone模式下的角色"></a>Standalone模式下的角色</h4>
+<h4 id="standalone模式"><a class="header-anchor" href="#standalone模式"></a>Standalone模式</h4>
+<h5 id="standalone模式下的角色"><a class="header-anchor" href="#standalone模式下的角色"></a>Standalone模式下的角色</h5>
 <ul>
 <li>Client：客户端进程，负责提交作业到Master。</li>
 <li>Master：Standalone模式中主控节点，负责接收Client提交的作业，管理Worker，并命令Worker启动Driver和Executor。</li>
@@ -607,7 +610,7 @@ Resource Manager在集群中的某个NodeManager上运行ApplicationMaster(AM)�
 <li>Driver： 一个Spark作业运行时包括一个Driver进程，也是作业的主进程，负责作业的解析、生成Stage并调度Task到Executor上。包括DAGScheduler，TaskScheduler。</li>
 <li>Executor：即真正执行作业的地方，一个集群一般包含多个Executor，每个Executor接收Driver的命令Launch Task，一个Executor可以执行一到多个Task。</li>
 </ul>
-<h4 id="standalone模式流程"><a class="header-anchor" href="#standalone模式流程"></a>Standalone模式流程</h4>
+<h5 id="standalone模式流程"><a class="header-anchor" href="#standalone模式流程"></a>Standalone模式流程</h5>
 <img src="http://p8ran6tub.bkt.clouddn.com/20161030135809748" width="500" align="center">
 Driver 的启动：  
 SparkSubmit提交程序后启动Client进程， 创建Client.ClientEndpoint ,onStart() 内向 Master 发送 RequestSubmitDriver 消息Master 接收请求调用schedule()方法中发出launchDriver消息，由worker启动  
@@ -798,7 +801,7 @@ new SparkContext()<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hive"><span class="nav-number">1.</span> <span class="nav-text">Hive</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hql查询语句"><span class="nav-number">1.2.</span> <span class="nav-text">HQL查询语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mapreduce"><span class="nav-number">1.3.</span> <span class="nav-text">MapReduce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元数据存储"><span class="nav-number">1.4.</span> <span class="nav-text">元数据存储</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hadoop"><span class="nav-number">2.</span> <span class="nav-text">Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件存放策略"><span class="nav-number">2.1.</span> <span class="nav-text">文件存放策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机架感知配置"><span class="nav-number">2.2.</span> <span class="nav-text">机架感知配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高可用架构"><span class="nav-number">2.3.</span> <span class="nav-text">高可用架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#spark"><span class="nav-number">3.</span> <span class="nav-text">Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-v2"><span class="nav-number">3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#akka"><span class="nav-number">3.3.</span> <span class="nav-text">Akka</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdd操作类型"><span class="nav-number">3.4.</span> <span class="nav-text">RDD操作类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行job两种模式"><span class="nav-number">3.5.</span> <span class="nav-text">运行JOB两种模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式部署方式"><span class="nav-number">3.6.</span> <span class="nav-text">分布式部署方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#standalone模式"><span class="nav-number">3.6.1.</span> <span class="nav-text">Standalone模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#standalone模式下的角色"><span class="nav-number">3.6.1.1.</span> <span class="nav-text">Standalone模式下的角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#standalone模式流程"><span class="nav-number">3.6.1.2.</span> <span class="nav-text">Standalone模式流程</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">1.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">1.1.</span> <span class="nav-text">排序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据"><span class="nav-number">2.</span> <span class="nav-text">大数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hive"><span class="nav-number">2.1.</span> <span class="nav-text">Hive</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">2.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hql查询语句"><span class="nav-number">2.1.2.</span> <span class="nav-text">HQL查询语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本操作"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">基本操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mapreduce"><span class="nav-number">2.1.3.</span> <span class="nav-text">MapReduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元数据存储"><span class="nav-number">2.1.4.</span> <span class="nav-text">元数据存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop"><span class="nav-number">2.2.</span> <span class="nav-text">Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件存放策略"><span class="nav-number">2.2.1.</span> <span class="nav-text">文件存放策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机架感知配置"><span class="nav-number">2.2.2.</span> <span class="nav-text">机架感知配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高可用架构"><span class="nav-number">2.2.3.</span> <span class="nav-text">高可用架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">2.3.</span> <span class="nav-text">Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-v2"><span class="nav-number">2.3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.3.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#akka"><span class="nav-number">2.3.3.</span> <span class="nav-text">Akka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rdd操作类型"><span class="nav-number">2.3.4.</span> <span class="nav-text">RDD操作类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行job两种模式"><span class="nav-number">2.3.5.</span> <span class="nav-text">运行JOB两种模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式部署方式"><span class="nav-number">2.3.6.</span> <span class="nav-text">分布式部署方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#standalone模式"><span class="nav-number">2.3.6.1.</span> <span class="nav-text">Standalone模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#standalone模式下的角色"><span class="nav-number">2.3.6.1.1.</span> <span class="nav-text">Standalone模式下的角色</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#standalone模式流程"><span class="nav-number">2.3.6.1.2.</span> <span class="nav-text">Standalone模式流程</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
