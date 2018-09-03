@@ -87,7 +87,7 @@
 
 <meta name="keywords" content="TensorFlow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习入门">
+<meta property="og:title" content="TensorFlow">
 <meta property="og:url" content="http://yoursite.com/2018/08/01/机器学习入门/index.html">
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
@@ -100,11 +100,9 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/ssfdfd.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-53-30.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/Snipaste_2018-08-01_15-55-39.png">
-<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/img01.png">
-<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/1667471-03bb5cc180287c98.png">
-<meta property="og:updated_time" content="2018-08-30T06:12:04.847Z">
+<meta property="og:updated_time" content="2018-09-03T07:21:20.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习入门">
+<meta name="twitter:title" content="TensorFlow">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/images.png">
 
 
@@ -141,7 +139,7 @@
 
 
 
-  <title>机器学习入门 | 向日葵的自留地</title>
+  <title>TensorFlow | 向日葵的自留地</title>
   
 
 
@@ -319,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">机器学习入门</h1>
+          <h1 class="post-title" itemprop="name headline">TensorFlow</h1>
         
 
         <div class="post-meta">
@@ -386,10 +384,9 @@
       
         <img src="http://p8ran6tub.bkt.clouddn.com/images.png" width="500" align="center">
 <a id="more"></a>
-<h1 id="tensorflow"><a class="header-anchor" href="#tensorflow"></a>TensorFlow</h1>
 <p>TensorFlow是一个机器学习框架，它提供了一门机器学习速成课程。  <br>
-官方网址：<a href="https://developers.google.cn/machine-learning/crash-course/" target="_blank" rel="noopener">https://developers.google.cn/machine-learning/crash-course/</a><br>
-Google出品还是十分值得信赖的。</p>
+官方网址：<a href="https://developers.google.cn/machine-learning/crash-course/" target="_blank" rel="noopener">https://developers.google.cn/machine-learning/crash-course/</a>  <br>
+本文按照谷歌提供的机器学习速成课程记录学习笔记。</p>
 <h1 id="线性回归"><a class="header-anchor" href="#线性回归"></a>线性回归</h1>
 <h2 id="基本概念"><a class="header-anchor" href="#基本概念"></a>基本概念</h2>
 <p>下图展示了蟋蟀每分钟的鸣叫声与温度（摄氏度）的关系。<br>
@@ -464,97 +461,6 @@ $$y^{’}=b+w_{1}x_{1}$$<br>
 <p>包含随机抽样样本的大型数据集可能包含冗余数据。实际上，批量大小越大，出现冗余的可能性就越高。一些冗余可能有助于消除杂乱的梯度，但超大批量所具备的预测价值往往并不比大型批量高。</p>
 <p>如果我们可以通过更少的计算量得出正确的平均梯度，会怎么样？通过从我们的数据集中随机选择样本，我们可以通过小得多的数据集估算（尽管过程非常杂乱）出较大的平均值。 <code>随机梯度下降法 (SGD)</code> 将这种想法运用到极致，它每次迭代只使用一个样本（批量大小为 1）。如果进行足够的迭代，SGD 也可以发挥作用，但过程会非常杂乱。“随机”这一术语表示构成各个批量的一个样本都是随机选择的。</p>
 <p><code>小批量随机梯度下降法（小批量 SGD）</code>是介于全批量迭代与 SGD 之间的折衷方案。小批量通常包含 10-1000 个随机选择的样本。小批量 SGD 可以减少 SGD 中的杂乱样本数量，但仍然比全批量更高效。</p>
-<h1 id="算法分类"><a class="header-anchor" href="#算法分类"></a>算法分类</h1>
-<h2 id="学习方法"><a class="header-anchor" href="#学习方法"></a>学习方法</h2>
-<ul>
-<li>监督式学习</li>
-<li>非监督式学习</li>
-<li>半监督式学习</li>
-<li>强化学习</li>
-</ul>
-<h2 id="lazy-eager"><a class="header-anchor" href="#lazy-eager"></a>lazy/eager</h2>
-<ul>
-<li>lazy方法<br>
-如果算法对整个训练数据集并没有训练得到一个整体的模型，对于每一个新的测试数据点，都需要根据该点和训练数据集来对目标函数进行预测，这叫做lazy method。</li>
-<li>eager方法<br>
-早早的根据训练数据集把模型建好，对与新的测试数据，只需要往模型中代入就可以得到结果了。先算好模型再进行预测的算法叫做eager method。</li>
-</ul>
-<h3 id="lazy-method"><a class="header-anchor" href="#lazy-method"></a>lazy method</h3>
-<p>典型算法是KNN、LWR(locally weighted regression)、Case-based reasoning。</p>
-<h3 id="eager-method"><a class="header-anchor" href="#eager-method"></a>eager method</h3>
-<p>除了lazy method中提到的三种算法之外，几乎所有的机器学习算法都可以认为是eager method，比如线性回归、逻辑回归、ANN、SVM、决策树、relation rule, etc., 因为他们都是根据训练数据集建立好模型从而对新数据进行预测的。</p>
-<h2 id="算法类似性"><a class="header-anchor" href="#算法类似性"></a>算法类似性</h2>
-<ol>
-<li>决策树学习<br>
-根据数据的属性采用树状结构建立决策模型。决策树模型常常用来解决分类和回归问题。常见的算法包括 CART (Classification And Regression Tree)、ID3、C4.5、随机森林 (Random Forest) 等。</li>
-<li>回归算法<br>
-试图采用对误差的衡量来探索变量之间的关系的一类算法。常见的回归算法包括最小二乘法 (Least Square)、逻辑回归 (Logistic Regression)、逐步式回归 (Stepwise Regression) 等。</li>
-<li>聚类算法<br>
-通常按照中心点或者分层的方式对输入数据进行归并。所有的聚类算法都试图找到数据的内在结构，以便按照最大的共同点将数据进行归类。常见的聚类算法包括 K-Means 算法以及期望最大化算法 (Expectation Maximization) 等。</li>
-<li>人工神经网络<br>
-模拟生物神经网络，是一类模式匹配算法。通常用于解决分类和回归问题。人工神经网络算法包括感知器神经网络 (Perceptron Neural Network) 、反向传递 (Back Propagation) 和深度学习等。</li>
-<li>集成算法<br>
-用一些相对较弱的学习模型独立地就同样的样本进行训练，然后把结果整合起来进行整体预测。集成算法的主要难点在于究竟集成哪些独立的较弱的学习模型以及如何把学习结果整合起来。这是一类非常强大的算法，同时也非常流行。常见的算法包括 Boosting、Bagging、AdaBoost、随机森林 (Random Forest) 等。</li>
-</ol>
-<h1 id="决策树"><a class="header-anchor" href="#决策树"></a>决策树</h1>
-<p>参考：<a href="https://www.jianshu.com/p/fb97b21aeb1d" target="_blank" rel="noopener">https://www.jianshu.com/p/fb97b21aeb1d</a><br>
-决策树是附加概率结果的一个树状的决策图，是直观的运用统计概率分析的图法。机器学习中决策树是一个预测模型，它表示对象属性和对象值之间的一种映射，树中的每一个节点表示对象属性的判断条件，其分支表示符合节点条件的对象。树的叶子节点表示对象所属的预测结果。  <br>
-预测是否具有偿还贷款的能力：  <br>
-<img src="http://p8ran6tub.bkt.clouddn.com/img01.png" width="300" align="center"></p>
-<h2 id="基本知识"><a class="header-anchor" href="#基本知识"></a>基本知识</h2>
-<ul>
-<li>信息增益<br>
-信息熵表示的是不确定度。均匀分布时，不确定度最大，此时熵就最大。当选择某个特征对数据集进行分类时，分类后的数据集信息熵会比分类前的小，其差值表示为信息增益。信息增益可以衡量某个特征对分类结果的影响大小。</li>
-<li>基尼系数<br>
-基尼指数反应了从数据集中随机抽取两个样本，其类标不一致的概率。</li>
-</ul>
-<h2 id="决策树算法"><a class="header-anchor" href="#决策树算法"></a>决策树算法</h2>
-<p>决策树的损失函数通常是正则化的极大似然函数，学习的策略是以损失函数为目标函数的最小化。<br>
-所以决策树的本质和其他机器学习模型是一致的，有一个损失函数，然后去优化这个函数；然而，区别就在于如何优化。<br>
-决策树采用<code>启发式算法</code>来近似求解最优化问题，得到的是次最优的结果。<br>
-该启发式算法可分为三步：</p>
-<ul>
-<li>特征选择</li>
-<li>模型生成</li>
-<li>决策树的剪枝</li>
-</ul>
-<p>决策树学习算法通常是一个递归地选择最优特征，并根据该特征对训练数据进行分割。</p>
-<p>选择最优特征要根据特征的<code>分类能力</code>，特征分类能力的衡量通常采用信息增益或信息增益比。<br>
-决策树学习常用的算法主要有以下三种：<br>
-ID3算法，C4.5算法，CART算法。</p>
-<p>算法总结:<br>
-ID3算法/C4.5算法/CART算法。<br>
-ID3算法和C4.5算法用于生成分类树，区别主要在于选取特征的依据，前者是<code>信息增益</code>，后者是<code>信息增益比</code>。</p>
-<p>CART算法可以生成分类树和回归树，分类树使用<code>基尼指数</code>选取特征，并且不用提前确定α值，而是在剪枝的同时找到最优的α值.</p>
-<h1 id="集成学习"><a class="header-anchor" href="#集成学习"></a>集成学习</h1>
-<h2 id="bagging"><a class="header-anchor" href="#bagging"></a>Bagging</h2>
-<p>bagging:bootstrap aggregating 的缩写。  <br>
-bagging是一种并行式集成学习方法，可用于二分类，多分类，回归等任务。</p>
-<h3 id="基本流程"><a class="header-anchor" href="#基本流程"></a>基本流程</h3>
-<ol>
-<li>对一个包含 m 个样本的数据集，有放回地进行 m 次随机采样，这样得到具有 m 个样本的采样集。</li>
-<li>取 T 个这样的采样集。</li>
-<li>每个采样集训练一个基学习器。</li>
-<li>结合：分类任务，使用简单投票法。回归任务，使用简单平均法。</li>
-</ol>
-<img src="http://p8ran6tub.bkt.clouddn.com/1667471-03bb5cc180287c98.png" width="500" align="center">
-<p>有放回抽样的好处?<br>
-这种有放回抽样会有 63.2% 的样本出现在采样集中，而剩下的 36.8% 样本可以作为验证集对模型的泛化性能进行包外估计。</p>
-<p>当基学习器是决策树时，可以用包外样本来辅助剪枝，<br>
-还可以用于估计决策树中各结点的后验概率来辅助对零训练样本结点的处理。</p>
-<p>基学习器是神经网络时，用包外样本来辅助早期停止来减小过拟合。</p>
-<h3 id="bagging特点"><a class="header-anchor" href="#bagging特点"></a>Bagging特点</h3>
-<p>Bagging 主要关注降低方差，是要降低过拟合，而不会降低偏差，因此最好不要用高偏差的模型。<br>
-在不剪枝决策树，神经网络等易受样本扰动的学习器上效用更为明显。<br>
-例如当基学习器是决策树时，Bagging 是并行的生成多个决策树，此时可以不做剪枝，这样每个都是强学习器，就会有过拟合的问题，但是多个学习器组合在一起，可以降低过拟合。</p>
-<h3 id="bagging-和-boosting-的区别"><a class="header-anchor" href="#bagging-和-boosting-的区别"></a>Bagging 和 Boosting 的区别</h3>
-<ol>
-<li>样本选择：<br>
-Bagging 的训练集是在原始集中有放回选取的，各轮训练集之间是独立的，每个样例的权重相等；<br>
-Boosting 的训练集不变，只是每个样例在分类器中的权重发生变化，错误的样本会得到更大的重视；</li>
-<li>Bagging 的预测函数没有权重之分；Boosting 的预测函数是有权重之分，效果好的函数权重大；</li>
-<li>Bagging 的各个预测函数并行产生，容易 map-reduce ，Boosting 的预测是顺序产生，后一个模型参数需要前一轮模型的结果。</li>
-</ol>
 
       
     </div>
@@ -685,7 +591,7 @@ Boosting 的训练集不变，只是每个样例在分类器中的权重发生�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -740,7 +646,7 @@ Boosting 的训练集不变，只是每个样例在分类器中的权重发生�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tensorflow"><span class="nav-number">1.</span> <span class="nav-text">TensorFlow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性回归"><span class="nav-number">2.</span> <span class="nav-text">线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#损失"><span class="nav-number">2.2.</span> <span class="nav-text">损失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#平方损失"><span class="nav-number">2.2.1.</span> <span class="nav-text">平方损失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#均方误差"><span class="nav-number">2.2.2.</span> <span class="nav-text">均方误差</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降低损失"><span class="nav-number">2.3.</span> <span class="nav-text">降低损失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">迭代方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降法"><span class="nav-number">2.3.2.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机梯度下降法"><span class="nav-number">2.3.3.</span> <span class="nav-text">随机梯度下降法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分类"><span class="nav-number">3.</span> <span class="nav-text">算法分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习方法"><span class="nav-number">3.1.</span> <span class="nav-text">学习方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lazy-eager"><span class="nav-number">3.2.</span> <span class="nav-text">lazy/eager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lazy-method"><span class="nav-number">3.2.1.</span> <span class="nav-text">lazy method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eager-method"><span class="nav-number">3.2.2.</span> <span class="nav-text">eager method</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法类似性"><span class="nav-number">3.3.</span> <span class="nav-text">算法类似性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树"><span class="nav-number">4.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本知识"><span class="nav-number">4.1.</span> <span class="nav-text">基本知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树算法"><span class="nav-number">4.2.</span> <span class="nav-text">决策树算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集成学习"><span class="nav-number">5.</span> <span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging"><span class="nav-number">5.1.</span> <span class="nav-text">Bagging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">5.1.1.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bagging特点"><span class="nav-number">5.1.2.</span> <span class="nav-text">Bagging特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bagging-和-boosting-的区别"><span class="nav-number">5.1.3.</span> <span class="nav-text">Bagging 和 Boosting 的区别</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性回归"><span class="nav-number">1.</span> <span class="nav-text">线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#损失"><span class="nav-number">1.2.</span> <span class="nav-text">损失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#平方损失"><span class="nav-number">1.2.1.</span> <span class="nav-text">平方损失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#均方误差"><span class="nav-number">1.2.2.</span> <span class="nav-text">均方误差</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降低损失"><span class="nav-number">1.3.</span> <span class="nav-text">降低损失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代方法"><span class="nav-number">1.3.1.</span> <span class="nav-text">迭代方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降法"><span class="nav-number">1.3.2.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机梯度下降法"><span class="nav-number">1.3.3.</span> <span class="nav-text">随机梯度下降法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
