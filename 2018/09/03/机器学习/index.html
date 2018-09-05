@@ -92,8 +92,9 @@
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/ND7GZZL34W.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/img01.png">
+<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/1667471-03bb5cc180287c98.png">
-<meta property="og:updated_time" content="2018-09-03T08:37:07.687Z">
+<meta property="og:updated_time" content="2018-09-05T02:25:41.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/ND7GZZL34W.png">
@@ -440,16 +441,15 @@ ID3算法/C4.5算法/CART算法。<br>
 ID3算法和C4.5算法用于生成分类树，区别主要在于选取特征的依据，前者是<code>信息增益</code>，后者是<code>信息增益比</code>。</p>
 <p>CART算法可以生成分类树和回归树，分类树使用<code>基尼指数</code>选取特征，并且不用提前确定α值，而是在剪枝的同时找到最优的α值.</p>
 <h1 id="集成学习"><a class="header-anchor" href="#集成学习"></a>集成学习</h1>
-<h2 id="bagging"><a class="header-anchor" href="#bagging"></a>Bagging</h2>
-<p>bagging:bootstrap aggregating 的缩写。  <br>
-bagging是一种并行式集成学习方法，可用于二分类，多分类，回归等任务。</p>
-<h3 id="基本流程"><a class="header-anchor" href="#基本流程"></a>基本流程</h3>
-<ol>
-<li>对一个包含 m 个样本的数据集，有放回地进行 m 次随机采样，这样得到具有 m 个样本的采样集。</li>
-<li>取 T 个这样的采样集。</li>
-<li>每个采样集训练一个基学习器。</li>
-<li>结合：分类任务，使用简单投票法。回归任务，使用简单平均法。</li>
-</ol>
+<img src="http://p8ran6tub.bkt.clouddn.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0.png" width="300" align="center">
+## Bagging
+bagging:bootstrap aggregating 的缩写。  
+bagging是一种并行式集成学习方法，可用于二分类，多分类，回归等任务。  
+### 基本流程
+1. 对一个包含 m 个样本的数据集，有放回地进行 m 次随机采样，这样得到具有 m 个样本的采样集。
+2. 取 T 个这样的采样集。
+3. 每个采样集训练一个基学习器。
+4. 结合：分类任务，使用简单投票法。回归任务，使用简单平均法。  
 <img src="http://p8ran6tub.bkt.clouddn.com/1667471-03bb5cc180287c98.png" width="500" align="center">
 <p>有放回抽样的好处?<br>
 这种有放回抽样会有 63.2% 的样本出现在采样集中，而剩下的 36.8% 样本可以作为验证集对模型的泛化性能进行包外估计。</p>
@@ -643,7 +643,7 @@ Boosting 的训练集不变，只是每个样例在分类器中的权重发生�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分类"><span class="nav-number">1.</span> <span class="nav-text">算法分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习方法"><span class="nav-number">1.1.</span> <span class="nav-text">学习方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lazy-eager"><span class="nav-number">1.2.</span> <span class="nav-text">lazy/eager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lazy-method"><span class="nav-number">1.2.1.</span> <span class="nav-text">lazy method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eager-method"><span class="nav-number">1.2.2.</span> <span class="nav-text">eager method</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法类似性"><span class="nav-number">1.3.</span> <span class="nav-text">算法类似性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树"><span class="nav-number">2.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本知识"><span class="nav-number">2.1.</span> <span class="nav-text">基本知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树算法"><span class="nav-number">2.2.</span> <span class="nav-text">决策树算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集成学习"><span class="nav-number">3.</span> <span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging"><span class="nav-number">3.1.</span> <span class="nav-text">Bagging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">3.1.1.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bagging特点"><span class="nav-number">3.1.2.</span> <span class="nav-text">Bagging特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bagging-和-boosting-的区别"><span class="nav-number">3.1.3.</span> <span class="nav-text">Bagging 和 Boosting 的区别</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法分类"><span class="nav-number">1.</span> <span class="nav-text">算法分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习方法"><span class="nav-number">1.1.</span> <span class="nav-text">学习方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lazy-eager"><span class="nav-number">1.2.</span> <span class="nav-text">lazy/eager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lazy-method"><span class="nav-number">1.2.1.</span> <span class="nav-text">lazy method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eager-method"><span class="nav-number">1.2.2.</span> <span class="nav-text">eager method</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法类似性"><span class="nav-number">1.3.</span> <span class="nav-text">算法类似性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树"><span class="nav-number">2.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本知识"><span class="nav-number">2.1.</span> <span class="nav-text">基本知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树算法"><span class="nav-number">2.2.</span> <span class="nav-text">决策树算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集成学习"><span class="nav-number">3.</span> <span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bagging特点"><span class="nav-number">3.0.1.</span> <span class="nav-text">Bagging特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bagging-和-boosting-的区别"><span class="nav-number">3.0.2.</span> <span class="nav-text">Bagging 和 Boosting 的区别</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
