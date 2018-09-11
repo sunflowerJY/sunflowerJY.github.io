@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/20160731170845946.jpg">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/1004194-20160829182313371-1648664691.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/20161030135809748">
-<meta property="og:updated_time" content="2018-09-11T12:25:22.887Z">
+<meta property="og:updated_time" content="2018-09-11T13:58:42.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="校招考点大全">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/8At2ap3r.jpg">
@@ -487,8 +487,83 @@ sizeof(空类/空结构体)=2</p>
 下面再举个例子，交换一下上面的MyStruct的成员变量的位置，使它变成下面的情况：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct MyStruct</span><br><span class="line">&#123;</span><br><span class="line">  char dda;//偏移量为0，满足对齐方式，dda占用1个字节；</span><br><span class="line">  double dda1;//下一个可用的地址的偏移量为1，不是sizeof(double)=8的倍数，需要补足7个字节才能使偏移量</span><br><span class="line">  int type;//下一个可用的地址的偏移量为16，是sizeof(int)=4的倍数，</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
 <p>所有成员变量都分配了空间，空间总的大小为1+7+8+4=20，不是结构的节边界数（即结构中占用最大空间的类型所占用的字节sizeof(double)=8）的倍数，所以需要填充4个字节，以满足结构的大小为sizeof(double)=8的倍数。</p>
+<h1 id="数据结构"><a class="header-anchor" href="#数据结构"></a>数据结构</h1>
+<h2 id="树"><a class="header-anchor" href="#树"></a>树</h2>
+<h3 id="哈夫曼树haffman"><a class="header-anchor" href="#哈夫曼树haffman"></a>哈夫曼树Haffman</h3>
+<p>例题1：  <br>
+以下序列构造的Haffman树带权路径长度为( )：  <br>
+9，7，3，5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> 24</span><br><span class="line"> / \</span><br><span class="line">9  15 </span><br><span class="line">  / \</span><br><span class="line"> 7   8   </span><br><span class="line">   /  \  </span><br><span class="line">   3  5</span><br></pre></td></tr></table></figure>
+<p>带权值路径 = sum(叶子节点值 * 路径)</p>
 <h1 id="算法"><a class="header-anchor" href="#算法"></a>算法</h1>
 <h2 id="排序"><a class="header-anchor" href="#排序"></a>排序</h2>
+<p>关于排序算法的稳定性，就是在排序前后两个相等的数据在序列中的位置并没有改变。</p>
+<h3 id="插入排序"><a class="header-anchor" href="#插入排序"></a>插入排序</h3>
+<p>不到最后一轮排序，存在完全变换序列位置的可能性。</p>
+<ul>
+<li>
+<p>直接插入排序<br>
+<image src="http://p8ran6tub.bkt.clouddn.com/insert_array.jpg" width="350"><br>
+在一个已经有序的小序列的基础上，一次插入一个元素。<br>
+刚开始这个有序的小序列只有1个元素，也就是第一个元素（默认它有序）。<br>
+比较是从有序序列的末尾开始，也就是把待插入的元素和已经有序的最大者开始比起，如果比它大则直接插入在其后面。<br>
+否则一直往前找直到找到它该插入的位置。如果遇见一个与插入元素相等的，那么把待插入的元素放在相等元素的后面。<br>
+所以，相等元素的前后顺序没有改变，从原无序序列出去的顺序仍是排好序后的顺序，所以插入排序是稳定的。</image></p>
+</li>
+<li>
+<p>折半插入排序(二分插入排序)<br>
+不太理解，也是稳定的排序方式。</p>
+</li>
+</ul>
+<h3 id="希尔排序"><a class="header-anchor" href="#希尔排序"></a>希尔排序</h3>
+<p>缩小增量排序。<br>
+<image src="http://p8ran6tub.bkt.clouddn.com/3065130796-591d0118a9fc2_articlex.jpg" width="350"><br>
+不稳定的排序方式。</image></p>
+<h3 id="交换排序"><a class="header-anchor" href="#交换排序"></a>交换排序</h3>
+<ul>
+<li>冒泡排序  <br>
+<image src="http://p8ran6tub.bkt.clouddn.com/20170603151337153.jpg" width="350"><br>
+冒泡排序最多要交换n(n-1)/2次。<br>
+两两比较和交换，值相等是不会交换顺序的，所以是一种稳定的排序方式。</image></li>
+<li>快速排序(划分排序)  <br>
+<image src="http://p8ran6tub.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180707210806.jpg" width="350"><br>
+以序列第一个元素为基准，两端各一个指针。<br>
+速度最快，但序列有序的情况下，反而插入排序更快。<br>
+但是一种不稳定的排序方式。</image></li>
+</ul>
+<h3 id="选择排序"><a class="header-anchor" href="#选择排序"></a>选择排序</h3>
+<ul>
+<li>简单选择排序<br>
+<image src="http://p8ran6tub.bkt.clouddn.com/20170109154011409.png" width="350"><br>
+给每个位置选择待排序元素中当前最小的元素。比如给第一个位置选择最小的，在剩余元素里面给第二个位置选择次小的，依次类推，直到第n-1个元素，第n个元素不用选择了，因为只剩下它一个最大的元素了。<br>
+是一种不稳定的排序方式。  <br>
+举例说明：<br>
+5 8 5 2 9<br>
+第一趟选择第1个元素5会与2进行交换，那么原序列中两个5的相对先后顺序也就被破坏了。</image></li>
+<li>树形选择排序  <br>
+<image src="http://p8ran6tub.bkt.clouddn.com/1-1203011431164Y.jpg" width="350"><br>
+从叶子节点开始，兄弟节点之间两两比赛，胜者上升到父节点。<br>
+是一种不稳定的排序方式。</image></li>
+<li>堆排序<br>
+<image src="http://lzpgithub.github.io/images/posts/Datastructure/60.png" width="350"><br>
+堆排序是一种树形选择排序，在排序过程中可以把元素看成是一颗完全二叉树，每个节点都大（小）于它的两个子节点，当每个节点都大于等于它的两个子节点时，就称为大顶堆，也叫堆有序； 当每个节点都小于等于它的两个子节点时，就称为小顶堆。<br>
+是一种不稳定的排序方式。</image></li>
+</ul>
+<h3 id="归并排序"><a class="header-anchor" href="#归并排序"></a>归并排序</h3>
+<image src="http://p8ran6tub.bkt.clouddn.com/merge-sort-example.gif" width="350">
+采用分治法的思想，将一个大序列划分成小序列分别排序，最后再合并。
+最常见的是二路归并排序。  
+是一种要求内存最大、稳定的排序方式。  
+### 基数排序
+<image src="http://p8ran6tub.bkt.clouddn.com/num_paixu.jpg" width="350">
+基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。  
+是稳定的排序算法。
+### 外部排序   
+- 基本方法  
+- 多路归并排序  
+- 置换-选择排序  
+<h4 id="归纳表"><a class="header-anchor" href="#归纳表"></a>归纳表</h4>
+<image src="http://p8ran6tub.bkt.clouddn.com/617149_1458617550644_D6285CF4869068D2F4348C37ECB6F49D.jpg" width="350">
 <h1 id="大数据"><a class="header-anchor" href="#大数据"></a>大数据</h1>
 <h2 id="hive"><a class="header-anchor" href="#hive"></a>Hive</h2>
 <h3 id="简介"><a class="header-anchor" href="#简介"></a>简介</h3>
@@ -729,7 +804,7 @@ new SparkContext()<br>
 =&gt; backend.start()内client=new AppClient() =&gt; client.start()<br>
 =&gt; ClientEndpoint.onStart()内向 Master发送RegisterApplication 请求<br>
 =&gt; Master 授理请求，执行 startExecutorsOnWorkers() ，启动各个 Executor , 该方法含资源分配</p>
-
+</image></image></image>
       
     </div>
     
@@ -853,7 +928,7 @@ new SparkContext()<br>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -908,7 +983,7 @@ new SparkContext()<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系统"><span class="nav-number">1.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux"><span class="nav-number">1.1.</span> <span class="nav-text">Linux</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机网络"><span class="nav-number">2.</span> <span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络体系模型"><span class="nav-number">2.1.</span> <span class="nav-text">网络体系模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#osi七层模型"><span class="nav-number">2.1.1.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp-ip四层模型"><span class="nav-number">2.1.2.</span> <span class="nav-text">TCP/IP四层模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#udp"><span class="nav-number">2.2.</span> <span class="nav-text">UDP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tcp"><span class="nav-number">2.3.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三次握手"><span class="nav-number">2.3.1.</span> <span class="nav-text">三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四次挥手"><span class="nav-number">2.3.2.</span> <span class="nav-text">四次挥手</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ip地址"><span class="nav-number">2.4.</span> <span class="nav-text">IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种协议"><span class="nav-number">2.5.</span> <span class="nav-text">各种协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#arp地址解析协议"><span class="nav-number">2.5.1.</span> <span class="nav-text">ARP地址解析协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#icmp协议"><span class="nav-number">2.5.2.</span> <span class="nav-text">ICMP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tftp协议"><span class="nav-number">2.5.3.</span> <span class="nav-text">TFTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http协议"><span class="nav-number">2.5.4.</span> <span class="nav-text">HTTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dhcp协议"><span class="nav-number">2.5.5.</span> <span class="nav-text">DHCP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nat协议"><span class="nav-number">2.5.6.</span> <span class="nav-text">NAT协议</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c语言"><span class="nav-number">3.</span> <span class="nav-text">C语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sizeof"><span class="nav-number">3.1.</span> <span class="nav-text">sizeof</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">4.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">4.1.</span> <span class="nav-text">排序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据"><span class="nav-number">5.</span> <span class="nav-text">大数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hive"><span class="nav-number">5.1.</span> <span class="nav-text">Hive</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">5.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hql查询语句"><span class="nav-number">5.1.2.</span> <span class="nav-text">HQL查询语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本操作"><span class="nav-number">5.1.2.1.</span> <span class="nav-text">基本操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mapreduce"><span class="nav-number">5.1.3.</span> <span class="nav-text">MapReduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元数据存储"><span class="nav-number">5.1.4.</span> <span class="nav-text">元数据存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop"><span class="nav-number">5.2.</span> <span class="nav-text">Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件存放策略"><span class="nav-number">5.2.1.</span> <span class="nav-text">文件存放策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机架感知配置"><span class="nav-number">5.2.2.</span> <span class="nav-text">机架感知配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高可用架构"><span class="nav-number">5.2.3.</span> <span class="nav-text">高可用架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">5.3.</span> <span class="nav-text">Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-v2"><span class="nav-number">5.3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">5.3.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#akka"><span class="nav-number">5.3.3.</span> <span class="nav-text">Akka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rdd操作类型"><span class="nav-number">5.3.4.</span> <span class="nav-text">RDD操作类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行job两种模式"><span class="nav-number">5.3.5.</span> <span class="nav-text">运行JOB两种模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式部署方式"><span class="nav-number">5.3.6.</span> <span class="nav-text">分布式部署方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#standalone模式"><span class="nav-number">5.3.6.1.</span> <span class="nav-text">Standalone模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#standalone模式下的角色"><span class="nav-number">5.3.6.1.1.</span> <span class="nav-text">Standalone模式下的角色</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#standalone模式流程"><span class="nav-number">5.3.6.1.2.</span> <span class="nav-text">Standalone模式流程</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系统"><span class="nav-number">1.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux"><span class="nav-number">1.1.</span> <span class="nav-text">Linux</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机网络"><span class="nav-number">2.</span> <span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络体系模型"><span class="nav-number">2.1.</span> <span class="nav-text">网络体系模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#osi七层模型"><span class="nav-number">2.1.1.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp-ip四层模型"><span class="nav-number">2.1.2.</span> <span class="nav-text">TCP/IP四层模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#udp"><span class="nav-number">2.2.</span> <span class="nav-text">UDP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tcp"><span class="nav-number">2.3.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三次握手"><span class="nav-number">2.3.1.</span> <span class="nav-text">三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四次挥手"><span class="nav-number">2.3.2.</span> <span class="nav-text">四次挥手</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ip地址"><span class="nav-number">2.4.</span> <span class="nav-text">IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种协议"><span class="nav-number">2.5.</span> <span class="nav-text">各种协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#arp地址解析协议"><span class="nav-number">2.5.1.</span> <span class="nav-text">ARP地址解析协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#icmp协议"><span class="nav-number">2.5.2.</span> <span class="nav-text">ICMP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tftp协议"><span class="nav-number">2.5.3.</span> <span class="nav-text">TFTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http协议"><span class="nav-number">2.5.4.</span> <span class="nav-text">HTTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dhcp协议"><span class="nav-number">2.5.5.</span> <span class="nav-text">DHCP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nat协议"><span class="nav-number">2.5.6.</span> <span class="nav-text">NAT协议</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c语言"><span class="nav-number">3.</span> <span class="nav-text">C语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sizeof"><span class="nav-number">3.1.</span> <span class="nav-text">sizeof</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-number">4.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#树"><span class="nav-number">4.1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈夫曼树haffman"><span class="nav-number">4.1.1.</span> <span class="nav-text">哈夫曼树Haffman</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">5.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">5.1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">5.1.1.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#希尔排序"><span class="nav-number">5.1.2.</span> <span class="nav-text">希尔排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换排序"><span class="nav-number">5.1.3.</span> <span class="nav-text">交换排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序"><span class="nav-number">5.1.4.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序"><span class="nav-number">5.1.5.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#归纳表"><span class="nav-number">5.1.5.1.</span> <span class="nav-text">归纳表</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据"><span class="nav-number">6.</span> <span class="nav-text">大数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hive"><span class="nav-number">6.1.</span> <span class="nav-text">Hive</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">6.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hql查询语句"><span class="nav-number">6.1.2.</span> <span class="nav-text">HQL查询语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本操作"><span class="nav-number">6.1.2.1.</span> <span class="nav-text">基本操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mapreduce"><span class="nav-number">6.1.3.</span> <span class="nav-text">MapReduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元数据存储"><span class="nav-number">6.1.4.</span> <span class="nav-text">元数据存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop"><span class="nav-number">6.2.</span> <span class="nav-text">Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件存放策略"><span class="nav-number">6.2.1.</span> <span class="nav-text">文件存放策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机架感知配置"><span class="nav-number">6.2.2.</span> <span class="nav-text">机架感知配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高可用架构"><span class="nav-number">6.2.3.</span> <span class="nav-text">高可用架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">6.3.</span> <span class="nav-text">Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-v2"><span class="nav-number">6.3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">6.3.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#akka"><span class="nav-number">6.3.3.</span> <span class="nav-text">Akka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rdd操作类型"><span class="nav-number">6.3.4.</span> <span class="nav-text">RDD操作类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行job两种模式"><span class="nav-number">6.3.5.</span> <span class="nav-text">运行JOB两种模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式部署方式"><span class="nav-number">6.3.6.</span> <span class="nav-text">分布式部署方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#standalone模式"><span class="nav-number">6.3.6.1.</span> <span class="nav-text">Standalone模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#standalone模式下的角色"><span class="nav-number">6.3.6.1.1.</span> <span class="nav-text">Standalone模式下的角色</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#standalone模式流程"><span class="nav-number">6.3.6.1.2.</span> <span class="nav-text">Standalone模式流程</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
