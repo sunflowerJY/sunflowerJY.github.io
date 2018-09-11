@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/20160731170845946.jpg">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/1004194-20160829182313371-1648664691.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/20161030135809748">
-<meta property="og:updated_time" content="2018-09-11T10:49:02.113Z">
+<meta property="og:updated_time" content="2018-09-11T12:25:22.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="校招考点大全">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/8At2ap3r.jpg">
@@ -478,13 +478,15 @@ Internet上保留地址用于内部。</li>
 sizeof(int)=4<br>
 sizeof(float)=4<br>
 sizeof(double)=8<br>
-sizeof(short)=2</p>
+sizeof(short)=2<br>
+sizeof(空类/空结构体)=2</p>
 <p>对于struct结构体，VC规定各成员变量存放的 起始地址相对于结构的起始地址的偏移量必须为该变量的类型所占用的字节数的倍数。</p>
 <p>如有结构体MyStruct：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct MyStruct</span><br><span class="line">&#123;</span><br><span class="line">  double dda1;</span><br><span class="line">  char dda;</span><br><span class="line">  int type;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>为 上面的结构分配空间的时候，VC根据成员变量出现的顺序和对齐方式，先为第一个成员dda1分配空间，其起始地址跟结构的起始地址相同（刚好偏移量0刚好 为sizeof(double)的倍数），该成员变量占用sizeof(double)=8个字节；接下来为第二个成员dda分配空间，这时下一个可以分 配的地址对于结构的起始地址的偏移量为8，是sizeof(char)的倍数，所以把dda存放在偏移量为8的地方满足对齐方式，该成员变量占用 sizeof(char)=1个字节；接下来为第三个成员type分配空间，这时下一个可以分配的地址对于结构的起始地址的偏移量为9（8+1），不是sizeof (int)=4的倍数，为了满足对齐方式对偏移量的约束问题，VC自动填充3个字节（这三个字节没有放什么东西），这时下一个可以分配的地址对于结构的起 始地址的偏移量为12（8+1+3），刚好是sizeof(int)=4的倍数，所以把type存放在偏移量为12的地方，该成员变量占sizeof(int)=4个 字节；这时整个结构的成员变量已经都分配了空间，总的占用的空间大小为：8 1 3 4=16，刚好为结构的字节边界数（即结构中占用最大空间的类型所占用的字节sizeof(double)=8）的倍数，所以没有空缺的字节需要填充。 所以整个结构的大小为：sizeof(MyStruct)=8+1+3+4=16，其中有3个字节是VC自动填充的，没有放任何有意义的东西。<br>
+<p>为上面的结构分配空间的时候，VC根据成员变量出现的顺序和对齐方式，先为第一个成员dda1分配空间，其起始地址跟结构的起始地址相同（刚好偏移量0刚好 为sizeof(double)的倍数），该成员变量占用sizeof(double)=8个字节；接下来为第二个成员dda分配空间，这时下一个可以分 配的地址对于结构的起始地址的偏移量为8，是sizeof(char)的倍数，所以把dda存放在偏移量为8的地方满足对齐方式，该成员变量占用 sizeof(char)=1个字节；接下来为第三个成员type分配空间，这时下一个可以分配的地址对于结构的起始地址的偏移量为9（8+1），不是sizeof (int)=4的倍数，为了满足对齐方式对偏移量的约束问题，VC自动填充3个字节（这三个字节没有放什么东西），这时下一个可以分配的地址对于结构的起 始地址的偏移量为12（8+1+3），刚好是sizeof(int)=4的倍数，所以把type存放在偏移量为12的地方，该成员变量占sizeof(int)=4个 字节；这时整个结构的成员变量已经都分配了空间，总的占用的空间大小为：8 1 3 4=16，刚好为结构的字节边界数（即结构中占用最大空间的类型所占用的字节sizeof(double)=8）的倍数，所以没有空缺的字节需要填充。 所以整个结构的大小为：sizeof(MyStruct)=8+1+3+4=16，其中有3个字节是VC自动填充的，没有放任何有意义的东西。<br>
 下面再举个例子，交换一下上面的MyStruct的成员变量的位置，使它变成下面的情况：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct MyStruct</span><br><span class="line">&#123;</span><br><span class="line">  char dda;</span><br><span class="line">  double dda1;</span><br><span class="line">  int type;</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct MyStruct</span><br><span class="line">&#123;</span><br><span class="line">  char dda;//偏移量为0，满足对齐方式，dda占用1个字节；</span><br><span class="line">  double dda1;//下一个可用的地址的偏移量为1，不是sizeof(double)=8的倍数，需要补足7个字节才能使偏移量</span><br><span class="line">  int type;//下一个可用的地址的偏移量为16，是sizeof(int)=4的倍数，</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+<p>所有成员变量都分配了空间，空间总的大小为1+7+8+4=20，不是结构的节边界数（即结构中占用最大空间的类型所占用的字节sizeof(double)=8）的倍数，所以需要填充4个字节，以满足结构的大小为sizeof(double)=8的倍数。</p>
 <h1 id="算法"><a class="header-anchor" href="#算法"></a>算法</h1>
 <h2 id="排序"><a class="header-anchor" href="#排序"></a>排序</h2>
 <h1 id="大数据"><a class="header-anchor" href="#大数据"></a>大数据</h1>
