@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/main-qimg-2aada1d3b6e4fd8b68793b035ef63db5.png">
-<meta property="og:updated_time" content="2018-08-30T09:18:31.811Z">
+<meta property="og:updated_time" content="2018-10-03T06:02:37.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL">
 <meta name="twitter:image" content="http://p8ran6tub.bkt.clouddn.com/main-qimg-2aada1d3b6e4fd8b68793b035ef63db5.png">
@@ -405,7 +405,9 @@
 <h2 id="数据库控制语言-data-control-language-dcl"><a class="header-anchor" href="#数据库控制语言-data-control-language-dcl"></a>数据库控制语言(Data Control Language, DCL)</h2>
 <p>用来设置或更改数据库用户或角色权限的语句，包括（grant,deny,revoke等）语句。在默认状态下，只有sysadmin,dbcreator,db_owner或db_securityadmin等人员才有权力执行DCL语句。</p>
 <h1 id="查询筛选"><a class="header-anchor" href="#查询筛选"></a>查询筛选</h1>
-<p>表<code>World</code>:</p>
+<p>题目：  <br>
+筛选出人口数量大于25000000的国家，并显示他们的所有信息。<br>
+表<code>World</code>:</p>
 <table>
 <thead>
 <tr>
@@ -479,7 +481,9 @@
 </tbody>
 </table>
 <h1 id="处理重复数据"><a class="header-anchor" href="#处理重复数据"></a>处理重复数据</h1>
-<p>表<code>Person</code>:</p>
+<p>题目：<br>
+选出重复邮件。<br>
+表<code>Person</code>:</p>
 <table>
 <thead>
 <tr>
@@ -502,7 +506,7 @@
 </tr>
 </tbody>
 </table>
-<p>选出重复邮件：</p>
+<p>SQL语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select Email</span><br><span class="line">from Person</span><br><span class="line">group by Email</span><br><span class="line">having count(*) &gt; 1</span><br></pre></td></tr></table></figure>
 <p>得到：</p>
 <table>
@@ -518,6 +522,8 @@
 </tbody>
 </table>
 <h1 id="排序"><a class="header-anchor" href="#排序"></a>排序</h1>
+<p>题目：<br>
+筛选出id为奇数且描述为不无聊的，按照评分由高到低。</p>
 <p>表 cinema:</p>
 <table>
 <thead>
@@ -561,7 +567,7 @@
 </tr>
 </tbody>
 </table>
-<p>筛选出id为奇数且描述为不无聊的，按照评分由高到低：</p>
+<p>SQL语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM cinema</span><br><span class="line">WHERE (id % 2 = 1) AND (description &lt;&gt; &apos;boring&apos;)#&lt;&gt;不等于，筛选条件有歧义一定要加括号</span><br><span class="line">ORDER BY rating DESC</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
 <table>
@@ -589,6 +595,8 @@
 </tbody>
 </table>
 <h1 id="更新表"><a class="header-anchor" href="#更新表"></a>更新表</h1>
+<p>题目：<br>
+将<code>sex</code>互换。</p>
 <p>表salary:</p>
 <table>
 <thead>
@@ -626,7 +634,7 @@
 </tr>
 </tbody>
 </table>
-<p>将<code>sex</code>互换：</p>
+<p>SQL语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE salary </span><br><span class="line">SET sex= CHAR(ASCII(&apos;f&apos;)+ASCII(&apos;m&apos;)-ASCII(sex));</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
