@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:description" content="本文主要用于记录LeetCode中遇到的比较好的一些python写法以及招聘笔试面试中遇到的问题。 self参数 在python的类的方法定义中，请描述’self’参数的作用？   self参数在类定义中，指类本身，可以用来传递外部参数。 map函数 描述： map()会根据提供的函数对指定序列做映射。 语法： 1map(function, iterable, ...) 参数:  function">
 <meta property="og:locale" content="zh-hans">
-<meta property="og:updated_time" content="2018-08-30T08:30:27.228Z">
+<meta property="og:updated_time" content="2018-12-01T09:10:43.309Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python">
 <meta name="twitter:description" content="本文主要用于记录LeetCode中遇到的比较好的一些python写法以及招聘笔试面试中遇到的问题。 self参数 在python的类的方法定义中，请描述’self’参数的作用？   self参数在类定义中，指类本身，可以用来传递外部参数。 map函数 描述： map()会根据提供的函数对指定序列做映射。 语法： 1map(function, iterable, ...) 参数:  function">
@@ -517,9 +517,10 @@ c – 字符</p>
 <h2 id="sys-stdout"><a class="header-anchor" href="#sys-stdout"></a>sys.stdout</h2>
 <p><code>stdout</code>用于输出print()和expression语句以及input()的提示。<br>
 <code>print()</code>的本质就是sys.stdout.write(object + ‘\n’)</p>
-<h1 id="strip函数"><a class="header-anchor" href="#strip函数"></a>strip函数</h1>
-<p>移除字符串头尾指定的字符（默认为空格或换行符）或字符序列。<br>
-注意：该方法只能删除开头或是结尾的字符，不能删除中间部分的字符。<br>
+<h1 id="删除指定字符"><a class="header-anchor" href="#删除指定字符"></a>删除指定字符</h1>
+<h2 id="strip函数"><a class="header-anchor" href="#strip函数"></a>strip函数</h2>
+<p>移除字符串<strong>头尾</strong>指定的字符（默认为空格或换行符）或字符序列。  <br>
+注意：该方法只能删除开头或是结尾的字符，不能删除中间部分的字符。  <br>
 语法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.strip([chars])</span><br></pre></td></tr></table></figure>
 <p>参数:<br>
@@ -528,6 +529,20 @@ chars:移除字符串头尾指定的字符序列。</p>
 返回移除字符串头尾指定的字符生成的新字符串。</p>
 <p>实例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去除首尾字符 0</span></span><br><span class="line">str = <span class="string">"00000003210Runoob01230000000"</span>;</span><br><span class="line">print(str.strip(<span class="string">'0'</span>))</span><br><span class="line">》<span class="number">3210</span>Runoob0123</span><br><span class="line"></span><br><span class="line"><span class="comment"># 去除首尾空格</span></span><br><span class="line">str2 = <span class="string">"   Runoob      "</span></span><br><span class="line">print(str2.strip())</span><br><span class="line">》Runoob</span><br></pre></td></tr></table></figure>
+<h2 id="replace函数"><a class="header-anchor" href="#replace函数"></a>replace函数</h2>
+<p>实则为替代函数，但也非常方便实施删除指定元素。<br>
+语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.replace(old, new[, max])</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>old – 将被替换的子字符串。</li>
+<li>new – 新字符串，用于替换old子字符串。</li>
+<li>max – 可选字符串, 替换不超过 max 次</li>
+</ul>
+<p>返回值：<br>
+返回字符串中的 old（旧字符串） 替换成 new(新字符串)后生成的新字符串，如果指定第三个参数max，则替换不超过 max 次。</p>
+<p>实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#展示替换功能</span><br><span class="line">str = &quot;this is string example....wow!!! this is really string&quot;;</span><br><span class="line">print str.replace(&quot;is&quot;, &quot;was&quot;);</span><br><span class="line">print str.replace(&quot;is&quot;, &quot;was&quot;, 3);</span><br><span class="line">》</span><br><span class="line">thwas was string example....wow!!! thwas was really string</span><br><span class="line">thwas was string example....wow!!! thwas is really string</span><br><span class="line"></span><br><span class="line">#展示删除功能</span><br><span class="line">str = &quot;test.email+alex@leetcode.com&quot;</span><br><span class="line">print(str.replace(&apos;.&apos;, &apos;&apos;))</span><br><span class="line">》testemail+alex@leetcode.com</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -706,7 +721,7 @@ chars:移除字符串头尾指定的字符序列。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#self参数"><span class="nav-number">1.</span> <span class="nav-text">self参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map函数"><span class="nav-number">2.</span> <span class="nav-text">map函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sum函数"><span class="nav-number">3.</span> <span class="nav-text">sum函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ord函数"><span class="nav-number">4.</span> <span class="nav-text">ord函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">5.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组倒序"><span class="nav-number">5.1.</span> <span class="nav-text">数组倒序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort函数"><span class="nav-number">5.2.</span> <span class="nav-text">sort函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sorted函数"><span class="nav-number">5.3.</span> <span class="nav-text">sorted函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set"><span class="nav-number">6.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zip函数"><span class="nav-number">7.</span> <span class="nav-text">zip函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#zip-iterables"><span class="nav-number">7.1.</span> <span class="nav-text">*zip(*iterables)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zip"><span class="nav-number">7.2.</span> <span class="nav-text">zip(*)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sys模块"><span class="nav-number">8.</span> <span class="nav-text">sys模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sys-stdin"><span class="nav-number">8.1.</span> <span class="nav-text">sys.stdin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sys-stdout"><span class="nav-number">8.2.</span> <span class="nav-text">sys.stdout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#strip函数"><span class="nav-number">9.</span> <span class="nav-text">strip函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#self参数"><span class="nav-number">1.</span> <span class="nav-text">self参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map函数"><span class="nav-number">2.</span> <span class="nav-text">map函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sum函数"><span class="nav-number">3.</span> <span class="nav-text">sum函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ord函数"><span class="nav-number">4.</span> <span class="nav-text">ord函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">5.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组倒序"><span class="nav-number">5.1.</span> <span class="nav-text">数组倒序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort函数"><span class="nav-number">5.2.</span> <span class="nav-text">sort函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sorted函数"><span class="nav-number">5.3.</span> <span class="nav-text">sorted函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set"><span class="nav-number">6.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zip函数"><span class="nav-number">7.</span> <span class="nav-text">zip函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#zip-iterables"><span class="nav-number">7.1.</span> <span class="nav-text">*zip(*iterables)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zip"><span class="nav-number">7.2.</span> <span class="nav-text">zip(*)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sys模块"><span class="nav-number">8.</span> <span class="nav-text">sys模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sys-stdin"><span class="nav-number">8.1.</span> <span class="nav-text">sys.stdin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sys-stdout"><span class="nav-number">8.2.</span> <span class="nav-text">sys.stdout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除指定字符"><span class="nav-number">9.</span> <span class="nav-text">删除指定字符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#strip函数"><span class="nav-number">9.1.</span> <span class="nav-text">strip函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#replace函数"><span class="nav-number">9.2.</span> <span class="nav-text">replace函数</span></a></li></ol></li></ol></div>
             
 
           </div>
