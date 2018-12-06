@@ -92,7 +92,13 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1544100034/Blog/20160607102525smREGHipDCNYAg2v.jpg">
-<meta property="og:updated_time" content="2018-12-06T12:53:36.040Z">
+<meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543888864/Blog/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E6%9F%A5%E6%89%BE.png">
+<meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543890434/Blog/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E6%8F%92%E5%85%A5.png">
+<meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543921452/Blog/BST_delete_1.png">
+<meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543921625/Blog/BST_delete_1_.png">
+<meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543922264/Blog/BST_delete_2.png">
+<meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543922450/Blog/BST_delete_2_.png">
+<meta property="og:updated_time" content="2018-12-06T13:04:15.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode作战计划">
 <meta name="twitter:image" content="https://res.cloudinary.com/sunflower/image/upload/v1544100034/Blog/20160607102525smREGHipDCNYAg2v.jpg">
@@ -668,22 +674,50 @@
 <h4 id="基础知识"><a class="header-anchor" href="#基础知识"></a>基础知识</h4>
 <p>树形结构属于非线性结构、层次结构，可以顺序存储或者链式存储，操作有遍历和查找。属于“一对多”的数据类型。</p>
 <p>森林指m棵互不相交的树的集合。</p>
-<p>二叉树是有序的，特殊的二叉树：</p>
+<p>树中的关键概念：</p>
+<ul>
+<li>
+<p>有序树/无序树<br>
+如果将树中结点的各子树看成从左至右是有次序的（即不能互换），则称该树为有序树，否则称为无序树。</p>
+</li>
+<li>
+<p>结点的层次<br>
+从根结点开始计算起，根为第一层，根的孩子为第二层，依次类推。树中结点的最大层次称为树的深度（Depth）或高度。</p>
+</li>
+<li>
+<p>度  <br>
+即结点的子树个数</p>
+</li>
+<li>
+<p>度为0的结点为叶子结点</p>
+</li>
+<li>
+<p>度为1的结点有1个分支</p>
+</li>
+<li>
+<p>度为2的结点有2个分支</p>
+</li>
+<li>
+<p>二叉树中不存在度大于2的结点</p>
+</li>
+<li>
+<p>总结点数总比总度数多1</p>
+</li>
+</ul>
+<h4 id="二叉树"><a class="header-anchor" href="#二叉树"></a>二叉树</h4>
+<p>二叉树（Binary Tree）的特点是每个结点至多具有两棵子树（即在二叉树中不存在度大于2的结点），并且子树之间有左右之分。</p>
+<p>二叉树的性质：</p>
+<ul>
+<li>在二叉树的第i层上至多有2i-1个结点（i≥1）。</li>
+<li>深度为k的二叉树至多有2k-1个结点（k≥1）。</li>
+<li>对任何一棵二叉树，如果其终端结点数为n0，度为2的结点数为n2，则n0=n2+1。</li>
+</ul>
+<p>分类：</p>
 <ul>
 <li>满二叉树</li>
 <li>完全二叉树  <br>
 叶子结点只能出现在最下层和次下层，且最下层的叶子结点集中在树的左部。</li>
 <li><a href="#head"><code>哈夫曼树(最优二叉树)</code></a></li>
-</ul>
-<p>二叉树中的关键概念：</p>
-<ul>
-<li>度  <br>
-即结点的子树个数</li>
-<li>度为0的结点为叶子结点</li>
-<li>度为1的结点有1个分支</li>
-<li>度为2的结点有2个分支</li>
-<li>二叉树中不存在度大于2的结点</li>
-<li>总结点数总比总度数多1</li>
 </ul>
 <p>二叉树的度数与结点数：<br>
 假设总度数：k，叶子结点、度为1和度为2的结点个数分别即为$n_0,n_1,n_2$  <br>
@@ -694,6 +728,33 @@
 高度为h的二叉树，每层最多有$2^{h-1}$个结点。  <br>
 对于高度为h满二叉树，其总结点数$2^h-1$。  <br>
 具有N个结点的完全二叉树的高度h为$(\log_2 N)+1$</p>
+<h5 id="二叉查找树-左-中-右"><a class="header-anchor" href="#二叉查找树-左-中-右"></a>二叉查找树（左&lt;中&lt;右）</h5>
+<ul>
+<li>若它的左子树不为空，则左子树上所有结点的值均小于它的根结点的值；</li>
+<li>若它的右子树不为空，则右子树上所有结点的值均大于它的根结点的值；</li>
+<li>它的左、右子树也分别为二叉查找树。</li>
+</ul>
+<p>二叉查找树的基本操作是<strong>查找，插入，删除，遍历</strong>。</p>
+<ul>
+<li>查找<br>
+查找某个节点时，先从根节点入手，如果该元素值小于根节点，则转向左子节点，否则转向右子节点，以此类推，直到找到该节点，或者到最后一个叶子节点依然没有找到，则证明树中没有该节点。<br>
+<img src="https://res.cloudinary.com/sunflower/image/upload/v1543888864/Blog/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E6%9F%A5%E6%89%BE.png" width="350" align="center"></li>
+<li>插入<br>
+插入一个新节点首先要确定插入的位置，关键思路是确定新节点父节点所在的位置。<br>
+<img src="https://res.cloudinary.com/sunflower/image/upload/v1543890434/Blog/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E6%8F%92%E5%85%A5.png" width="350" align="center"></li>
+<li>删除<br>
+删除BST中的一个节点是最麻烦的操作，总结一下大概下面两种方法：</li>
+<li>当删除点没有左孩子  <br>
+只需要将该节点的父节点和当前节点的右孩子相连即可<br>
+<img src="https://res.cloudinary.com/sunflower/image/upload/v1543921452/Blog/BST_delete_1.png" width="350" align="center"><br>
+删除节点10：  <br>
+<img src="https://res.cloudinary.com/sunflower/image/upload/v1543921625/Blog/BST_delete_1_.png" width="350" align="center"></li>
+<li>删除点有左孩子<br>
+先找到当前节点的左子树的最右节点，因为一个节点的左子树的最右节点也比右子树的最左节点小，把最右节点复制给删除点，然后删除最右节点。<br>
+<img src="https://res.cloudinary.com/sunflower/image/upload/v1543922264/Blog/BST_delete_2.png" width="350" align="center"><br>
+删除节点20：  <br>
+<img src="https://res.cloudinary.com/sunflower/image/upload/v1543922450/Blog/BST_delete_2_.png" width="350" align="center"></li>
+</ul>
 <h4 id="二叉树的遍历"><a class="header-anchor" href="#二叉树的遍历"></a>二叉树的遍历</h4>
 <table>
 <thead>
@@ -1199,7 +1260,7 @@ $$d_{i}=1,2,…,(m-1)$$<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#总规划"><span class="nav-number">1.</span> <span class="nav-text">总规划</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.1.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树"><span class="nav-number">2.1.2.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">二叉树的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈夫曼树-最优二叉树"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">哈夫曼树(最优二叉树)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几种转换"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">几种转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">2.1.3.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识-v2"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#出栈顺序"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">出栈顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前缀表达式"><span class="nav-number">2.1.3.4.</span> <span class="nav-text">前缀表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#汉诺塔-hanoi"><span class="nav-number">2.1.3.5.</span> <span class="nav-text">汉诺塔(Hanoi)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂度"><span class="nav-number">2.1.3.6.</span> <span class="nav-text">复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卡特兰数"><span class="nav-number">2.1.3.7.</span> <span class="nav-text">卡特兰数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希"><span class="nav-number">2.1.4.</span> <span class="nav-text">哈希</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本知识"><span class="nav-number">2.1.4.1.</span> <span class="nav-text">基本知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希函数"><span class="nav-number">2.1.4.2.</span> <span class="nav-text">哈希函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免哈希冲突"><span class="nav-number">2.1.4.3.</span> <span class="nav-text">避免哈希冲突</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构总结"><span class="nav-number">2.1.5.</span> <span class="nav-text">数据结构总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">2.2.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">2.2.1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归纳表"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">归纳表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图的遍历算法"><span class="nav-number">2.2.2.</span> <span class="nav-text">图的遍历算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先搜索-deep-first-search-dfs"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">深度优先搜索(Deep First Search,DFS)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#广度优先搜索-breadth-first-search-bfs"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">广度优先搜索(Breadth First Search,BFS)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#总规划"><span class="nav-number">1.</span> <span class="nav-text">总规划</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.1.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树"><span class="nav-number">2.1.2.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二叉查找树-左-中-右"><span class="nav-number">2.1.2.2.1.</span> <span class="nav-text">二叉查找树（左&lt;中&lt;右）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">二叉树的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈夫曼树-最优二叉树"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">哈夫曼树(最优二叉树)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几种转换"><span class="nav-number">2.1.2.5.</span> <span class="nav-text">几种转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">2.1.3.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识-v2"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#出栈顺序"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">出栈顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前缀表达式"><span class="nav-number">2.1.3.4.</span> <span class="nav-text">前缀表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#汉诺塔-hanoi"><span class="nav-number">2.1.3.5.</span> <span class="nav-text">汉诺塔(Hanoi)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂度"><span class="nav-number">2.1.3.6.</span> <span class="nav-text">复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卡特兰数"><span class="nav-number">2.1.3.7.</span> <span class="nav-text">卡特兰数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希"><span class="nav-number">2.1.4.</span> <span class="nav-text">哈希</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本知识"><span class="nav-number">2.1.4.1.</span> <span class="nav-text">基本知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希函数"><span class="nav-number">2.1.4.2.</span> <span class="nav-text">哈希函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免哈希冲突"><span class="nav-number">2.1.4.3.</span> <span class="nav-text">避免哈希冲突</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构总结"><span class="nav-number">2.1.5.</span> <span class="nav-text">数据结构总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">2.2.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">2.2.1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归纳表"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">归纳表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图的遍历算法"><span class="nav-number">2.2.2.</span> <span class="nav-text">图的遍历算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先搜索-deep-first-search-dfs"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">深度优先搜索(Deep First Search,DFS)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#广度优先搜索-breadth-first-search-bfs"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">广度优先搜索(Breadth First Search,BFS)</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
