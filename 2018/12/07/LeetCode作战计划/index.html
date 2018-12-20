@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543921625/Blog/BST_delete_1_.png">
 <meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543922264/Blog/BST_delete_2.png">
 <meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543922450/Blog/BST_delete_2_.png">
-<meta property="og:updated_time" content="2018-12-20T13:44:26.897Z">
+<meta property="og:updated_time" content="2018-12-20T15:12:25.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode作战计划">
 <meta name="twitter:image" content="https://res.cloudinary.com/sunflower/image/upload/v1544100034/Blog/20160607102525smREGHipDCNYAg2v.jpg">
@@ -1202,7 +1202,10 @@ A = [1, 2, 3, 4]<br>
 0 &lt; s1.length, s2.length &lt;= 1000。<br>
 所有字符串中的字符ASCII值在[97, 122]之间。</p>
 <p><strong>最佳答案</strong>  <br>
-这题是经典题目“最长公共子串LCS”的变形题目。</p>
+这题是经典题目“最长公共子串LCS”的变形题目。  <br>
+在弄懂LCS之后，这题就很好理解了。<br>
+LCS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">初始化dp矩阵：</span><br><span class="line">----------d---e---l---e---t---e--</span><br><span class="line">|___|_0_|_0_|_0_|_0_|_0_|_0_|_0_|</span><br><span class="line">|_l_|_0_|_0_|_0_|_0_|_0_|_0_|_0_|</span><br><span class="line">|_e_|_0_|_0_|_0_|_0_|_0_|_0_|_0_|</span><br><span class="line">|_e_|_0_|_0_|_0_|_0_|_0_|_0_|_0_|</span><br><span class="line">|_t_|_0_|_0_|_0_|_0_|_0_|_0_|_0_|</span><br><span class="line">从s1=&quot;leet&quot;开始遍历对比s2=&quot;delete&quot;，</span><br><span class="line">1.如果相同，那么dp[i][j]=dp[i-1][j-1]+1;</span><br><span class="line">意味着，如果s1与s2最后一个元素相同，那么</span><br><span class="line">LCS（s1,s2）=LCS(s1[:-1],s2[:-1])+s1[-1]</span><br><span class="line">2.如果不同，那么dp[i][j]=max(dp[i-1][j],dp[i][j-1])</span><br><span class="line">意味着，如果s1与s2最后一个元素不同，那么</span><br><span class="line">LCS(s1,s2)=max(LCS(s1[:-1],s2),LCS(s1,s2[:-1]))</span><br><span class="line">----------d---e---l---e---t---e--</span><br><span class="line">|___|_0_|_0_|_0_|_0_|_0_|_0_|_0_|</span><br><span class="line">|_l_|_0_|_0_|_0_|_1_|_1_|_1_|_1_|</span><br><span class="line">|_e_|_0_|_0_|_1_|_1_|_2_|_2_|_2_|</span><br><span class="line">|_e_|_0_|_0_|_1_|_1_|_2_|_2_|_3_|</span><br><span class="line">|_t_|_0_|_0_|_1_|_1_|_2_|_3_|_3_|</span><br></pre></td></tr></table></figure>
 <p><strong>代码</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="647-回文子串"><a class="header-anchor" href="#647-回文子串"></a>647. 回文子串</h2>
