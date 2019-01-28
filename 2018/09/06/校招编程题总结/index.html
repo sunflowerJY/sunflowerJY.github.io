@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/%E5%8E%A8%E5%B8%88%E5%A5%96%E9%87%912.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/%E6%89%91%E5%85%8B%E7%89%8C%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%971.png">
 <meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/%E6%89%91%E5%85%8B%E7%89%8C%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%972.png">
-<meta property="og:updated_time" content="2019-01-25T15:48:54.772Z">
+<meta property="og:updated_time" content="2019-01-28T04:08:55.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="校招笔试记录">
 <meta name="twitter:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543235415/Blog/xiaozhao.jpg">
@@ -518,7 +518,9 @@ leetcode300. 最长上升子序列<br>
 <h3 id="最大不重复子串"><a class="header-anchor" href="#最大不重复子串"></a>最大不重复子串</h3>
 <img src="https://res.cloudinary.com/sunflower/image/upload/v1546828285/Blog/max_substring.png" width="500" align="center">
 <p>参考：<br>
-LeetCode 第3题</p>
+LeetCode 第3题原题</p>
+<p><strong>代码</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">MaxNotRepeatSTR</span><span class="params">(self)</span>:</span></span><br><span class="line">        string = sys.stdin.readline().strip()</span><br><span class="line"></span><br><span class="line">        dict = &#123;&#125;</span><br><span class="line">        begin, res = <span class="number">-1</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> end <span class="keyword">in</span> range(len(string)):</span><br><span class="line">            <span class="keyword">if</span> string[end] <span class="keyword">in</span> dict:</span><br><span class="line">                begin = dict[string[end]]</span><br><span class="line">                dict = &#123;&#125;</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res = max(res, end - begin)</span><br><span class="line">            dict[string[end]] = end</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    a = Solution()</span><br><span class="line">    print(a.MaxNotRepeatSTR())</span><br></pre></td></tr></table></figure>
 <h3 id="组织优化"><a class="header-anchor" href="#组织优化"></a>组织优化</h3>
 <p><strong>题目描述：</strong>    <br>
 随着公司的快速发展，基层团队越来越。近期公司希望对部门重新做一个划分，尽可能把紧密合作的团队放到同一个部门。  <br>
