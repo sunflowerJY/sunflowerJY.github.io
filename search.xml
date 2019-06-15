@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Hexo和Next版本更新]]></title>
     <url>%2F2019%2F06%2F15%2FHexo%E5%92%8CNext%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%2F</url>
-    <content type="text"><![CDATA[更新Hexo 查看本地hexo过期package: 1npm outdated 2. 更新Hexo目下的`package.json文件`对应版本至最新: 3. 执行更新操作： 1npm update 查看更新后的版本： 1hexo version 检查是否还需更新的package: 1npm outdated]]></content>
+    <content type="text"><![CDATA[更新Hexo 查看本地hexo过期package: 1npm outdated 2. 更新Hexo目下的`package.json文件`对应版本至最新: 3. 执行更新操作： 1npm update 查看更新后的版本： 1hexo version 检查是否还需更新的package: 1npm outdated Refer: 感谢starlin精彩博文😉]]></content>
       <categories>
         <category>教程</category>
       </categories>
