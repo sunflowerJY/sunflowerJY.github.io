@@ -91,10 +91,10 @@
 <meta property="og:site_name" content="向日葵的自留地">
 <meta property="og:locale" content="zh-hans">
 <meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543235809/Blog/machine_learning.jpg">
-<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/img01.png">
-<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0.png">
-<meta property="og:image" content="http://p8ran6tub.bkt.clouddn.com/1667471-03bb5cc180287c98.png">
-<meta property="og:updated_time" content="2018-12-21T06:10:23.899Z">
+<meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1566303959/Blog/house_loan.png">
+<meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1566304738/Blog/ensemble__learning.png">
+<meta property="og:image" content="https://res.cloudinary.com/sunflower/image/upload/v1566307326/Blog/bagging.png">
+<meta property="og:updated_time" content="2019-08-20T13:22:17.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习">
 <meta name="twitter:image" content="https://res.cloudinary.com/sunflower/image/upload/v1543235809/Blog/machine_learning.jpg">
@@ -398,7 +398,7 @@
 <p>参考：<a href="https://www.jianshu.com/p/fb97b21aeb1d" target="_blank" rel="noopener">https://www.jianshu.com/p/fb97b21aeb1d</a><br>
 决策树是附加概率结果的一个树状的决策图，是直观的运用统计概率分析的图法。机器学习中决策树是一个预测模型，它表示对象属性和对象值之间的一种映射，树中的每一个节点表示对象属性的判断条件，其分支表示符合节点条件的对象。树的叶子节点表示对象所属的预测结果。  <br>
 预测是否具有偿还贷款的能力：  <br>
-<img src="http://p8ran6tub.bkt.clouddn.com/img01.png" width="300" align="center"></p>
+<img src="https://res.cloudinary.com/sunflower/image/upload/v1566303959/Blog/house_loan.png" width="300" align="center"></p>
 <h2 id="基本知识"><a class="header-anchor" href="#基本知识"></a>基本知识</h2>
 <ul>
 <li>信息增益<br>
@@ -425,7 +425,7 @@ ID3算法/C4.5算法/CART算法。<br>
 ID3算法和C4.5算法用于生成分类树，区别主要在于选取特征的依据，前者是<code>信息增益</code>，后者是<code>信息增益比</code>。</p>
 <p>CART算法可以生成分类树和回归树，分类树使用<code>基尼指数</code>选取特征，并且不用提前确定α值，而是在剪枝的同时找到最优的α值.</p>
 <h1 id="集成学习"><a class="header-anchor" href="#集成学习"></a>集成学习</h1>
-<img src="http://p8ran6tub.bkt.clouddn.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0.png" width="300" align="center">
+<img src="https://res.cloudinary.com/sunflower/image/upload/v1566304738/Blog/ensemble__learning.png" width="300" align="center">
 <h2 id="bagging"><a class="header-anchor" href="#bagging"></a>Bagging</h2>
 <p>bagging:bootstrap aggregating 的缩写。  <br>
 bagging是一种并行式集成学习方法，可用于二分类，多分类，回归等任务。</p>
@@ -436,7 +436,7 @@ bagging是一种并行式集成学习方法，可用于二分类，多分类，�
 <li>每个采样集训练一个基学习器。</li>
 <li>结合：分类任务，使用简单投票法。回归任务，使用简单平均法。</li>
 </ol>
-<img src="http://p8ran6tub.bkt.clouddn.com/1667471-03bb5cc180287c98.png" width="500" align="center">
+<img src="https://res.cloudinary.com/sunflower/image/upload/v1566307326/Blog/bagging.png" width="500" align="center">
 <p>有放回抽样的好处?<br>
 这种有放回抽样会有 63.2% 的样本出现在采样集中，而剩下的 36.8% 样本可以作为验证集对模型的泛化性能进行包外估计。</p>
 <p>当基学习器是决策树时，可以用包外样本来辅助剪枝，<br>
