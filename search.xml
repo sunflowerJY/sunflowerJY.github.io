@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[关键路径和关键活动的计算]]></title>
     <url>%2F2019%2F11%2F03%2F%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84%E5%92%8C%E5%85%B3%E9%94%AE%E6%B4%BB%E5%8A%A8%E7%9A%84%E8%AE%A1%E7%AE%97%2F</url>
-    <content type="text"><![CDATA[AOE网 AOE一般用来估算工程的完成时间。 若在带权的有向图中，以顶点表示事件，以有向边表示活动，边上的权值表示活动的开销（如该活动持续的时间），则此带权的有向图称为AOE网。 关键路径 关键路径就是活动图中路径最长的一条路径。例如下图 相关计算 参考视频： https://www.bilibili.com/video/av17396966/?spm_id_from=333.788.videocard.0 该视频详细讲解了有关AOE网络计算的内容，包括关键路径的确定，事件的最早发生时间、事件的最晚发生时间、活动的最早发生时间、活动的最晚发生时间。]]></content>
+    <content type="text"><![CDATA[AOE网 AOE一般用来估算工程的完成时间。 若在带权的有向图中，以顶点表示事件，以有向边表示活动，边上的权值表示活动的开销（如该活动持续的时间），则此带权的有向图称为AOE网。 关键路径 关键路径就是活动图中路径最长的一条路径。例如下图,v0-&gt;v2-&gt;v3是关键路径。 相关计算 参考视频： https://www.bilibili.com/video/av17396966/?spm_id_from=333.788.videocard.0 该视频详细讲解了有关AOE网络计算的内容，包括关键路径的确定，事件的最早发生时间、事件的最晚发生时间、活动的最早发生时间、活动的最晚发生时间。]]></content>
       <categories>
         <category>软考</category>
       </categories>
